@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "title": "AI in Action",
+    "subtitle": "Automation & AI Projects by Lucas Willett",
+    "lastUpdated": "2026-02-13T12:45:00Z",
+    "status": "online"
+  },
+  "stats": {
+    "projectsLive": 4,
+    "automationsRunning": 3,
+    "apiCallsToday": "~500",
+    "timeSaved": "Hours/week"
+  },
+  "activity": [
+    {
+      "timestamp": "2026-02-13T12:30:00Z",
+      "event": "Deployed Claude Relay multi-agent system",
+      "type": "deploy"
+    },
+    {
+      "timestamp": "2026-02-13T11:00:00Z",
+      "event": "Incident Commander API connected to GPT",
+      "type": "integration"
+    },
+    {
+      "timestamp": "2026-02-13T10:00:00Z",
+      "event": "ChurnZero bot set up as persistent service",
+      "type": "deploy"
+    }
+  ],
+  "projects": [
+    {
+      "id": "incident-commander",
+      "publish": true,
+      "audience": "team",
+      "name": "Incident Commander",
+      "tagline": "P1 response automation via GPT",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Custom GPT connected to Zendesk & Slack APIs. Automates incident declaration, macro creation, Help Center updates, and cross-channel communications. One person can now run the entire Support-side incident workflow from a single conversation.",
+      "impact": [
+        "Reduced P1 coordination overhead",
+        "Consistent messaging across all channels",
+        "Draft-then-publish approval workflow"
+      ],
+      "tech": ["Python", "Flask", "Zendesk API", "Slack SDK", "GPT Actions", "Render"],
+      "repo": "https://github.com/LucasWillett/incident-commander",
+      "icon": "🚨"
+    },
+    {
+      "id": "claude-relay",
+      "publish": true,
+      "audience": "team",
+      "name": "Claude Relay",
+      "tagline": "Multi-agent coordination system",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Two-agent system enabling Claude Code (terminal) and Browser Claude to work together. Task queue with web UI for real-time coordination between AI instances.",
+      "impact": [
+        "Terminal + Browser AI working in tandem",
+        "Automated task handoffs",
+        "Human-supervised AI collaboration"
+      ],
+      "tech": ["Python", "Flask", "WebSockets", "Multi-Agent"],
+      "repo": "https://github.com/LucasWillett/claude-relay",
+      "icon": "🔗"
+    },
+    {
+      "id": "churnzero-bot",
+      "publish": true,
+      "audience": "team",
+      "name": "ChurnZero Slack Bot",
+      "tagline": "Self-service distribution lookups",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Slack bot monitoring #channel-distribution for questions. Auto-responds with property examples from ChurnZero API and traffic data from GA4. Smart query detection for brand vs platform questions.",
+      "impact": [
+        "Instant responses to distribution questions",
+        "Self-service for sales team",
+        "Reduced support burden"
+      ],
+      "tech": ["Python", "Slack SDK", "ChurnZero API", "GA4 API", "launchd"],
+      "repo": null,
+      "icon": "📊"
+    },
+    {
+      "id": "redirect-checker",
+      "publish": true,
+      "audience": "team",
+      "name": "Redirect Checker",
+      "tagline": "Nightly URL validation at scale",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Validates 800+ TrueTour embed URLs nightly. Playwright-based redirect follower handles JS redirects. Google Sheets integration for input/output. Catches broken links and duplicate asset configurations.",
+      "impact": [
+        "800+ URLs validated nightly",
+        "Catches config errors automatically",
+        "Feeds data to other systems"
+      ],
+      "tech": ["Python", "Playwright", "Google Sheets API", "launchd"],
+      "repo": null,
+      "icon": "🔗"
+    }
+  ]
+}
