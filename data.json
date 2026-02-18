@@ -2,15 +2,20 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-02-17T15:00:00Z",
+    "lastUpdated": "2026-02-17T22:45:00Z",
     "status": "online"
   },
   "stats": {
-    "projectsLive": 6,
-    "automationsRunning": 7,
-    "apiCallsToday": "~750"
+    "projectsLive": 7,
+    "automationsRunning": 8,
+    "apiCallsToday": "~800"
   },
   "activity": [
+    {
+      "timestamp": "2026-02-17T22:45:00Z",
+      "event": "Playwright Browser Automation deployed - headless scripts replace screenshot-heavy workflows",
+      "type": "deploy"
+    },
     {
       "timestamp": "2026-02-17T15:00:00Z",
       "event": "Command Bot deployed - run automation from phone via Slack",
@@ -72,7 +77,7 @@
       "tagline": "Run automation from your phone",
       "status": "production",
       "date": "2026-02",
-      "description": "Slack-based remote control for all automation. Send commands from phone in #lucas-briefing: !status, !run pipeline, !run watcher, !services. Results posted back instantly.",
+      "description": "Slack-based remote control for all automation. Send commands from phone in #lucas-briefing: !status, !run pipeline, !run watcher, !services, !zaps. Results posted back instantly.",
       "impact": [
         "Trigger automation from anywhere",
         "Check system health on the go",
@@ -88,6 +93,32 @@
       "tech": ["Python", "Slack SDK", "launchd", "subprocess"],
       "repo": null,
       "icon": "📱"
+    },
+    {
+      "id": "browser-automation",
+      "publish": true,
+      "audience": "lucas",
+      "name": "Browser Automation",
+      "tagline": "Headless Playwright scripts",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Playwright-based browser automation with persistent sessions. Replaces screenshot-heavy AI workflows with lightweight scripts that extract data directly. Session manager saves auth state so scripts run headlessly without re-login.",
+      "impact": [
+        "90% reduction in AI token usage for browser tasks",
+        "Persistent sessions across script runs",
+        "Template system for rapid new automations",
+        "Integrates with Command Bot (!zaps)"
+      ],
+      "timeSaved": {
+        "minutes": 20,
+        "per": "browser task",
+        "frequency": "~5/week",
+        "weeklyMinutes": 100,
+        "calculation": "20 min/task × 5 tasks/week (vs screenshot-based approach)"
+      },
+      "tech": ["Python", "Playwright", "Chromium", "Session Management"],
+      "repo": null,
+      "icon": "🎭"
     },
     {
       "id": "incident-commander",
