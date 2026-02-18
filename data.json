@@ -2,37 +2,93 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-02-13T21:15:00Z",
+    "lastUpdated": "2026-02-17T15:00:00Z",
     "status": "online"
   },
   "stats": {
-    "projectsLive": 4,
-    "automationsRunning": 3,
-    "apiCallsToday": "~500"
+    "projectsLive": 6,
+    "automationsRunning": 7,
+    "apiCallsToday": "~750"
   },
   "activity": [
+    {
+      "timestamp": "2026-02-17T15:00:00Z",
+      "event": "Command Bot deployed - run automation from phone via Slack",
+      "type": "deploy"
+    },
+    {
+      "timestamp": "2026-02-17T14:30:00Z",
+      "event": "Help Center Article Pipeline connected to Google Drive",
+      "type": "integration"
+    },
+    {
+      "timestamp": "2026-02-17T10:00:00Z",
+      "event": "Morning briefing now posts to #lucas-briefing channel",
+      "type": "deploy"
+    },
+    {
+      "timestamp": "2026-02-16T10:00:00Z",
+      "event": "Redirect Checker Slack bot deployed - on-demand scans via #support-internal",
+      "type": "deploy"
+    },
     {
       "timestamp": "2026-02-13T21:10:00Z",
       "event": "AI in Action portfolio site launched",
       "type": "deploy"
-    },
-    {
-      "timestamp": "2026-02-13T20:45:00Z",
-      "event": "Deployed Claude Relay multi-agent system",
-      "type": "deploy"
-    },
-    {
-      "timestamp": "2026-02-13T19:30:00Z",
-      "event": "Incident Commander API connected to GPT",
-      "type": "integration"
-    },
-    {
-      "timestamp": "2026-02-13T18:55:00Z",
-      "event": "ChurnZero bot set up as persistent service",
-      "type": "deploy"
     }
   ],
   "projects": [
+    {
+      "id": "help-center-pipeline",
+      "publish": true,
+      "audience": "team",
+      "name": "Help Center Article Pipeline",
+      "tagline": "Slack to Zendesk article automation",
+      "status": "production",
+      "date": "2026-02",
+      "description": "End-to-end article workflow. Team posts ideas to #help-center-ideas → AI generates draft → uploads to Google Drive folders → tracks in spreadsheet → notifies SME. Governance board drags articles through review stages.",
+      "impact": [
+        "Self-service article submissions via Slack",
+        "AI-generated first drafts with templates",
+        "Automatic SME assignment from taxonomy",
+        "Progress tracking across 5 review stages"
+      ],
+      "timeSaved": {
+        "minutes": 30,
+        "per": "article draft",
+        "frequency": "~5/week",
+        "weeklyMinutes": 150,
+        "calculation": "30 min/draft × 5 articles/week"
+      },
+      "tech": ["Python", "Slack SDK", "Google Drive API", "Google Sheets API", "launchd"],
+      "repo": null,
+      "icon": "📝"
+    },
+    {
+      "id": "command-bot",
+      "publish": true,
+      "audience": "lucas",
+      "name": "Command Bot",
+      "tagline": "Run automation from your phone",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Slack-based remote control for all automation. Send commands from phone in #lucas-briefing: !status, !run pipeline, !run watcher, !services. Results posted back instantly.",
+      "impact": [
+        "Trigger automation from anywhere",
+        "Check system health on the go",
+        "No laptop/terminal needed"
+      ],
+      "timeSaved": {
+        "minutes": 5,
+        "per": "remote check",
+        "frequency": "~10/week",
+        "weeklyMinutes": 50,
+        "calculation": "5 min/check × 10 checks/week"
+      },
+      "tech": ["Python", "Slack SDK", "launchd", "subprocess"],
+      "repo": null,
+      "icon": "📱"
+    },
     {
       "id": "incident-commander",
       "publish": true,
@@ -84,18 +140,19 @@
       "icon": "🔗"
     },
     {
-      "id": "churnzero-bot",
+      "id": "tourfinder",
       "publish": true,
       "audience": "team",
-      "name": "ChurnZero Slack Bot",
-      "tagline": "Self-service distribution lookups",
+      "name": "TourFinder",
+      "tagline": "Self-service property lookups",
       "status": "production",
       "date": "2026-02",
-      "description": "Slack bot monitoring #channel-distribution for questions. Auto-responds with property examples from ChurnZero API and traffic data from GA4. Smart query detection for brand vs platform questions.",
+      "description": "Slack bot monitoring #channel-distribution and #support-internal. Responds to questions about brands, locations, and service tiers with property examples from ChurnZero. Smart query detection handles 'Marriott in Seattle' or 'any VMP properties with 360 tours'.",
       "impact": [
         "Instant responses to distribution questions",
-        "Self-service for sales team",
-        "Reduced support burden"
+        "Self-service for sales team prep",
+        "Brand hierarchy awareness (IHG vs Holiday Inn Express)",
+        "Location inference (city to state mapping)"
       ],
       "timeSaved": {
         "minutes": 10,
@@ -104,32 +161,33 @@
         "weeklyMinutes": 150,
         "calculation": "10 min/query × 15 queries/week"
       },
-      "tech": ["Python", "Slack SDK", "ChurnZero API", "GA4 API", "launchd"],
-      "repo": null,
-      "icon": "📊"
+      "tech": ["Python", "Slack SDK", "ChurnZero API", "launchd"],
+      "repo": "https://github.com/LucasWillett/churnzero-assistant",
+      "icon": "🔍"
     },
     {
       "id": "redirect-checker",
       "publish": true,
       "audience": "team",
       "name": "Redirect Checker",
-      "tagline": "Nightly URL validation at scale",
+      "tagline": "On-demand URL validation via Slack",
       "status": "production",
       "date": "2026-02",
-      "description": "Validates 800+ TrueTour embed URLs nightly. Playwright-based redirect follower handles JS redirects. Google Sheets integration for input/output. Catches broken links and duplicate asset configurations.",
+      "description": "Validates TrueTour embed URLs for broken redirects. Anti-detection Selenium bypasses Cloudflare. Team posts 'check redirects: [URL]' in #support-internal and gets results with Google Sheets link. Tags @Lucas if crawl finds 0 results.",
       "impact": [
-        "800+ URLs validated nightly",
-        "Catches config errors automatically",
-        "Feeds data to other systems"
+        "Self-service redirect scans via Slack",
+        "Anti-detection bypasses Cloudflare blocks",
+        "Results auto-exported to Google Sheets",
+        "Deduplication: same tour URL checked once"
       ],
       "timeSaved": {
-        "minutes": 20,
-        "per": "100 URLs",
-        "frequency": "800 URLs/night",
-        "weeklyMinutes": 280,
-        "calculation": "~4 hrs manual work automated nightly × 7 days (but only value-add ~40 min/day)"
+        "minutes": 15,
+        "per": "scan request",
+        "frequency": "~10/week",
+        "weeklyMinutes": 150,
+        "calculation": "15 min/request × 10 requests/week"
       },
-      "tech": ["Python", "Playwright", "Google Sheets API", "launchd"],
+      "tech": ["Python", "Selenium", "Slack SDK", "Google Sheets API", "BeautifulSoup"],
       "repo": null,
       "icon": "🔗"
     }
