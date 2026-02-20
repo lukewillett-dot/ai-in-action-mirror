@@ -2,15 +2,35 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-02-18T06:36:00Z",
+    "lastUpdated": "2026-02-20T15:00:00Z",
     "status": "online"
   },
   "stats": {
-    "projectsLive": 7,
-    "automationsRunning": 8,
-    "apiCallsToday": "~800"
+    "projectsLive": 8,
+    "automationsRunning": 9,
+    "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-02-20T15:00:00Z",
+      "event": "Helm dashboard launched — personal ops command center with Tasks, Calendar, AI Quick Capture, and weather",
+      "type": "deploy"
+    },
+    {
+      "timestamp": "2026-02-20T14:00:00Z",
+      "event": "Batch redirect checker completed — 1,941 properties scanned, 93 bad redirects flagged",
+      "type": "integration"
+    },
+    {
+      "timestamp": "2026-02-20T12:30:00Z",
+      "event": "Claude Relay made persistent via launchd — Slack notifications wired to #lucas-briefing",
+      "type": "deploy"
+    },
+    {
+      "timestamp": "2026-02-20T11:00:00Z",
+      "event": "TourFinder sub-brand detection improved — Marriott family (AC Hotels, Gaylord, etc.) now recognized",
+      "type": "update"
+    },
     {
       "timestamp": "2026-02-18T06:36:00Z",
       "event": "Playwright Browser Automation deployed - headless scripts replace screenshot-heavy workflows",
@@ -27,11 +47,6 @@
       "type": "integration"
     },
     {
-      "timestamp": "2026-02-17T10:00:00Z",
-      "event": "Morning briefing now posts to #lucas-briefing channel",
-      "type": "deploy"
-    },
-    {
       "timestamp": "2026-02-16T10:00:00Z",
       "event": "Redirect Checker Slack bot deployed - on-demand scans via #support-internal",
       "type": "deploy"
@@ -43,6 +58,32 @@
     }
   ],
   "projects": [
+    {
+      "id": "helm",
+      "publish": true,
+      "audience": "lucas",
+      "name": "Helm",
+      "tagline": "Personal ops command center",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Personal operational memory dashboard. Turns meetings into memory, memory into action. Surfaces Google Tasks (My Tasks + project context panels), Google Calendar with live meeting status, AI-powered Quick Capture that distills raw notes into tasks, hourly weather, and a live to-do list synced from CLAUDE.md.",
+      "impact": [
+        "Single tab replaces 4+ context switches (Tasks, Calendar, notes, Slack)",
+        "AI Quick Capture turns messy Slack DMs into clean Google Tasks",
+        "Calendar filtered to real meetings — red/orange time blocks hidden",
+        "Helm Tasks card tracks in-flight engineering work from CLAUDE.md"
+      ],
+      "timeSaved": {
+        "minutes": 20,
+        "per": "morning planning session",
+        "frequency": "5/week",
+        "weeklyMinutes": 100,
+        "calculation": "20 min/day × 5 days (consolidates task review, calendar check, capture)"
+      },
+      "tech": ["Python", "Flask", "Google Tasks API", "Google Calendar API", "Claude Haiku", "Open-Meteo API"],
+      "repo": "https://github.com/LucasWillett/support-memory",
+      "icon": "☸️"
+    },
     {
       "id": "help-center-pipeline",
       "publish": true,
