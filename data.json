@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-02-24T12:00:00Z",
+    "lastUpdated": "2026-02-25T00:06:26Z",
     "status": "online"
   },
   "stats": {
@@ -13,32 +13,32 @@
   "activity": [
     {
       "timestamp": "2026-02-23T19:00:00Z",
-      "event": "Support Triage Assistant built — Gemini Gem with 6 knowledge docs covering login issues, broken links, terminology, and 502/504 errors. Full team trained across 4 dry run scenarios.",
+      "event": "Support Triage Assistant built \u2014 Gemini Gem with 6 knowledge docs covering login issues, broken links, terminology, and 502/504 errors. Full team trained across 4 dry run scenarios.",
       "type": "deploy"
     },
     {
       "timestamp": "2026-02-23T18:00:00Z",
-      "event": "Confluence page created: 'Investigating 502 & 504 Errors in Datadog' — live Datadog Log Explorer training artifact from GA training session",
+      "event": "Confluence page created: 'Investigating 502 & 504 Errors in Datadog' \u2014 live Datadog Log Explorer training artifact from GA training session",
       "type": "integration"
     },
     {
       "timestamp": "2026-02-20T15:00:00Z",
-      "event": "Helm dashboard launched — personal ops command center with Tasks, Calendar, AI Quick Capture, and weather",
+      "event": "Helm dashboard launched \u2014 personal ops command center with Tasks, Calendar, AI Quick Capture, and weather",
       "type": "deploy"
     },
     {
       "timestamp": "2026-02-20T14:00:00Z",
-      "event": "Batch redirect checker completed — 1,941 properties scanned, 93 bad redirects flagged",
+      "event": "Batch redirect checker completed \u2014 1,941 properties scanned, 93 bad redirects flagged",
       "type": "integration"
     },
     {
       "timestamp": "2026-02-20T12:30:00Z",
-      "event": "Claude Relay made persistent via launchd — Slack notifications wired to #lucas-briefing",
+      "event": "Claude Relay made persistent via launchd \u2014 Slack notifications wired to #lucas-briefing",
       "type": "deploy"
     },
     {
       "timestamp": "2026-02-20T11:00:00Z",
-      "event": "TourFinder sub-brand detection improved — Marriott family (AC Hotels, Gaylord, etc.) now recognized",
+      "event": "TourFinder sub-brand detection improved \u2014 Marriott family (AC Hotels, Gaylord, etc.) now recognized",
       "type": "update"
     },
     {
@@ -76,23 +76,31 @@
       "tagline": "AI triage copilot for platform migration support",
       "status": "production",
       "date": "2026-02",
-      "description": "Gemini Gem deployed on Google Workspace for the 3-person support team. Covers 4 triage workflows — login failures, broken share links, terminology confusion, and 502/504 errors. Knowledge base lives in 6 Google Docs for live editing with zero re-upload friction. Built as an enterprise Claude stopgap ahead of VMP GA.",
+      "description": "Gemini Gem deployed on Google Workspace for the 3-person support team. Covers 4 triage workflows \u2014 login failures, broken share links, terminology confusion, and 502/504 errors. Knowledge base lives in 6 Google Docs for live editing with zero re-upload friction. Built as an enterprise Claude stopgap ahead of VMP GA.",
       "impact": [
-        "Single-mode smart routing — describe the issue, Gem picks the workflow",
-        "Adaptive coaching — matches pace to user confidence level",
+        "Single-mode smart routing \u2014 describe the issue, Gem picks the workflow",
+        "Adaptive coaching \u2014 matches pace to user confidence level",
         "Copy-paste Jira ticket generation (BUG and DSO project templates)",
-        "Live-editable knowledge docs — update the doc, Gem picks it up immediately"
+        "Live-editable knowledge docs \u2014 update the doc, Gem picks it up immediately"
       ],
       "timeSaved": {
         "minutes": 20,
         "per": "triage session",
         "frequency": "~10/week",
         "weeklyMinutes": 200,
-        "calculation": "20 min/session × 10 sessions/week across 3-person team"
+        "calculation": "20 min/session \u00d7 10 sessions/week across 3-person team"
       },
-      "tech": ["Gemini Gems", "Google Workspace", "Box", "Google Drive", "Jira", "Datadog", "Confluence"],
+      "tech": [
+        "Gemini Gems",
+        "Google Workspace",
+        "Box",
+        "Google Drive",
+        "Jira",
+        "Datadog",
+        "Confluence"
+      ],
       "repo": null,
-      "icon": "🎯"
+      "icon": "\ud83c\udfaf"
     },
     {
       "id": "helm",
@@ -106,7 +114,7 @@
       "impact": [
         "Single tab replaces 4+ context switches (Tasks, Calendar, notes, Slack)",
         "AI Quick Capture turns messy Slack DMs into clean Google Tasks",
-        "Calendar filtered to real meetings — red/orange time blocks hidden",
+        "Calendar filtered to real meetings \u2014 red/orange time blocks hidden",
         "Helm Tasks card tracks in-flight engineering work from CLAUDE.md"
       ],
       "timeSaved": {
@@ -114,11 +122,18 @@
         "per": "morning planning session",
         "frequency": "5/week",
         "weeklyMinutes": 100,
-        "calculation": "20 min/day × 5 days (consolidates task review, calendar check, capture)"
+        "calculation": "20 min/day \u00d7 5 days (consolidates task review, calendar check, capture)"
       },
-      "tech": ["Python", "Flask", "Google Tasks API", "Google Calendar API", "Claude Haiku", "Open-Meteo API"],
+      "tech": [
+        "Python",
+        "Flask",
+        "Google Tasks API",
+        "Google Calendar API",
+        "Claude Haiku",
+        "Open-Meteo API"
+      ],
       "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "☸️"
+      "icon": "\u2638\ufe0f"
     },
     {
       "id": "help-center-pipeline",
@@ -128,7 +143,7 @@
       "tagline": "Slack to Zendesk article automation",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end article workflow. Team posts ideas to #help-center-ideas → AI generates draft → uploads to Google Drive folders → tracks in spreadsheet → notifies SME. Governance board drags articles through review stages.",
+      "description": "End-to-end article workflow. Team posts ideas to #help-center-ideas \u2192 AI generates draft \u2192 uploads to Google Drive folders \u2192 tracks in spreadsheet \u2192 notifies SME. Governance board drags articles through review stages.",
       "impact": [
         "Self-service article submissions via Slack",
         "AI-generated first drafts with templates",
@@ -140,11 +155,17 @@
         "per": "article draft",
         "frequency": "~5/week",
         "weeklyMinutes": 150,
-        "calculation": "30 min/draft × 5 articles/week"
+        "calculation": "30 min/draft \u00d7 5 articles/week"
       },
-      "tech": ["Python", "Slack SDK", "Google Drive API", "Google Sheets API", "launchd"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "Google Drive API",
+        "Google Sheets API",
+        "launchd"
+      ],
       "repo": null,
-      "icon": "📝"
+      "icon": "\ud83d\udcdd"
     },
     {
       "id": "command-bot",
@@ -165,11 +186,16 @@
         "per": "remote check",
         "frequency": "~10/week",
         "weeklyMinutes": 50,
-        "calculation": "5 min/check × 10 checks/week"
+        "calculation": "5 min/check \u00d7 10 checks/week"
       },
-      "tech": ["Python", "Slack SDK", "launchd", "subprocess"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "launchd",
+        "subprocess"
+      ],
       "repo": null,
-      "icon": "📱"
+      "icon": "\ud83d\udcf1"
     },
     {
       "id": "browser-automation",
@@ -191,11 +217,16 @@
         "per": "browser task",
         "frequency": "~5/week",
         "weeklyMinutes": 100,
-        "calculation": "20 min/task × 5 tasks/week (vs screenshot-based approach)"
+        "calculation": "20 min/task \u00d7 5 tasks/week (vs screenshot-based approach)"
       },
-      "tech": ["Python", "Playwright", "Chromium", "Session Management"],
+      "tech": [
+        "Python",
+        "Playwright",
+        "Chromium",
+        "Session Management"
+      ],
       "repo": null,
-      "icon": "🎭"
+      "icon": "\ud83c\udfad"
     },
     {
       "id": "incident-commander",
@@ -216,11 +247,18 @@
         "per": "incident",
         "frequency": "~2/month",
         "weeklyMinutes": 30,
-        "calculation": "60 min/incident × ~2 incidents/month ÷ 4 weeks"
+        "calculation": "60 min/incident \u00d7 ~2 incidents/month \u00f7 4 weeks"
       },
-      "tech": ["Python", "Flask", "Zendesk API", "Slack SDK", "GPT Actions", "Render"],
+      "tech": [
+        "Python",
+        "Flask",
+        "Zendesk API",
+        "Slack SDK",
+        "GPT Actions",
+        "Render"
+      ],
       "repo": "https://github.com/LucasWillett/incident-commander",
-      "icon": "🚨"
+      "icon": "\ud83d\udea8"
     },
     {
       "id": "claude-relay",
@@ -241,11 +279,16 @@
         "per": "task",
         "frequency": "~8/week",
         "weeklyMinutes": 120,
-        "calculation": "15 min/task × 8 tasks/week"
+        "calculation": "15 min/task \u00d7 8 tasks/week"
       },
-      "tech": ["Python", "Flask", "WebSockets", "Multi-Agent"],
+      "tech": [
+        "Python",
+        "Flask",
+        "WebSockets",
+        "Multi-Agent"
+      ],
       "repo": "https://github.com/LucasWillett/claude-relay",
-      "icon": "🔗"
+      "icon": "\ud83d\udd17"
     },
     {
       "id": "tourfinder",
@@ -267,11 +310,16 @@
         "per": "query",
         "frequency": "~15/week",
         "weeklyMinutes": 150,
-        "calculation": "10 min/query × 15 queries/week"
+        "calculation": "10 min/query \u00d7 15 queries/week"
       },
-      "tech": ["Python", "Slack SDK", "ChurnZero API", "launchd"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "ChurnZero API",
+        "launchd"
+      ],
       "repo": "https://github.com/LucasWillett/churnzero-assistant",
-      "icon": "🔍"
+      "icon": "\ud83d\udd0d"
     },
     {
       "id": "redirect-checker",
@@ -293,11 +341,17 @@
         "per": "scan request",
         "frequency": "~10/week",
         "weeklyMinutes": 150,
-        "calculation": "15 min/request × 10 requests/week"
+        "calculation": "15 min/request \u00d7 10 requests/week"
       },
-      "tech": ["Python", "Selenium", "Slack SDK", "Google Sheets API", "BeautifulSoup"],
+      "tech": [
+        "Python",
+        "Selenium",
+        "Slack SDK",
+        "Google Sheets API",
+        "BeautifulSoup"
+      ],
       "repo": null,
-      "icon": "🔗"
+      "icon": "\ud83d\udd17"
     }
   ]
 }
