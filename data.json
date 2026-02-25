@@ -6,11 +6,16 @@
     "status": "online"
   },
   "stats": {
-    "projectsLive": 9,
-    "automationsRunning": 9,
+    "projectsLive": 10,
+    "automationsRunning": 10,
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-02-24T23:00:00Z",
+      "event": "Cvent Synergy deployed \u2014 automated Cvent Event Diagramming workflow. Google Form intake, URL validation, task package generation, Slack notifications to Hannah, thread-based completion tracking, and QA link checks. Always-on via launchd.",
+      "type": "deploy"
+    },
     {
       "timestamp": "2026-02-23T19:00:00Z",
       "event": "Support Triage Assistant built \u2014 Gemini Gem with 6 knowledge docs covering login issues, broken links, terminology, and 502/504 errors. Full team trained across 4 dry run scenarios.",
@@ -320,6 +325,39 @@
       ],
       "repo": "https://github.com/LucasWillett/churnzero-assistant",
       "icon": "\ud83d\udd0d"
+    },
+    {
+      "id": "cvent-synergy",
+      "publish": true,
+      "audience": "team",
+      "name": "Cvent Synergy",
+      "tagline": "Automated Cvent Event Diagramming workflow",
+      "status": "production",
+      "date": "2026-02",
+      "description": "End-to-end automation for Cvent Event Diagramming channel distribution requests. Google Form intake feeds a tracking sheet. Bot validates URLs, scrapes space names, generates ready-to-paste task packages (Mattertag content, Element configs, appearance settings), and posts to Slack. Human does the spatial/creative work, replies 'done', and the bot runs QA link checks and closes the loop.",
+      "impact": [
+        "Formal submission process replaces ad-hoc spreadsheet updates",
+        "URL validation catches bad links before work begins",
+        "Pre-filled task packages eliminate copy-paste hunting",
+        "QA link check catches broken links before customer sees them"
+      ],
+      "timeSaved": {
+        "minutes": 15,
+        "per": "request",
+        "frequency": "~10/month",
+        "weeklyMinutes": 38,
+        "calculation": "15 min/request \u00d7 10 requests/month \u00f7 4 weeks"
+      },
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "Google Sheets API",
+        "Google Drive API",
+        "BeautifulSoup",
+        "launchd"
+      ],
+      "repo": null,
+      "icon": "\ud83c\udfdb\ufe0f"
     },
     {
       "id": "redirect-checker",
