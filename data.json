@@ -2,15 +2,25 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-02-20T15:00:00Z",
+    "lastUpdated": "2026-02-24T12:00:00Z",
     "status": "online"
   },
   "stats": {
-    "projectsLive": 8,
+    "projectsLive": 9,
     "automationsRunning": 9,
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-02-23T19:00:00Z",
+      "event": "Support Triage Assistant built — Gemini Gem with 6 knowledge docs covering login issues, broken links, terminology, and 502/504 errors. Full team trained across 4 dry run scenarios.",
+      "type": "deploy"
+    },
+    {
+      "timestamp": "2026-02-23T18:00:00Z",
+      "event": "Confluence page created: 'Investigating 502 & 504 Errors in Datadog' — live Datadog Log Explorer training artifact from GA training session",
+      "type": "integration"
+    },
     {
       "timestamp": "2026-02-20T15:00:00Z",
       "event": "Helm dashboard launched — personal ops command center with Tasks, Calendar, AI Quick Capture, and weather",
@@ -58,6 +68,32 @@
     }
   ],
   "projects": [
+    {
+      "id": "support-triage-gem",
+      "publish": true,
+      "audience": "team",
+      "name": "Support Triage Assistant",
+      "tagline": "AI triage copilot for platform migration support",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Gemini Gem deployed on Google Workspace for the 3-person support team. Covers 4 triage workflows — login failures, broken share links, terminology confusion, and 502/504 errors. Knowledge base lives in 6 Google Docs for live editing with zero re-upload friction. Built as an enterprise Claude stopgap ahead of VMP GA.",
+      "impact": [
+        "Single-mode smart routing — describe the issue, Gem picks the workflow",
+        "Adaptive coaching — matches pace to user confidence level",
+        "Copy-paste Jira ticket generation (BUG and DSO project templates)",
+        "Live-editable knowledge docs — update the doc, Gem picks it up immediately"
+      ],
+      "timeSaved": {
+        "minutes": 20,
+        "per": "triage session",
+        "frequency": "~10/week",
+        "weeklyMinutes": 200,
+        "calculation": "20 min/session × 10 sessions/week across 3-person team"
+      },
+      "tech": ["Gemini Gems", "Google Workspace", "Box", "Google Drive", "Jira", "Datadog", "Confluence"],
+      "repo": null,
+      "icon": "🎯"
+    },
     {
       "id": "helm",
       "publish": true,
