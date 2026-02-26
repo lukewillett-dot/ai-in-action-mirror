@@ -2,15 +2,20 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-02-25T07:30:09Z",
+    "lastUpdated": "2026-02-25T18:00:00Z",
     "status": "online"
   },
   "stats": {
-    "projectsLive": 10,
-    "automationsRunning": 10,
+    "projectsLive": 11,
+    "automationsRunning": 11,
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-02-25T18:00:00Z",
+      "event": "Matterport Health Checker built \u2014 crawls 20K+ Matterport models from TrueTour export, checks each via API for active/dead status, maps failures back to property IDs. Catches broken 3D tours before customers hit oops screens.",
+      "type": "deploy"
+    },
     {
       "timestamp": "2026-02-24T23:00:00Z",
       "event": "Cvent Synergy deployed \u2014 automated Cvent Event Diagramming workflow. Google Form intake, URL validation, task package generation, Slack notifications to Hannah, thread-based completion tracking, and QA link checks. Always-on via launchd.",
@@ -300,27 +305,31 @@
       "publish": true,
       "audience": "team",
       "name": "TourFinder",
-      "tagline": "Self-service property lookups",
+      "tagline": "Property lookups + third-party example finder",
       "status": "production",
       "date": "2026-02",
-      "description": "Slack bot monitoring #channel-distribution and #support-internal. Responds to questions about brands, locations, and service tiers with property examples from ChurnZero. Smart query detection handles 'Marriott in Seattle' or 'any VMP properties with 360 tours'.",
+      "description": "Slack bot monitoring #channel-distribution and #support-internal. Responds to property questions with high-traffic examples from ChurnZero, and finds verified third-party platform examples automatically. When someone asks 'any Hilton properties on Cvent?', TourFinder crawls the Cvent venue directory, searches DuckDuckGo, checks each profile for embedded TrueTour links, and returns verified examples with live URLs \u2014 a process that takes 30+ minutes manually per platform search.",
       "impact": [
-        "Instant responses to distribution questions",
-        "Self-service for sales team prep",
-        "Brand hierarchy awareness (IHG vs Holiday Inn Express)",
-        "Location inference (city to state mapping)"
+        "Third-party example finder \u2014 crawls Cvent, TripAdvisor, etc. for verified TrueTour embeds",
+        "Eliminates manual platform-by-platform searching for distribution examples",
+        "Instant property lookups with brand hierarchy awareness (IHG \u2192 Holiday Inn Express)",
+        "Distribution gap detection \u2014 flags properties with platform profiles but no TrueTour embed",
+        "Self-service for sales and distribution team prep"
       ],
       "timeSaved": {
-        "minutes": 10,
+        "minutes": 30,
         "per": "query",
         "frequency": "~15/week",
-        "weeklyMinutes": 150,
-        "calculation": "10 min/query \u00d7 15 queries/week"
+        "weeklyMinutes": 450,
+        "calculation": "30 min/query \u00d7 15 queries/week (third-party example searches are 30+ min manual)"
       },
       "tech": [
         "Python",
         "Slack SDK",
         "ChurnZero API",
+        "GA4 API",
+        "BeautifulSoup",
+        "DuckDuckGo Search",
         "launchd"
       ],
       "repo": "https://github.com/LucasWillett/churnzero-assistant",
@@ -355,6 +364,37 @@
         "Google Drive API",
         "BeautifulSoup",
         "launchd"
+      ],
+      "repo": null,
+      "icon": "\ud83c\udfdb\ufe0f"
+    },
+    {
+      "id": "matterport-checker",
+      "publish": true,
+      "audience": "team",
+      "name": "Matterport Health Checker",
+      "tagline": "Proactive 3D model health monitoring",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Crawls all Matterport embed URLs from TrueTour (20K+ models), checks each against the Matterport API for active/dead status, and maps failures back to property IDs. First run found 1,021 dead models across 204 properties \u2014 broken 3D tours customers were hitting as oops screens. Runs with checkpoint/resume, concurrent workers, and produces actionable CSV + JSON reports.",
+      "impact": [
+        "First scan caught 1,021 dead models across 204 properties",
+        "Proactive detection before customers report oops errors",
+        "Full scan of 20K models completes in under 10 minutes",
+        "Dead model report mapped to property IDs for targeted fixes"
+      ],
+      "timeSaved": {
+        "minutes": 120,
+        "per": "weekly scan",
+        "frequency": "1/week",
+        "weeklyMinutes": 120,
+        "calculation": "Manual verification of 20K models is impossible \u2014 conservatively 2 hrs/week of reactive ticket investigation eliminated"
+      },
+      "tech": [
+        "Python",
+        "Requests",
+        "Matterport API",
+        "ThreadPoolExecutor"
       ],
       "repo": null,
       "icon": "\ud83c\udfdb\ufe0f"
