@@ -6,11 +6,16 @@
     "status": "online"
   },
   "stats": {
-    "projectsLive": 11,
-    "automationsRunning": 11,
+    "projectsLive": 12,
+    "automationsRunning": 12,
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-03-06T17:00:00Z",
+      "event": "Tour Opener built \u2014 three-step pipeline audits 638 disabled TrueTour licenses. Checks HTTP redirects, renders pages with headless Selenium (5 parallel browsers), classifies what end users actually see: live content, welcome/under construction screens, expired pages, or blank pages. Found 198 showing construction screens, 410 still serving live tour content despite being disabled.",
+      "type": "deploy"
+    },
     {
       "timestamp": "2026-02-25T18:00:00Z",
       "event": "Matterport Health Checker built \u2014 crawls 20K+ Matterport models from TrueTour export, checks each via API for active/dead status, maps failures back to property IDs. Catches broken 3D tours before customers hit oops screens.",
@@ -430,6 +435,38 @@
       ],
       "repo": null,
       "icon": "\ud83d\udd17"
+    },
+    {
+      "id": "tour-opener",
+      "publish": true,
+      "audience": "team",
+      "name": "Tour Opener",
+      "tagline": "Disabled license audit via headless browser",
+      "status": "production",
+      "date": "2026-03",
+      "description": "Three-step audit pipeline for disabled TrueTour licenses. Step 1: HTTP redirect check on all 638 URLs. Step 2: Headless Selenium (5 parallel Chrome instances) renders each page and classifies what end users see. Step 3: Deep pass on legacy URLs to distinguish welcome/under construction screens from live tour content. Built to answer 'what happens when a customer clicks a disabled license link?'",
+      "impact": [
+        "Audited 638 disabled licenses in under 10 minutes total",
+        "Found 198 showing 'Under Construction' welcome screens",
+        "Found 410 still serving live tour content despite being disabled",
+        "Identified 140 properly redirecting to expired page"
+      ],
+      "timeSaved": {
+        "minutes": 480,
+        "per": "audit",
+        "frequency": "as needed",
+        "weeklyMinutes": 0,
+        "calculation": "Manual click-through of 638 URLs would take 8+ hours. Automated in 10 min."
+      },
+      "tech": [
+        "Python",
+        "Selenium",
+        "aiohttp",
+        "ThreadPoolExecutor",
+        "openpyxl"
+      ],
+      "repo": "https://github.com/LucasWillett/tour-opener",
+      "icon": "\ud83d\udee4\ufe0f"
     }
   ]
 }
