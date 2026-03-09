@@ -282,7 +282,7 @@
     },
     {
       "id": "claude-relay",
-      "publish": false,
+      "publish": true,
       "audience": "team",
       "name": "Claude Relay",
       "tagline": "Multi-agent coordination system",
