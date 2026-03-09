@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-03-08T07:38:10Z",
+    "lastUpdated": "2026-03-08T22:00:00Z",
     "status": "online"
   },
   "stats": {
@@ -11,6 +11,11 @@
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-03-08T22:00:00Z",
+      "event": "Redirect Checker overhauled \u2014 fragment resolution now loads the actual TrueTour viewer via Selenium, reads the Angular scope to map group/tour indexes to asset names, then matches names to truetour.app media IDs via API. Sheet output includes asset names, types, and manual-update flags. Nightly refresh audited for tool integrity.",
+      "type": "update"
+    },
     {
       "timestamp": "2026-03-06T17:00:00Z",
       "event": "Tour Opener built \u2014 three-step pipeline audits 638 disabled TrueTour licenses. Checks HTTP redirects, renders pages with headless Selenium (5 parallel browsers), classifies what end users actually see: live content, welcome/under construction screens, expired pages, or blank pages. Found 198 showing construction screens, 410 still serving live tour content despite being disabled.",
@@ -412,12 +417,13 @@
       "tagline": "On-demand URL validation via Slack",
       "status": "production",
       "date": "2026-02",
-      "description": "Validates TrueTour embed URLs for broken redirects. Anti-detection Selenium bypasses Cloudflare. Team posts 'check redirects: [URL]' in #support-internal and gets results with Google Sheets link. Tags @Lucas if crawl finds 0 results.",
+      "description": "Validates TrueTour embed URLs on hotel websites. Selenium crawls the site, finds visitingmedia.com embeds, checks if redirects fire, then resolves legacy fragment URLs (#/360?group=X&tour=Y, #/3d-model/G/T) to actual asset names by loading the TrueTour viewer and reading the Angular scope. Matched assets get mapped to truetour.app media IDs via API. Sheet output includes asset names, types, and flags for URLs needing manual update.",
       "impact": [
         "Self-service redirect scans via Slack",
-        "Anti-detection bypasses Cloudflare blocks",
-        "Results auto-exported to Google Sheets",
-        "Deduplication: same tour URL checked once"
+        "Fragment resolution via Angular scope \u2014 maps group/tour indexes to real asset names",
+        "Two-step mapping: viewer name \u2192 API lookup \u2192 truetour.app /media/ URL",
+        "Flags unmapped legacy assets for manual review",
+        "Results auto-exported to Google Sheets with asset metadata"
       ],
       "timeSaved": {
         "minutes": 15,
