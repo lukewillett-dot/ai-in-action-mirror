@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-03-11T06:31:25Z",
+    "lastUpdated": "2026-03-11T17:00:00Z",
     "status": "online"
   },
   "stats": {
@@ -11,6 +11,11 @@
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-03-11T17:00:00Z",
+      "event": "AI-Ready Deployment Pilot launched \u2014 Confluence plan page, candidate list built by cross-referencing GA4 AI referral traffic against Supabase/Salesforce accounts. 11 small independent properties identified with marketing/DOSM contacts. Beta redirect QA automation built (Selenium verifies 9,798 redirect mappings). Batch redirect checker completed: 568 results, fixed /all-assets-share false positives (214 reclassified), unified sheet write format across all entry points.",
+      "type": "update"
+    },
     {
       "timestamp": "2026-03-08T22:00:00Z",
       "event": "Redirect Checker overhauled \u2014 fragment resolution now loads the actual TrueTour viewer via Selenium, reads the Angular scope to map group/tour indexes to asset names, then matches names to truetour.app media IDs via API. Sheet output includes asset names, types, and manual-update flags. Nightly refresh audited for tool integrity.",
