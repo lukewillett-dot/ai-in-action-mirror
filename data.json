@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-03-11T17:00:00Z",
+    "lastUpdated": "2026-03-12T18:00:00Z",
     "status": "online"
   },
   "stats": {
@@ -11,6 +11,10 @@
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-03-12T18:00:00Z",
+      "event": "AI pilot full project layer created (Hilton pattern), council session run on pilot-vs-guidance strategy (Slack canvas shared). TourFinder fixes: help center keyword guard (generic words like 'hotel' no longer match wrong articles), DuckDuckGo property scoping for brand sites (Omni Chicago fix). Support Triage Gem tightened to 5-workflow scope. GA release notes posted to #support-internal."
+    },
     {
       "timestamp": "2026-03-11T17:00:00Z",
       "event": "AI-Ready Deployment Pilot launched \u2014 Confluence plan page, candidate list built by cross-referencing GA4 AI referral traffic against Supabase/Salesforce accounts. 11 small independent properties identified with marketing/DOSM contacts. Beta redirect QA automation built (Selenium verifies 9,798 redirect mappings). Batch redirect checker completed: 568 results, fixed /all-assets-share false positives (214 reclassified), unified sheet write format across all entry points.",
