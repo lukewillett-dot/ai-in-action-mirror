@@ -12,6 +12,10 @@
   },
   "activity": [
     {
+      "timestamp": "2026-03-12T22:00:00Z",
+      "event": "TourFinder curated examples system: mined 55 distribution URLs from #channel-distribution history (11 contributors, 23 platforms). Feedback loop captures team URLs from thread replies with :brain: reaction. TourFinder vs CD Bot scoreboard on Helm dashboard — head-to-head W/L tracking. Slack Knowledge Capture blueprint saved for reuse."
+    },
+    {
       "timestamp": "2026-03-12T18:00:00Z",
       "event": "AI pilot full project layer created (Hilton pattern), council session run on pilot-vs-guidance strategy (Slack canvas shared). TourFinder fixes: help center keyword guard (generic words like 'hotel' no longer match wrong articles), DuckDuckGo property scoping for brand sites (Omni Chicago fix). Support Triage Gem tightened to 5-workflow scope. GA release notes posted to #support-internal."
     },
