@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-03-13T01:00:00Z",
+    "lastUpdated": "2026-03-13T06:44:08Z",
     "status": "online"
   },
   "stats": {
@@ -13,11 +13,11 @@
   "activity": [
     {
       "timestamp": "2026-03-12T18:30:00Z",
-      "event": "CX AI Impact Dashboard launched — Kevin Huang's CX-wide AI time savings tracker. 4 tiers (Executive, Support, PMO, CS), 13 projects, 26.1 hrs/wk. Live on Render. Slack bot built for ai-win intake. /kb skill created for Christian's KB project — auto-captures ticket resolutions as Confluence articles."
+      "event": "CX AI Impact Dashboard launched \u2014 Kevin Huang's CX-wide AI time savings tracker. 4 tiers (Executive, Support, PMO, CS), 13 projects, 26.1 hrs/wk. Live on Render. Slack bot built for ai-win intake. /kb skill created for Christian's KB project \u2014 auto-captures ticket resolutions as Confluence articles."
     },
     {
       "timestamp": "2026-03-13T01:00:00Z",
-      "event": "Redirect checker overhauled: GA4-driven smart crawler (priority queue, lazy-load scroll, subdomain following), nightly full-sweep of all 3,340 accounts in ARR-sorted tranches. Second GA4 property (382011463) unlocked and wired into TourFinder, truetour-analytics, and ai_referral_query. Hilton distribution cross-reference improved: 172 confirmed present ($1.55M ARR), 473 absent ($3.1M ARR) — matched via License__c slugs + VM property cache. Helm System Health widget: 8 data sources monitored every 30 min (Fathom, Zendesk, GA4 x2, Google Calendar, Tasks, Supabase, Slack, VM API) with Slack DM alerts on status transitions."
+      "event": "Redirect checker overhauled: GA4-driven smart crawler (priority queue, lazy-load scroll, subdomain following), nightly full-sweep of all 3,340 accounts in ARR-sorted tranches. Second GA4 property (382011463) unlocked and wired into TourFinder, truetour-analytics, and ai_referral_query. Hilton distribution cross-reference improved: 172 confirmed present ($1.55M ARR), 473 absent ($3.1M ARR) \u2014 matched via License__c slugs + VM property cache. Helm System Health widget: 8 data sources monitored every 30 min (Fathom, Zendesk, GA4 x2, Google Calendar, Tasks, Supabase, Slack, VM API) with Slack DM alerts on status transitions."
     },
     {
       "timestamp": "2026-03-12T22:00:00Z",
@@ -503,11 +503,11 @@
       "tagline": "CX-wide AI time savings tracker for ELT reporting",
       "status": "production",
       "date": "2026-03",
-      "description": "Dashboard tracking AI time savings across Kevin Huang's full CX org — Executive, Support, PMO, and Customer Success. Live on Render with Slack bot intake. Team members log wins via 'ai win: Tool | hrs/wk | description' in Slack. Auto-captures usage from instrumented tools. Kevin gets a URL he can show ELT.",
+      "description": "Dashboard tracking AI time savings across Kevin Huang's full CX org \u2014 Executive, Support, PMO, and Customer Success. Live on Render with Slack bot intake. Team members log wins via 'ai win: Tool | hrs/wk | description' in Slack. Auto-captures usage from instrumented tools. Kevin gets a URL he can show ELT.",
       "impact": [
-        "Single URL for CX-wide AI impact — no GitHub knowledge required",
+        "Single URL for CX-wide AI impact \u2014 no GitHub knowledge required",
         "Four team tiers with subtotals rolling up to org total",
-        "Slack-native intake replaces forms — zero friction logging",
+        "Slack-native intake replaces forms \u2014 zero friction logging",
         "ELT-ready presentation with weekly/monthly/annual projections"
       ],
       "timeSaved": {
@@ -535,11 +535,11 @@
       "tagline": "Auto-generate knowledge base articles from ticket resolutions",
       "status": "production",
       "date": "2026-03",
-      "description": "Claude Code skill that captures ticket resolution context and generates structured knowledge base articles. Support agent resolves a ticket, types /kb, and Claude extracts the problem, steps, root cause, and solution into a formatted article. Publishes directly to Confluence Support Lobby. KB builds itself from real work — no separate documentation effort.",
+      "description": "Claude Code skill that captures ticket resolution context and generates structured knowledge base articles. Support agent resolves a ticket, types /kb, and Claude extracts the problem, steps, root cause, and solution into a formatted article. Publishes directly to Confluence Support Lobby. KB builds itself from real work \u2014 no separate documentation effort.",
       "impact": [
-        "Zero-friction KB capture — /kb command after any ticket resolution",
+        "Zero-friction KB capture \u2014 /kb command after any ticket resolution",
         "Structured articles with taxonomy, tier, and severity metadata",
-        "Direct Confluence publish — one confirmation step",
+        "Direct Confluence publish \u2014 one confirmation step",
         "KB grows organically from actual support work, not documentation sprints"
       ],
       "timeSaved": {
@@ -547,7 +547,7 @@
         "per": "article",
         "frequency": "~5/week",
         "weeklyMinutes": 100,
-        "calculation": "20 min/article writing time eliminated × 5 articles/week"
+        "calculation": "20 min/article writing time eliminated \u00d7 5 articles/week"
       },
       "tech": [
         "Claude Code Skills",
