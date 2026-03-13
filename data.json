@@ -17,7 +17,7 @@
     },
     {
       "timestamp": "2026-03-13T01:00:00Z",
-      "event": "Redirect checker overhauled: GA4-driven smart crawler (priority queue, lazy-load scroll, subdomain following), nightly full-sweep of all 3,340 accounts in ARR-sorted tranches. Second GA4 property (382011463) unlocked and wired into TourFinder, truetour-analytics, and ai_referral_query. Hilton distribution cross-reference: 119 confirmed present ($1.1M ARR), 529 absent ($3.5M ARR) — first complete absent list. Batch 1 (500 accounts) running overnight."
+      "event": "Redirect checker overhauled: GA4-driven smart crawler (priority queue, lazy-load scroll, subdomain following), nightly full-sweep of all 3,340 accounts in ARR-sorted tranches. Second GA4 property (382011463) unlocked and wired into TourFinder, truetour-analytics, and ai_referral_query. Hilton distribution cross-reference improved: 172 confirmed present ($1.55M ARR), 473 absent ($3.1M ARR) — matched via License__c slugs + VM property cache. Helm System Health widget: 8 data sources monitored every 30 min (Fathom, Zendesk, GA4 x2, Google Calendar, Tasks, Supabase, Slack, VM API) with Slack DM alerts on status transitions."
     },
     {
       "timestamp": "2026-03-12T22:00:00Z",
