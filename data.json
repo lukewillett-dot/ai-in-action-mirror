@@ -12,6 +12,10 @@
   },
   "activity": [
     {
+      "timestamp": "2026-03-16T20:00:00Z",
+      "event": "TourFinder: Haiku intent classifier shipped \u2014 catches policy questions and example requests that pattern matching misses. Curated showcase catalog (7 independents) with dynamic embed counts from crawl data (416 properties). Support Pulse: fixed Monday email date bug, added volume context line, unified all recipients to identical format. Redirect checker: WAF skip list + continuous batch mode, 416 accounts already crawled (2,021 results, 343 bad redirects), remaining ~2,900 running now. Published 'Building Internal Slack Bots' blueprint on Confluence for IT team."
+    },
+    {
       "timestamp": "2026-03-12T18:30:00Z",
       "event": "CX AI Impact Dashboard launched \u2014 Kevin Huang's CX-wide AI time savings tracker. 4 tiers (Executive, Support, PMO, CS), 13 projects, 26.1 hrs/wk. Live on Render. Slack bot built for ai-win intake. /kb skill created for Christian's KB project \u2014 auto-captures ticket resolutions as Confluence articles."
     },
