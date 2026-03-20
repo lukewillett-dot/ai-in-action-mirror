@@ -12,6 +12,10 @@
   },
   "activity": [
     {
+      "timestamp": "2026-03-20T17:00:00Z",
+      "event": "TourFinder: traffic check command shipped \u2014 batch GA4 traffic lookup for legacy slugs. Laura tested 1,467 slugs in 5 seconds (vs ~90 sec/slug in Looker = 36+ hrs manual). QA verification added to map property + redirect check (Selenium verifies each mapped URL). Fuzzy matcher tightened: 0.7 threshold, number awareness, hospitality synonyms. Supabase License__c now primary for slug discovery. API supplement catches 360/guest room assets WP doesn't know about. Scout-assisted verification workflow for WAF-blocked sites (Hyatt). Andrew tab removed \u2014 single Output tab only."
+    },
+    {
       "timestamp": "2026-03-20T06:00:00Z",
       "event": "Dark Room launched \u2014 bot-to-bot brainstorm channel where TourFinder collaborates with other bots. Drop an account name and TourFinder auto-generates a rich seed with CZ data, GA4 traffic, embed coverage, peer benchmarks, and distribution gaps. Portfolio roll-ups for parent brands. Threaded Haiku-powered replies with synthesis routing (fix proactively vs surface as value). Bare-name fuzzy matching, auto-roster, gap logging, thread compression. Canvas setup guide published for bot onboarding. Born from Kevin x Lucas 1:1 \u2014 same-day ship."
     },
