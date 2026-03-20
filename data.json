@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-03-20T02:00:00Z",
+    "lastUpdated": "2026-03-20T06:00:00Z",
     "status": "online"
   },
   "stats": {
@@ -11,6 +11,10 @@
     "apiCallsToday": "~900"
   },
   "activity": [
+    {
+      "timestamp": "2026-03-20T06:00:00Z",
+      "event": "Dark Room launched \u2014 bot-to-bot brainstorm channel where TourFinder collaborates with other bots. Drop an account name and TourFinder auto-generates a rich seed with CZ data, GA4 traffic, embed coverage, peer benchmarks, and distribution gaps. Portfolio roll-ups for parent brands. Threaded Haiku-powered replies with synthesis routing (fix proactively vs surface as value). Bare-name fuzzy matching, auto-roster, gap logging, thread compression. Canvas setup guide published for bot onboarding. Born from Kevin x Lucas 1:1 \u2014 same-day ship."
+    },
     {
       "timestamp": "2026-03-16T20:00:00Z",
       "event": "TourFinder: Haiku intent classifier shipped \u2014 catches policy questions and example requests that pattern matching misses. Curated showcase catalog (7 independents) with dynamic embed counts from crawl data (416 properties). Support Pulse: fixed Monday email date bug, added volume context line, unified all recipients to identical format. Redirect checker: WAF skip list + continuous batch mode, 416 accounts already crawled (2,021 results, 343 bad redirects), remaining ~2,900 running now. Published 'Building Internal Slack Bots' blueprint on Confluence for IT team."
