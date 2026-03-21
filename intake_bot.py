@@ -313,11 +313,25 @@ def save_project(channel, thread_ts, intake):
     del active_intakes[thread_ts]
 
 
+# Known user names — avoids API calls for core team
+KNOWN_USERS = {
+    "U9NLNTPDK": "Lucas Willett",
+    "U03NP6HCMJA": "Christian Staley",
+    "U04K118RSLS": "Hannah Holbrook",
+    "U01572F2Z8U": "Ryan Schwartz",
+    "UNZ4YMDR9": "Jackie George",
+}
+
+
 def get_user_name(user_id):
+    if user_id in KNOWN_USERS:
+        return KNOWN_USERS[user_id]
     try:
         resp = get_client().users_info(user=user_id)
         profile = resp["user"]["profile"]
-        return profile.get("real_name", profile.get("display_name", "Unknown"))
+        name = profile.get("real_name") or profile.get("display_name") or "Unknown"
+        KNOWN_USERS[user_id] = name  # cache for future
+        return name
     except SlackApiError:
         return "Unknown"
 
@@ -437,9 +451,15 @@ def fetch_replies(channel_id, thread_ts):
         return []
 
 
+def clean_text(text):
+    """Strip MCP/Slack attribution suffixes from message text."""
+    text = re.sub(r'\s*\*Sent using\*.*$', '', text, flags=re.DOTALL).strip()
+    return text
+
+
 def process_message(msg, channel_id):
     """Process a single message."""
-    text = msg.get("text", "")
+    text = clean_text(msg.get("text", ""))
     ts = msg.get("ts", "")
     user = msg.get("user", "")
     thread_ts = msg.get("thread_ts")
@@ -453,6 +473,9 @@ def process_message(msg, channel_id):
     match = re.match(r'ai\s+win[:\s]+(.+)', text, re.IGNORECASE)
     if match:
         project_name = match.group(1).strip()
+        # Strip MCP/Slack attribution suffixes
+        project_name = re.sub(r'\s*\*Sent using\*.*$', '', project_name).strip()
+        project_name = re.sub(r'\s*<@[^>]+>.*$', '', project_name).strip()
         if project_name:
             start_intake(channel_id, ts, user, project_name)
             return
@@ -503,12 +526,15 @@ def run():
                     if ts in processed_messages:
                         continue
                     if msg.get("bot_id") or msg.get("subtype"):
+                        processed_messages.add(ts)
                         continue
                     # Skip messages older than 5 min
                     if time.time() - float(ts) > 300:
                         processed_messages.add(ts)
                         continue
 
+                    text = msg.get("text", "")
+                    print(f"[{datetime.now().strftime('%H:%M:%S')}] New msg: {text[:80]}")
                     processed_messages.add(ts)
                     process_message(msg, channel_id)
 
@@ -522,7 +548,7 @@ def run():
                         if rts in processed_messages:
                             continue
                         processed_messages.add(rts)
-                        handle_intake_reply(channel_id, thread_ts, r.get("text", ""), r.get("user", ""))
+                        handle_intake_reply(channel_id, thread_ts, clean_text(r.get("text", "")), r.get("user", ""))
 
             cleanup_stale_intakes()
 

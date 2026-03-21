@@ -2,13 +2,13 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-03-20T21:45:00Z",
+    "lastUpdated": "2026-03-20T23:15:23Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
   },
   "stats": {
-    "projectsLive": 14,
+    "projectsLive": 16,
     "automationsRunning": 14,
     "apiCallsToday": "~900"
   },
@@ -18,53 +18,236 @@
     "tagline": "Every team starts at zero. Build something that saves time."
   },
   "milestones": [
-    { "hours": 250, "reached": "2026-02-20", "label": "250 Hours Saved" },
-    { "hours": 500, "reached": "2026-02-28", "label": "500 Hours Saved" },
-    { "hours": 1000, "reached": "2026-03-12", "label": "1,000 Hours Saved" },
-    { "hours": 2500, "reached": null, "label": "2,500 Hours Saved" }
+    {
+      "hours": 250,
+      "reached": "2026-02-20",
+      "label": "250 Hours Saved"
+    },
+    {
+      "hours": 500,
+      "reached": "2026-02-28",
+      "label": "500 Hours Saved"
+    },
+    {
+      "hours": 1000,
+      "reached": "2026-03-12",
+      "label": "1,000 Hours Saved"
+    },
+    {
+      "hours": 2500,
+      "reached": null,
+      "label": "2,500 Hours Saved"
+    }
   ],
   "teams": [
     {
       "id": "support",
       "name": "Support",
       "lead": "Lucas Willett",
-      "members": ["Lucas Willett", "Christian Staley", "Hannah Holbrook"],
+      "members": [
+        "Lucas Willett",
+        "Christian Staley",
+        "Hannah Holbrook"
+      ],
       "color": "#6366f1"
     },
     {
       "id": "cs",
       "name": "Customer Success",
       "lead": "Ryan Schwartz",
-      "members": ["Ryan Schwartz", "Jennifer Schiraldi", "Emily Jurden", "Ryan Lavelle", "Nicole Garder", "Sarah Urbas", "Mellisa Blakemore", "Desiree Crews", "Michael Estrada", "Travis Shannon", "Bronwyn Neale", "Gabrielle Regidor"],
+      "members": [
+        "Ryan Schwartz",
+        "Jennifer Schiraldi",
+        "Emily Jurden",
+        "Ryan Lavelle",
+        "Nicole Garder",
+        "Sarah Urbas",
+        "Mellisa Blakemore",
+        "Desiree Crews",
+        "Michael Estrada",
+        "Travis Shannon",
+        "Bronwyn Neale",
+        "Gabrielle Regidor"
+      ],
       "color": "#10b981"
     },
     {
       "id": "pmo",
       "name": "PMO",
       "lead": "Jackie George",
-      "members": ["Jackie George", "Jameika Baysinger", "Jakeyla Cowlin", "Kassi Fitzpatrick", "Cassandra Rowland"],
+      "members": [
+        "Jackie George",
+        "Jameika Baysinger",
+        "Jakeyla Cowlin",
+        "Kassi Fitzpatrick",
+        "Cassandra Rowland"
+      ],
       "color": "#22d3ee"
     }
   ],
   "badgeLadder": [
-    { "id": "first-win", "label": "First Win", "description": "Logged your first AI project", "threshold": 1, "type": "projects", "icon": ":blob-wave:", "html": "\u2b50" },
-    { "id": "hat-trick", "label": "Hat Trick", "description": "3 projects shipped", "threshold": 3, "type": "projects", "icon": ":meow_salute:", "html": "\ud83c\udfa9" },
-    { "id": "high-five", "label": "High Five", "description": "5 projects shipped", "threshold": 5, "type": "projects", "icon": ":blob-hearts:", "html": "\u270b" },
-    { "id": "double-digits", "label": "Double Digits", "description": "10 projects shipped", "threshold": 10, "type": "projects", "icon": ":meow_detective:", "html": "\ud83d\udd1f" },
-    { "id": "baker-dozen", "label": "Baker's Dozen", "description": "13 projects shipped", "threshold": 13, "type": "projects", "icon": ":party_blob:", "html": "\ud83c\udf5e" },
-    { "id": "score", "label": "The Score", "description": "20 projects shipped", "threshold": 20, "type": "projects", "icon": ":meow-hehehe:", "html": "\ud83c\udfc6" },
-    { "id": "fifty-club", "label": "50 Club", "description": "50 projects shipped", "threshold": 50, "type": "projects", "icon": ":blob-heart:", "html": "\ud83d\udc8e" },
-    { "id": "century", "label": "Century", "description": "100 projects shipped", "threshold": 100, "type": "projects", "icon": ":meow_heart:", "html": "\ud83d\ude80" },
-    { "id": "week-1", "label": "Week 1 Builder", "description": "Shipped in the first week", "threshold": 1, "type": "special", "icon": ":blob_cozy:", "html": "\ud83c\udf1f" },
-    { "id": "back-to-back", "label": "Back to Back", "description": "2 projects in consecutive weeks", "threshold": 2, "type": "streak", "icon": ":meow_this_is_fine:", "html": "\ud83d\udd25" },
-    { "id": "three-peat", "label": "Three-Peat", "description": "3 consecutive weeks shipping", "threshold": 3, "type": "streak", "icon": ":blob-wave:", "html": "\ud83e\udd29" },
-    { "id": "on-fire", "label": "On Fire", "description": "5 consecutive weeks shipping", "threshold": 5, "type": "streak", "icon": ":meow_detective:", "html": "\ud83d\udd25" },
-    { "id": "iron-streak", "label": "Iron Streak", "description": "10 consecutive weeks shipping", "threshold": 10, "type": "streak", "icon": ":party_blob:", "html": "\u26a1" },
-    { "id": "cross-team", "label": "Assist", "description": "Helped another team ship a project", "threshold": 1, "type": "special", "icon": ":meow_salute:", "html": "\ud83e\udd1d" },
-    { "id": "evangelist", "label": "Evangelist", "description": "Brought a new person onto the board", "threshold": 1, "type": "special", "icon": ":blob-hearts:", "html": "\ud83d\udce3" },
-    { "id": "documented", "label": "Documented", "description": "First project with a Confluence page", "threshold": 1, "type": "docs", "icon": ":meow_detective:", "html": "\ud83d\udcd6" },
-    { "id": "playbook-author", "label": "Playbook Author", "description": "3 projects documented on Confluence", "threshold": 3, "type": "docs", "icon": ":blob-hearts:", "html": "\ud83d\udcda" },
-    { "id": "blueprint", "label": "Blueprint", "description": "Someone replicated your documented project", "threshold": 1, "type": "docs", "icon": ":party_blob:", "html": "\ud83c\udfd7\ufe0f" }
+    {
+      "id": "first-win",
+      "label": "First Win",
+      "description": "Logged your first AI project",
+      "threshold": 1,
+      "type": "projects",
+      "icon": ":blob-wave:",
+      "html": "⭐"
+    },
+    {
+      "id": "hat-trick",
+      "label": "Hat Trick",
+      "description": "3 projects shipped",
+      "threshold": 3,
+      "type": "projects",
+      "icon": ":meow_salute:",
+      "html": "🎩"
+    },
+    {
+      "id": "high-five",
+      "label": "High Five",
+      "description": "5 projects shipped",
+      "threshold": 5,
+      "type": "projects",
+      "icon": ":blob-hearts:",
+      "html": "✋"
+    },
+    {
+      "id": "double-digits",
+      "label": "Double Digits",
+      "description": "10 projects shipped",
+      "threshold": 10,
+      "type": "projects",
+      "icon": ":meow_detective:",
+      "html": "🔟"
+    },
+    {
+      "id": "baker-dozen",
+      "label": "Baker's Dozen",
+      "description": "13 projects shipped",
+      "threshold": 13,
+      "type": "projects",
+      "icon": ":party_blob:",
+      "html": "🍞"
+    },
+    {
+      "id": "score",
+      "label": "The Score",
+      "description": "20 projects shipped",
+      "threshold": 20,
+      "type": "projects",
+      "icon": ":meow-hehehe:",
+      "html": "🏆"
+    },
+    {
+      "id": "fifty-club",
+      "label": "50 Club",
+      "description": "50 projects shipped",
+      "threshold": 50,
+      "type": "projects",
+      "icon": ":blob-heart:",
+      "html": "💎"
+    },
+    {
+      "id": "century",
+      "label": "Century",
+      "description": "100 projects shipped",
+      "threshold": 100,
+      "type": "projects",
+      "icon": ":meow_heart:",
+      "html": "🚀"
+    },
+    {
+      "id": "week-1",
+      "label": "Week 1 Builder",
+      "description": "Shipped in the first week",
+      "threshold": 1,
+      "type": "special",
+      "icon": ":blob_cozy:",
+      "html": "🌟"
+    },
+    {
+      "id": "back-to-back",
+      "label": "Back to Back",
+      "description": "2 projects in consecutive weeks",
+      "threshold": 2,
+      "type": "streak",
+      "icon": ":meow_this_is_fine:",
+      "html": "🔥"
+    },
+    {
+      "id": "three-peat",
+      "label": "Three-Peat",
+      "description": "3 consecutive weeks shipping",
+      "threshold": 3,
+      "type": "streak",
+      "icon": ":blob-wave:",
+      "html": "🤩"
+    },
+    {
+      "id": "on-fire",
+      "label": "On Fire",
+      "description": "5 consecutive weeks shipping",
+      "threshold": 5,
+      "type": "streak",
+      "icon": ":meow_detective:",
+      "html": "🔥"
+    },
+    {
+      "id": "iron-streak",
+      "label": "Iron Streak",
+      "description": "10 consecutive weeks shipping",
+      "threshold": 10,
+      "type": "streak",
+      "icon": ":party_blob:",
+      "html": "⚡"
+    },
+    {
+      "id": "cross-team",
+      "label": "Assist",
+      "description": "Helped another team ship a project",
+      "threshold": 1,
+      "type": "special",
+      "icon": ":meow_salute:",
+      "html": "🤝"
+    },
+    {
+      "id": "evangelist",
+      "label": "Evangelist",
+      "description": "Brought a new person onto the board",
+      "threshold": 1,
+      "type": "special",
+      "icon": ":blob-hearts:",
+      "html": "📣"
+    },
+    {
+      "id": "documented",
+      "label": "Documented",
+      "description": "First project with a Confluence page",
+      "threshold": 1,
+      "type": "docs",
+      "icon": ":meow_detective:",
+      "html": "📖"
+    },
+    {
+      "id": "playbook-author",
+      "label": "Playbook Author",
+      "description": "3 projects documented on Confluence",
+      "threshold": 3,
+      "type": "docs",
+      "icon": ":blob-hearts:",
+      "html": "📚"
+    },
+    {
+      "id": "blueprint",
+      "label": "Blueprint",
+      "description": "Someone replicated your documented project",
+      "threshold": 1,
+      "type": "docs",
+      "icon": ":party_blob:",
+      "html": "🏗️"
+    }
   ],
   "contributors": [
     {
@@ -72,7 +255,14 @@
       "team": "support",
       "avatar": "LW",
       "joined": "2026-02-13",
-      "badges": ["first-win", "hat-trick", "high-five", "double-digits", "baker-dozen", "on-fire"],
+      "badges": [
+        "first-win",
+        "high-five",
+        "baker-dozen",
+        "double-digits",
+        "on-fire",
+        "hat-trick"
+      ],
       "role": "competitor"
     },
     {
@@ -80,20 +270,66 @@
       "team": "executive",
       "avatar": "KH",
       "joined": "2026-03-10",
-      "badges": ["first-win"],
+      "badges": [
+        "first-win"
+      ],
       "role": "sponsor"
     }
   ],
   "weeklySeries": [
-    { "week": "2026-02-10", "cumulativeMinutes": 0, "projects": 0 },
-    { "week": "2026-02-17", "cumulativeMinutes": 1200, "projects": 8 },
-    { "week": "2026-02-24", "cumulativeMinutes": 2800, "projects": 11 },
-    { "week": "2026-03-03", "cumulativeMinutes": 4400, "projects": 12 },
-    { "week": "2026-03-10", "cumulativeMinutes": 6038, "projects": 13 },
-    { "week": "2026-03-17", "cumulativeMinutes": 7676, "projects": 14 },
-    { "week": "2026-03-24", "cumulativeMinutes": 9314, "projects": 14 }
+    {
+      "week": "2026-02-10",
+      "cumulativeMinutes": 0,
+      "projects": 0
+    },
+    {
+      "week": "2026-02-17",
+      "cumulativeMinutes": 1200,
+      "projects": 8
+    },
+    {
+      "week": "2026-02-24",
+      "cumulativeMinutes": 2800,
+      "projects": 11
+    },
+    {
+      "week": "2026-03-03",
+      "cumulativeMinutes": 4400,
+      "projects": 12
+    },
+    {
+      "week": "2026-03-10",
+      "cumulativeMinutes": 6038,
+      "projects": 13
+    },
+    {
+      "week": "2026-03-17",
+      "cumulativeMinutes": 7676,
+      "projects": 14
+    },
+    {
+      "week": "2026-03-24",
+      "cumulativeMinutes": 9314,
+      "projects": 14
+    }
   ],
   "activity": [
+    {
+      "timestamp": "2026-03-20T23:15:23Z",
+      "event": "Final E2E Test — Validates the complete intake bot submission flow including badges and data persistence",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "final-e2e-test"
+    },
+    {
+      "timestamp": "2026-03-20T23:12:58Z",
+      "event": "Intake Bot Test v2 — Tests the full intake flow for the AI in Action challenge dashboard",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "intake-bot-test-v2"
+    },
     {
       "timestamp": "2026-03-20T17:00:00Z",
       "event": "TourFinder: traffic check + QA verification + fuzzy matcher tightened",
@@ -104,7 +340,7 @@
     },
     {
       "timestamp": "2026-03-20T06:00:00Z",
-      "event": "Dark Room launched \u2014 bot-to-bot brainstorm channel with CZ/GA4/embed data",
+      "event": "Dark Room launched — bot-to-bot brainstorm channel with CZ/GA4/embed data",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -120,7 +356,7 @@
     },
     {
       "timestamp": "2026-03-12T18:30:00Z",
-      "event": "CX AI Impact Dashboard launched \u2014 4 tiers, 13 projects, live on Render",
+      "event": "CX AI Impact Dashboard launched — 4 tiers, 13 projects, live on Render",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -160,7 +396,7 @@
     },
     {
       "timestamp": "2026-03-06T17:00:00Z",
-      "event": "Tour Opener built \u2014 638 disabled licenses audited in 10 min",
+      "event": "Tour Opener built — 638 disabled licenses audited in 10 min",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -168,7 +404,7 @@
     },
     {
       "timestamp": "2026-02-25T18:00:00Z",
-      "event": "Matterport Health Checker \u2014 20K+ models scanned, 1,021 dead found",
+      "event": "Matterport Health Checker — 20K+ models scanned, 1,021 dead found",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -176,7 +412,7 @@
     },
     {
       "timestamp": "2026-02-24T23:00:00Z",
-      "event": "Cvent Synergy deployed \u2014 automated Event Diagramming workflow",
+      "event": "Cvent Synergy deployed — automated Event Diagramming workflow",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -184,7 +420,7 @@
     },
     {
       "timestamp": "2026-02-23T19:00:00Z",
-      "event": "Support Triage Assistant built \u2014 Gemini Gem with 6 knowledge docs",
+      "event": "Support Triage Assistant built — Gemini Gem with 6 knowledge docs",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -192,7 +428,7 @@
     },
     {
       "timestamp": "2026-02-20T15:00:00Z",
-      "event": "Helm dashboard launched \u2014 personal ops command center",
+      "event": "Helm dashboard launched — personal ops command center",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -200,7 +436,7 @@
     },
     {
       "timestamp": "2026-02-18T06:36:00Z",
-      "event": "Browser Automation deployed \u2014 headless Playwright scripts",
+      "event": "Browser Automation deployed — headless Playwright scripts",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -208,7 +444,7 @@
     },
     {
       "timestamp": "2026-02-17T15:00:00Z",
-      "event": "Command Bot deployed \u2014 run automation from phone via Slack",
+      "event": "Command Bot deployed — run automation from phone via Slack",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -249,11 +485,11 @@
       "tagline": "Property lookups + third-party example finder",
       "status": "production",
       "date": "2026-02",
-      "description": "Slack bot monitoring #channel-distribution. Responds to property questions with high-traffic examples from ChurnZero, finds verified third-party platform examples, runs redirect checks, maps legacy URLs, and checks GA4 traffic \u2014 all from Slack.",
+      "description": "Slack bot monitoring #channel-distribution. Responds to property questions with high-traffic examples from ChurnZero, finds verified third-party platform examples, runs redirect checks, maps legacy URLs, and checks GA4 traffic — all from Slack.",
       "impact": [
-        "Third-party example finder \u2014 crawls Cvent, TripAdvisor, etc.",
+        "Third-party example finder — crawls Cvent, TripAdvisor, etc.",
         "Eliminates manual platform-by-platform searching",
-        "Brand hierarchy awareness (IHG \u2192 Holiday Inn Express)",
+        "Brand hierarchy awareness (IHG → Holiday Inn Express)",
         "Distribution gap detection",
         "Self-service for sales and distribution team prep"
       ],
@@ -264,11 +500,18 @@
         "weeklyMinutes": 450,
         "manualMinutes": 30,
         "automatedMinutes": 2,
-        "calculation": "30 min/query \u00d7 15 queries/week"
+        "calculation": "30 min/query × 15 queries/week"
       },
-      "tech": ["Python", "Slack SDK", "ChurnZero API", "GA4 API", "Selenium", "launchd"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "ChurnZero API",
+        "GA4 API",
+        "Selenium",
+        "launchd"
+      ],
       "repo": "https://github.com/LucasWillett/tourfinder",
-      "icon": "\ud83d\udd0d"
+      "icon": "🔍"
     },
     {
       "id": "support-triage-gem",
@@ -279,7 +522,7 @@
       "tagline": "AI triage copilot for platform migration support",
       "status": "production",
       "date": "2026-02",
-      "description": "Gemini Gem for the 3-person support team. Covers 5 triage workflows \u2014 login failures, broken share links, terminology confusion, 502/504 errors, and enterprise admin issues.",
+      "description": "Gemini Gem for the 3-person support team. Covers 5 triage workflows — login failures, broken share links, terminology confusion, 502/504 errors, and enterprise admin issues.",
       "impact": [
         "Single-mode smart routing",
         "Copy-paste Jira ticket generation",
@@ -292,11 +535,16 @@
         "weeklyMinutes": 200,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/session \u00d7 10 sessions/week"
+        "calculation": "20 min/session × 10 sessions/week"
       },
-      "tech": ["Gemini Gems", "Google Workspace", "Box", "Google Drive"],
+      "tech": [
+        "Gemini Gems",
+        "Google Workspace",
+        "Box",
+        "Google Drive"
+      ],
       "repo": null,
-      "icon": "\ud83c\udfaf"
+      "icon": "🎯"
     },
     {
       "id": "help-center-pipeline",
@@ -307,7 +555,7 @@
       "tagline": "Slack to Zendesk article automation",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end article workflow. Team posts ideas to Slack \u2192 AI generates draft \u2192 uploads to Google Drive \u2192 tracks in spreadsheet \u2192 notifies SME.",
+      "description": "End-to-end article workflow. Team posts ideas to Slack → AI generates draft → uploads to Google Drive → tracks in spreadsheet → notifies SME.",
       "impact": [
         "Self-service article submissions via Slack",
         "AI-generated first drafts with templates",
@@ -320,11 +568,17 @@
         "weeklyMinutes": 150,
         "manualMinutes": 35,
         "automatedMinutes": 5,
-        "calculation": "30 min/draft \u00d7 5 articles/week"
+        "calculation": "30 min/draft × 5 articles/week"
       },
-      "tech": ["Python", "Slack SDK", "Google Drive API", "Google Sheets API", "launchd"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "Google Drive API",
+        "Google Sheets API",
+        "launchd"
+      ],
       "repo": null,
-      "icon": "\ud83d\udcdd"
+      "icon": "📝"
     },
     {
       "id": "redirect-checker",
@@ -349,11 +603,17 @@
         "weeklyMinutes": 150,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/request \u00d7 10 requests/week"
+        "calculation": "15 min/request × 10 requests/week"
       },
-      "tech": ["Python", "Selenium", "Slack SDK", "Google Sheets API", "GA4 API"],
+      "tech": [
+        "Python",
+        "Selenium",
+        "Slack SDK",
+        "Google Sheets API",
+        "GA4 API"
+      ],
       "repo": null,
-      "icon": "\ud83d\udd17"
+      "icon": "🔗"
     },
     {
       "id": "claude-relay",
@@ -377,11 +637,16 @@
         "weeklyMinutes": 120,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/task \u00d7 8 tasks/week"
+        "calculation": "15 min/task × 8 tasks/week"
       },
-      "tech": ["Python", "Flask", "WebSockets", "Multi-Agent"],
+      "tech": [
+        "Python",
+        "Flask",
+        "WebSockets",
+        "Multi-Agent"
+      ],
       "repo": "https://github.com/LucasWillett/claude-relay",
-      "icon": "\ud83d\udd17"
+      "icon": "🔗"
     },
     {
       "id": "matterport-checker",
@@ -405,11 +670,16 @@
         "weeklyMinutes": 120,
         "manualMinutes": 480,
         "automatedMinutes": 10,
-        "calculation": "Manual verification of 20K models impossible \u2014 2 hrs/week reactive work eliminated"
+        "calculation": "Manual verification of 20K models impossible — 2 hrs/week reactive work eliminated"
       },
-      "tech": ["Python", "Requests", "Matterport API", "ThreadPoolExecutor"],
+      "tech": [
+        "Python",
+        "Requests",
+        "Matterport API",
+        "ThreadPoolExecutor"
+      ],
       "repo": null,
-      "icon": "\ud83c\udfdb\ufe0f"
+      "icon": "🏛️"
     },
     {
       "id": "helm",
@@ -424,7 +694,7 @@
       "impact": [
         "Single tab replaces 4+ context switches",
         "AI Quick Capture turns Slack DMs into Google Tasks",
-        "Kevin Might Ask \u2014 AI-generated prep for 1:1s"
+        "Kevin Might Ask — AI-generated prep for 1:1s"
       ],
       "timeSaved": {
         "minutes": 20,
@@ -433,11 +703,17 @@
         "weeklyMinutes": 100,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/day \u00d7 5 days"
+        "calculation": "20 min/day × 5 days"
       },
-      "tech": ["Python", "Flask", "Google Tasks API", "Google Calendar API", "Claude Haiku"],
+      "tech": [
+        "Python",
+        "Flask",
+        "Google Tasks API",
+        "Google Calendar API",
+        "Claude Haiku"
+      ],
       "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "\u2638\ufe0f"
+      "icon": "☸️"
     },
     {
       "id": "browser-automation",
@@ -461,11 +737,16 @@
         "weeklyMinutes": 100,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/task \u00d7 5 tasks/week"
+        "calculation": "20 min/task × 5 tasks/week"
       },
-      "tech": ["Python", "Playwright", "Chromium", "Session Management"],
+      "tech": [
+        "Python",
+        "Playwright",
+        "Chromium",
+        "Session Management"
+      ],
       "repo": null,
-      "icon": "\ud83c\udfad"
+      "icon": "🎭"
     },
     {
       "id": "kb-skill",
@@ -489,11 +770,15 @@
         "weeklyMinutes": 100,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/article \u00d7 5 articles/week"
+        "calculation": "20 min/article × 5 articles/week"
       },
-      "tech": ["Claude Code Skills", "Confluence API", "Markdown"],
+      "tech": [
+        "Claude Code Skills",
+        "Confluence API",
+        "Markdown"
+      ],
       "repo": null,
-      "icon": "\ud83d\udcda"
+      "icon": "📚"
     },
     {
       "id": "command-bot",
@@ -517,11 +802,16 @@
         "weeklyMinutes": 50,
         "manualMinutes": 8,
         "automatedMinutes": 3,
-        "calculation": "5 min/check \u00d7 10 checks/week"
+        "calculation": "5 min/check × 10 checks/week"
       },
-      "tech": ["Python", "Slack SDK", "launchd", "subprocess"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "launchd",
+        "subprocess"
+      ],
       "repo": null,
-      "icon": "\ud83d\udcf1"
+      "icon": "📱"
     },
     {
       "id": "cvent-synergy",
@@ -532,7 +822,7 @@
       "tagline": "Automated Cvent Event Diagramming workflow",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form \u2192 validation \u2192 task package \u2192 Slack \u2192 QA.",
+      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form → validation → task package → Slack → QA.",
       "impact": [
         "URL validation catches bad links before work begins",
         "Pre-filled task packages eliminate copy-paste",
@@ -545,11 +835,17 @@
         "weeklyMinutes": 38,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/request \u00d7 10/month"
+        "calculation": "15 min/request × 10/month"
       },
-      "tech": ["Python", "Slack SDK", "Google Sheets API", "BeautifulSoup", "launchd"],
+      "tech": [
+        "Python",
+        "Slack SDK",
+        "Google Sheets API",
+        "BeautifulSoup",
+        "launchd"
+      ],
       "repo": null,
-      "icon": "\ud83c\udfdb\ufe0f"
+      "icon": "🏛️"
     },
     {
       "id": "incident-commander",
@@ -573,11 +869,18 @@
         "weeklyMinutes": 30,
         "manualMinutes": 90,
         "automatedMinutes": 30,
-        "calculation": "60 min/incident \u00d7 ~2/month"
+        "calculation": "60 min/incident × ~2/month"
       },
-      "tech": ["Python", "Flask", "Zendesk API", "Slack SDK", "GPT Actions", "Render"],
+      "tech": [
+        "Python",
+        "Flask",
+        "Zendesk API",
+        "Slack SDK",
+        "GPT Actions",
+        "Render"
+      ],
       "repo": "https://github.com/LucasWillett/incident-commander",
-      "icon": "\ud83d\udea8"
+      "icon": "🚨"
     },
     {
       "id": "cx-ai-dashboard",
@@ -603,9 +906,15 @@
         "automatedMinutes": 15,
         "calculation": "30 min/week compiling AI impact data"
       },
-      "tech": ["Python", "Flask", "Slack SDK", "Render", "Gunicorn"],
+      "tech": [
+        "Python",
+        "Flask",
+        "Slack SDK",
+        "Render",
+        "Gunicorn"
+      ],
       "repo": "https://github.com/LucasWillett/cx-ai-dashboard",
-      "icon": "\ud83d\udcca"
+      "icon": "📊"
     },
     {
       "id": "tour-opener",
@@ -628,11 +937,54 @@
         "weeklyMinutes": 0,
         "manualMinutes": 480,
         "automatedMinutes": 10,
-        "calculation": "8+ hours manual \u2192 10 min automated"
+        "calculation": "8+ hours manual → 10 min automated"
       },
-      "tech": ["Python", "Selenium", "aiohttp", "ThreadPoolExecutor"],
+      "tech": [
+        "Python",
+        "Selenium",
+        "aiohttp",
+        "ThreadPoolExecutor"
+      ],
       "repo": "https://github.com/LucasWillett/tour-opener",
-      "icon": "\ud83d\udee4\ufe0f"
+      "icon": "🛤️"
+    },
+    {
+      "id": "intake-bot-test-v2",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Intake Bot Test v2",
+      "tagline": "Tests the full intake flow for the AI in Action challenge dashboard",
+      "status": "production",
+      "date": "2026-03",
+      "description": "Tests the full intake flow for the AI in Action challenge dashboard",
+      "impact": [],
+      "timeSaved": {
+        "weeklyMinutes": 30,
+        "calculation": "Self-reported: ~30 min/week"
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "✨"
+    },
+    {
+      "id": "final-e2e-test",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Final E2E Test",
+      "tagline": "Validates the complete intake bot submission flow including badges and data pers",
+      "status": "production",
+      "date": "2026-03",
+      "description": "Validates the complete intake bot submission flow including badges and data persistence",
+      "impact": [],
+      "timeSaved": {
+        "weeklyMinutes": 120,
+        "calculation": "Self-reported: ~120 min/week"
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "✨"
     }
   ]
 }
