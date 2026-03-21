@@ -1,206 +1,316 @@
 {
   "meta": {
     "title": "AI in Action",
-    "subtitle": "Automation & AI Projects by Lucas Willett",
-    "lastUpdated": "2026-03-20T06:37:23Z",
-    "status": "online"
+    "subtitle": "CX Organization AI & Automation Impact",
+    "lastUpdated": "2026-03-20T21:45:00Z",
+    "status": "online",
+    "orgSize": 30,
+    "costPerHour": 39
   },
   "stats": {
     "projectsLive": 14,
     "automationsRunning": 14,
     "apiCallsToday": "~900"
   },
+  "competition": {
+    "startDate": null,
+    "name": "AI in Action Challenge",
+    "tagline": "Every team starts at zero. Build something that saves time."
+  },
+  "milestones": [
+    { "hours": 250, "reached": "2026-02-20", "label": "250 Hours Saved" },
+    { "hours": 500, "reached": "2026-02-28", "label": "500 Hours Saved" },
+    { "hours": 1000, "reached": "2026-03-12", "label": "1,000 Hours Saved" },
+    { "hours": 2500, "reached": null, "label": "2,500 Hours Saved" }
+  ],
+  "teams": [
+    {
+      "id": "support",
+      "name": "Support",
+      "lead": "Lucas Willett",
+      "members": ["Lucas Willett", "Christian Staley", "Hannah Holbrook"],
+      "color": "#6366f1"
+    },
+    {
+      "id": "cs",
+      "name": "Customer Success",
+      "lead": "Ryan Schwartz",
+      "members": ["Ryan Schwartz", "Jennifer Schiraldi", "Emily Jurden", "Ryan Lavelle", "Nicole Garder", "Sarah Urbas", "Mellisa Blakemore", "Desiree Crews", "Michael Estrada", "Travis Shannon", "Bronwyn Neale", "Gabrielle Regidor"],
+      "color": "#10b981"
+    },
+    {
+      "id": "pmo",
+      "name": "PMO",
+      "lead": "Jackie George",
+      "members": ["Jackie George", "Jameika Baysinger", "Jakeyla Cowlin", "Kassi Fitzpatrick", "Cassandra Rowland"],
+      "color": "#22d3ee"
+    }
+  ],
+  "badgeLadder": [
+    { "id": "first-win", "label": "First Win", "description": "Logged your first AI project", "threshold": 1, "type": "projects", "icon": ":blob-wave:", "html": "\u2b50" },
+    { "id": "hat-trick", "label": "Hat Trick", "description": "3 projects shipped", "threshold": 3, "type": "projects", "icon": ":meow_salute:", "html": "\ud83c\udfa9" },
+    { "id": "high-five", "label": "High Five", "description": "5 projects shipped", "threshold": 5, "type": "projects", "icon": ":blob-hearts:", "html": "\u270b" },
+    { "id": "double-digits", "label": "Double Digits", "description": "10 projects shipped", "threshold": 10, "type": "projects", "icon": ":meow_detective:", "html": "\ud83d\udd1f" },
+    { "id": "baker-dozen", "label": "Baker's Dozen", "description": "13 projects shipped", "threshold": 13, "type": "projects", "icon": ":party_blob:", "html": "\ud83c\udf5e" },
+    { "id": "score", "label": "The Score", "description": "20 projects shipped", "threshold": 20, "type": "projects", "icon": ":meow-hehehe:", "html": "\ud83c\udfc6" },
+    { "id": "fifty-club", "label": "50 Club", "description": "50 projects shipped", "threshold": 50, "type": "projects", "icon": ":blob-heart:", "html": "\ud83d\udc8e" },
+    { "id": "century", "label": "Century", "description": "100 projects shipped", "threshold": 100, "type": "projects", "icon": ":meow_heart:", "html": "\ud83d\ude80" },
+    { "id": "week-1", "label": "Week 1 Builder", "description": "Shipped in the first week", "threshold": 1, "type": "special", "icon": ":blob_cozy:", "html": "\ud83c\udf1f" },
+    { "id": "back-to-back", "label": "Back to Back", "description": "2 projects in consecutive weeks", "threshold": 2, "type": "streak", "icon": ":meow_this_is_fine:", "html": "\ud83d\udd25" },
+    { "id": "three-peat", "label": "Three-Peat", "description": "3 consecutive weeks shipping", "threshold": 3, "type": "streak", "icon": ":blob-wave:", "html": "\ud83e\udd29" },
+    { "id": "on-fire", "label": "On Fire", "description": "5 consecutive weeks shipping", "threshold": 5, "type": "streak", "icon": ":meow_detective:", "html": "\ud83d\udd25" },
+    { "id": "iron-streak", "label": "Iron Streak", "description": "10 consecutive weeks shipping", "threshold": 10, "type": "streak", "icon": ":party_blob:", "html": "\u26a1" },
+    { "id": "cross-team", "label": "Assist", "description": "Helped another team ship a project", "threshold": 1, "type": "special", "icon": ":meow_salute:", "html": "\ud83e\udd1d" },
+    { "id": "evangelist", "label": "Evangelist", "description": "Brought a new person onto the board", "threshold": 1, "type": "special", "icon": ":blob-hearts:", "html": "\ud83d\udce3" },
+    { "id": "documented", "label": "Documented", "description": "First project with a Confluence page", "threshold": 1, "type": "docs", "icon": ":meow_detective:", "html": "\ud83d\udcd6" },
+    { "id": "playbook-author", "label": "Playbook Author", "description": "3 projects documented on Confluence", "threshold": 3, "type": "docs", "icon": ":blob-hearts:", "html": "\ud83d\udcda" },
+    { "id": "blueprint", "label": "Blueprint", "description": "Someone replicated your documented project", "threshold": 1, "type": "docs", "icon": ":party_blob:", "html": "\ud83c\udfd7\ufe0f" }
+  ],
+  "contributors": [
+    {
+      "name": "Lucas Willett",
+      "team": "support",
+      "avatar": "LW",
+      "joined": "2026-02-13",
+      "badges": ["first-win", "hat-trick", "high-five", "double-digits", "baker-dozen", "on-fire"],
+      "role": "competitor"
+    },
+    {
+      "name": "Kevin Huang",
+      "team": "executive",
+      "avatar": "KH",
+      "joined": "2026-03-10",
+      "badges": ["first-win"],
+      "role": "sponsor"
+    }
+  ],
+  "weeklySeries": [
+    { "week": "2026-02-10", "cumulativeMinutes": 0, "projects": 0 },
+    { "week": "2026-02-17", "cumulativeMinutes": 1200, "projects": 8 },
+    { "week": "2026-02-24", "cumulativeMinutes": 2800, "projects": 11 },
+    { "week": "2026-03-03", "cumulativeMinutes": 4400, "projects": 12 },
+    { "week": "2026-03-10", "cumulativeMinutes": 6038, "projects": 13 },
+    { "week": "2026-03-17", "cumulativeMinutes": 7676, "projects": 14 },
+    { "week": "2026-03-24", "cumulativeMinutes": 9314, "projects": 14 }
+  ],
   "activity": [
     {
       "timestamp": "2026-03-20T17:00:00Z",
-      "event": "TourFinder: traffic check command shipped \u2014 batch GA4 traffic lookup for legacy slugs. Laura tested 1,467 slugs in 5 seconds (vs ~90 sec/slug in Looker = 36+ hrs manual). QA verification added to map property + redirect check (Selenium verifies each mapped URL). Fuzzy matcher tightened: 0.7 threshold, number awareness, hospitality synonyms. Supabase License__c now primary for slug discovery. API supplement catches 360/guest room assets WP doesn't know about. Scout-assisted verification workflow for WAF-blocked sites (Hyatt). Andrew tab removed \u2014 single Output tab only."
+      "event": "TourFinder: traffic check + QA verification + fuzzy matcher tightened",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "tourfinder"
     },
     {
       "timestamp": "2026-03-20T06:00:00Z",
-      "event": "Dark Room launched \u2014 bot-to-bot brainstorm channel where TourFinder collaborates with other bots. Drop an account name and TourFinder auto-generates a rich seed with CZ data, GA4 traffic, embed coverage, peer benchmarks, and distribution gaps. Portfolio roll-ups for parent brands. Threaded Haiku-powered replies with synthesis routing (fix proactively vs surface as value). Bare-name fuzzy matching, auto-roster, gap logging, thread compression. Canvas setup guide published for bot onboarding. Born from Kevin x Lucas 1:1 \u2014 same-day ship."
+      "event": "Dark Room launched \u2014 bot-to-bot brainstorm channel with CZ/GA4/embed data",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "tourfinder"
     },
     {
       "timestamp": "2026-03-16T20:00:00Z",
-      "event": "TourFinder: Haiku intent classifier shipped \u2014 catches policy questions and example requests that pattern matching misses. Curated showcase catalog (7 independents) with dynamic embed counts from crawl data (416 properties). Support Pulse: fixed Monday email date bug, added volume context line, unified all recipients to identical format. Redirect checker: WAF skip list + continuous batch mode, 416 accounts already crawled (2,021 results, 343 bad redirects), remaining ~2,900 running now. Published 'Building Internal Slack Bots' blueprint on Confluence for IT team."
+      "event": "TourFinder: Haiku intent classifier + curated showcase catalog shipped",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "tourfinder"
     },
     {
       "timestamp": "2026-03-12T18:30:00Z",
-      "event": "CX AI Impact Dashboard launched \u2014 Kevin Huang's CX-wide AI time savings tracker. 4 tiers (Executive, Support, PMO, CS), 13 projects, 26.1 hrs/wk. Live on Render. Slack bot built for ai-win intake. /kb skill created for Christian's KB project \u2014 auto-captures ticket resolutions as Confluence articles."
+      "event": "CX AI Impact Dashboard launched \u2014 4 tiers, 13 projects, live on Render",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "cx-ai-dashboard"
     },
     {
       "timestamp": "2026-03-13T01:00:00Z",
-      "event": "Redirect checker overhauled: GA4-driven smart crawler (priority queue, lazy-load scroll, subdomain following), nightly full-sweep of all 3,340 accounts in ARR-sorted tranches. Second GA4 property (382011463) unlocked and wired into TourFinder, truetour-analytics, and ai_referral_query. Hilton distribution cross-reference improved: 172 confirmed present ($1.55M ARR), 473 absent ($3.1M ARR) \u2014 matched via License__c slugs + VM property cache. Helm System Health widget: 8 data sources monitored every 30 min (Fathom, Zendesk, GA4 x2, Google Calendar, Tasks, Supabase, Slack, VM API) with Slack DM alerts on status transitions."
+      "event": "Redirect checker overhauled: GA4-driven smart crawler + nightly full-sweep",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "redirect-checker"
     },
     {
       "timestamp": "2026-03-12T22:00:00Z",
-      "event": "TourFinder curated examples system: mined 55 distribution URLs from #channel-distribution history (11 contributors, 23 platforms). Feedback loop captures team URLs from thread replies with :brain: reaction. TourFinder vs CD Bot scoreboard on Helm dashboard \u2014 head-to-head W/L tracking. Slack Knowledge Capture blueprint saved for reuse."
-    },
-    {
-      "timestamp": "2026-03-12T18:00:00Z",
-      "event": "AI pilot full project layer created (Hilton pattern), council session run on pilot-vs-guidance strategy (Slack canvas shared). TourFinder fixes: help center keyword guard (generic words like 'hotel' no longer match wrong articles), DuckDuckGo property scoping for brand sites (Omni Chicago fix). Support Triage Gem tightened to 5-workflow scope. GA release notes posted to #support-internal."
+      "event": "TourFinder curated examples + CD Bot scoreboard on Helm dashboard",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "tourfinder"
     },
     {
       "timestamp": "2026-03-11T17:00:00Z",
-      "event": "AI-Ready Deployment Pilot launched \u2014 Confluence plan page, candidate list built by cross-referencing GA4 AI referral traffic against Supabase/Salesforce accounts. 11 small independent properties identified with marketing/DOSM contacts. Beta redirect QA automation built (Selenium verifies 9,798 redirect mappings). Batch redirect checker completed: 568 results, fixed /all-assets-share false positives (214 reclassified), unified sheet write format across all entry points.",
-      "type": "update"
+      "event": "AI-Ready Deployment Pilot launched on Confluence",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "kb-skill"
     },
     {
       "timestamp": "2026-03-08T22:00:00Z",
-      "event": "Redirect Checker overhauled \u2014 fragment resolution now loads the actual TrueTour viewer via Selenium, reads the Angular scope to map group/tour indexes to asset names, then matches names to truetour.app media IDs via API. Sheet output includes asset names, types, and manual-update flags. Nightly refresh audited for tool integrity.",
-      "type": "update"
+      "event": "Redirect Checker: fragment resolution via Angular scope + API mapping",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "redirect-checker"
     },
     {
       "timestamp": "2026-03-06T17:00:00Z",
-      "event": "Tour Opener built \u2014 three-step pipeline audits 638 disabled TrueTour licenses. Checks HTTP redirects, renders pages with headless Selenium (5 parallel browsers), classifies what end users actually see: live content, welcome/under construction screens, expired pages, or blank pages. Found 198 showing construction screens, 410 still serving live tour content despite being disabled.",
-      "type": "deploy"
+      "event": "Tour Opener built \u2014 638 disabled licenses audited in 10 min",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "tour-opener"
     },
     {
       "timestamp": "2026-02-25T18:00:00Z",
-      "event": "Matterport Health Checker built \u2014 crawls 20K+ Matterport models from TrueTour export, checks each via API for active/dead status, maps failures back to property IDs. Catches broken 3D tours before customers hit oops screens.",
-      "type": "deploy"
+      "event": "Matterport Health Checker \u2014 20K+ models scanned, 1,021 dead found",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "matterport-checker"
     },
     {
       "timestamp": "2026-02-24T23:00:00Z",
-      "event": "Cvent Synergy deployed \u2014 automated Cvent Event Diagramming workflow. Google Form intake, URL validation, task package generation, Slack notifications to Hannah, thread-based completion tracking, and QA link checks. Always-on via launchd.",
-      "type": "deploy"
+      "event": "Cvent Synergy deployed \u2014 automated Event Diagramming workflow",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "cvent-synergy"
     },
     {
       "timestamp": "2026-02-23T19:00:00Z",
-      "event": "Support Triage Assistant built \u2014 Gemini Gem with 6 knowledge docs covering login issues, broken links, terminology, and 502/504 errors. Full team trained across 4 dry run scenarios.",
-      "type": "deploy"
-    },
-    {
-      "timestamp": "2026-02-23T18:00:00Z",
-      "event": "Confluence page created: 'Investigating 502 & 504 Errors in Datadog' \u2014 live Datadog Log Explorer training artifact from GA training session",
-      "type": "integration"
+      "event": "Support Triage Assistant built \u2014 Gemini Gem with 6 knowledge docs",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-triage-gem"
     },
     {
       "timestamp": "2026-02-20T15:00:00Z",
-      "event": "Helm dashboard launched \u2014 personal ops command center with Tasks, Calendar, AI Quick Capture, and weather",
-      "type": "deploy"
-    },
-    {
-      "timestamp": "2026-02-20T14:00:00Z",
-      "event": "Batch redirect checker completed \u2014 1,941 properties scanned, 93 bad redirects flagged",
-      "type": "integration"
-    },
-    {
-      "timestamp": "2026-02-20T12:30:00Z",
-      "event": "Claude Relay made persistent via launchd \u2014 Slack notifications wired to #lucas-briefing",
-      "type": "deploy"
-    },
-    {
-      "timestamp": "2026-02-20T11:00:00Z",
-      "event": "TourFinder sub-brand detection improved \u2014 Marriott family (AC Hotels, Gaylord, etc.) now recognized",
-      "type": "update"
+      "event": "Helm dashboard launched \u2014 personal ops command center",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "helm"
     },
     {
       "timestamp": "2026-02-18T06:36:00Z",
-      "event": "Playwright Browser Automation deployed - headless scripts replace screenshot-heavy workflows",
-      "type": "deploy"
+      "event": "Browser Automation deployed \u2014 headless Playwright scripts",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "browser-automation"
     },
     {
       "timestamp": "2026-02-17T15:00:00Z",
-      "event": "Command Bot deployed - run automation from phone via Slack",
-      "type": "deploy"
+      "event": "Command Bot deployed \u2014 run automation from phone via Slack",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "command-bot"
     },
     {
       "timestamp": "2026-02-17T14:30:00Z",
-      "event": "Help Center Article Pipeline connected to Google Drive",
-      "type": "integration"
+      "event": "Help Center Pipeline connected to Google Drive",
+      "type": "integration",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "help-center-pipeline"
     },
     {
       "timestamp": "2026-02-16T10:00:00Z",
-      "event": "Redirect Checker Slack bot deployed - on-demand scans via #support-internal",
-      "type": "deploy"
+      "event": "Redirect Checker Slack bot deployed",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "redirect-checker"
     },
     {
       "timestamp": "2026-02-13T21:10:00Z",
       "event": "AI in Action portfolio site launched",
-      "type": "deploy"
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "helm"
     }
   ],
   "projects": [
     {
+      "id": "tourfinder",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "TourFinder",
+      "tagline": "Property lookups + third-party example finder",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Slack bot monitoring #channel-distribution. Responds to property questions with high-traffic examples from ChurnZero, finds verified third-party platform examples, runs redirect checks, maps legacy URLs, and checks GA4 traffic \u2014 all from Slack.",
+      "impact": [
+        "Third-party example finder \u2014 crawls Cvent, TripAdvisor, etc.",
+        "Eliminates manual platform-by-platform searching",
+        "Brand hierarchy awareness (IHG \u2192 Holiday Inn Express)",
+        "Distribution gap detection",
+        "Self-service for sales and distribution team prep"
+      ],
+      "timeSaved": {
+        "minutes": 30,
+        "per": "query",
+        "frequency": "~15/week",
+        "weeklyMinutes": 450,
+        "manualMinutes": 30,
+        "automatedMinutes": 2,
+        "calculation": "30 min/query \u00d7 15 queries/week"
+      },
+      "tech": ["Python", "Slack SDK", "ChurnZero API", "GA4 API", "Selenium", "launchd"],
+      "repo": "https://github.com/LucasWillett/tourfinder",
+      "icon": "\ud83d\udd0d"
+    },
+    {
       "id": "support-triage-gem",
       "publish": true,
       "audience": "team",
+      "team": "support",
       "name": "Support Triage Assistant",
       "tagline": "AI triage copilot for platform migration support",
       "status": "production",
       "date": "2026-02",
-      "description": "Gemini Gem deployed on Google Workspace for the 3-person support team. Covers 4 triage workflows \u2014 login failures, broken share links, terminology confusion, and 502/504 errors. Knowledge base lives in 6 Google Docs for live editing with zero re-upload friction. Built as an enterprise Claude stopgap ahead of VMP GA.",
+      "description": "Gemini Gem for the 3-person support team. Covers 5 triage workflows \u2014 login failures, broken share links, terminology confusion, 502/504 errors, and enterprise admin issues.",
       "impact": [
-        "Single-mode smart routing \u2014 describe the issue, Gem picks the workflow",
-        "Adaptive coaching \u2014 matches pace to user confidence level",
-        "Copy-paste Jira ticket generation (BUG and DSO project templates)",
-        "Live-editable knowledge docs \u2014 update the doc, Gem picks it up immediately"
+        "Single-mode smart routing",
+        "Copy-paste Jira ticket generation",
+        "Live-editable knowledge docs"
       ],
       "timeSaved": {
         "minutes": 20,
         "per": "triage session",
         "frequency": "~10/week",
         "weeklyMinutes": 200,
-        "calculation": "20 min/session \u00d7 10 sessions/week across 3-person team"
+        "manualMinutes": 25,
+        "automatedMinutes": 5,
+        "calculation": "20 min/session \u00d7 10 sessions/week"
       },
-      "tech": [
-        "Gemini Gems",
-        "Google Workspace",
-        "Box",
-        "Google Drive",
-        "Jira",
-        "Datadog",
-        "Confluence"
-      ],
+      "tech": ["Gemini Gems", "Google Workspace", "Box", "Google Drive"],
       "repo": null,
       "icon": "\ud83c\udfaf"
-    },
-    {
-      "id": "helm",
-      "publish": true,
-      "audience": "lucas",
-      "name": "Helm",
-      "tagline": "Personal ops command center",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Personal operational memory dashboard. Turns meetings into memory, memory into action. Surfaces Google Tasks (My Tasks + project context panels), Google Calendar with live meeting status, AI-powered Quick Capture that distills raw notes into tasks, hourly weather, and a live to-do list synced from CLAUDE.md.",
-      "impact": [
-        "Single tab replaces 4+ context switches (Tasks, Calendar, notes, Slack)",
-        "AI Quick Capture turns messy Slack DMs into clean Google Tasks",
-        "Calendar filtered to real meetings \u2014 red/orange time blocks hidden",
-        "Helm Tasks card tracks in-flight engineering work from CLAUDE.md"
-      ],
-      "timeSaved": {
-        "minutes": 20,
-        "per": "morning planning session",
-        "frequency": "5/week",
-        "weeklyMinutes": 100,
-        "calculation": "20 min/day \u00d7 5 days (consolidates task review, calendar check, capture)"
-      },
-      "tech": [
-        "Python",
-        "Flask",
-        "Google Tasks API",
-        "Google Calendar API",
-        "Claude Haiku",
-        "Open-Meteo API"
-      ],
-      "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "\u2638\ufe0f"
     },
     {
       "id": "help-center-pipeline",
       "publish": true,
       "audience": "team",
+      "team": "support",
       "name": "Help Center Article Pipeline",
       "tagline": "Slack to Zendesk article automation",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end article workflow. Team posts ideas to #help-center-ideas \u2192 AI generates draft \u2192 uploads to Google Drive folders \u2192 tracks in spreadsheet \u2192 notifies SME. Governance board drags articles through review stages.",
+      "description": "End-to-end article workflow. Team posts ideas to Slack \u2192 AI generates draft \u2192 uploads to Google Drive \u2192 tracks in spreadsheet \u2192 notifies SME.",
       "impact": [
         "Self-service article submissions via Slack",
         "AI-generated first drafts with templates",
-        "Automatic SME assignment from taxonomy",
         "Progress tracking across 5 review stages"
       ],
       "timeSaved": {
@@ -208,120 +318,53 @@
         "per": "article draft",
         "frequency": "~5/week",
         "weeklyMinutes": 150,
+        "manualMinutes": 35,
+        "automatedMinutes": 5,
         "calculation": "30 min/draft \u00d7 5 articles/week"
       },
-      "tech": [
-        "Python",
-        "Slack SDK",
-        "Google Drive API",
-        "Google Sheets API",
-        "launchd"
-      ],
+      "tech": ["Python", "Slack SDK", "Google Drive API", "Google Sheets API", "launchd"],
       "repo": null,
       "icon": "\ud83d\udcdd"
     },
     {
-      "id": "command-bot",
-      "publish": true,
-      "audience": "lucas",
-      "name": "Command Bot",
-      "tagline": "Run automation from your phone",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Slack-based remote control for all automation. Send commands from phone in #lucas-briefing: !status, !run pipeline, !run watcher, !services, !zaps. Results posted back instantly.",
-      "impact": [
-        "Trigger automation from anywhere",
-        "Check system health on the go",
-        "No laptop/terminal needed"
-      ],
-      "timeSaved": {
-        "minutes": 5,
-        "per": "remote check",
-        "frequency": "~10/week",
-        "weeklyMinutes": 50,
-        "calculation": "5 min/check \u00d7 10 checks/week"
-      },
-      "tech": [
-        "Python",
-        "Slack SDK",
-        "launchd",
-        "subprocess"
-      ],
-      "repo": null,
-      "icon": "\ud83d\udcf1"
-    },
-    {
-      "id": "browser-automation",
-      "publish": true,
-      "audience": "lucas",
-      "name": "Browser Automation",
-      "tagline": "Headless Playwright scripts",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Playwright-based browser automation with persistent sessions. Replaces screenshot-heavy AI workflows with lightweight scripts that extract data directly. Session manager saves auth state so scripts run headlessly without re-login.",
-      "impact": [
-        "90% reduction in AI token usage for browser tasks",
-        "Persistent sessions across script runs",
-        "Template system for rapid new automations",
-        "Integrates with Command Bot (!zaps)"
-      ],
-      "timeSaved": {
-        "minutes": 20,
-        "per": "browser task",
-        "frequency": "~5/week",
-        "weeklyMinutes": 100,
-        "calculation": "20 min/task \u00d7 5 tasks/week (vs screenshot-based approach)"
-      },
-      "tech": [
-        "Python",
-        "Playwright",
-        "Chromium",
-        "Session Management"
-      ],
-      "repo": null,
-      "icon": "\ud83c\udfad"
-    },
-    {
-      "id": "incident-commander",
+      "id": "redirect-checker",
       "publish": true,
       "audience": "team",
-      "name": "Incident Commander",
-      "tagline": "P1 response automation via GPT",
+      "team": "support",
+      "name": "Redirect Checker",
+      "tagline": "GA4-driven URL validation + nightly sweeps",
       "status": "production",
       "date": "2026-02",
-      "description": "Custom GPT connected to Zendesk & Slack APIs. Automates incident declaration, macro creation, Help Center updates, and cross-channel communications. One person can now run the entire Support-side incident workflow from a single conversation.",
+      "description": "Validates TrueTour embed URLs on hotel websites. GA4-driven smart crawler with Selenium, fragment resolution via Angular scope and API, nightly full-sweep of 3,300+ accounts.",
       "impact": [
-        "Reduced P1 coordination overhead",
-        "Consistent messaging across all channels",
-        "Draft-then-publish approval workflow"
+        "Self-service redirect scans via Slack",
+        "Fragment resolution maps group/tour indexes to real assets",
+        "Nightly sweep catches new bad redirects automatically",
+        "Results auto-exported to Google Sheets"
       ],
       "timeSaved": {
-        "minutes": 60,
-        "per": "incident",
-        "frequency": "~2/month",
-        "weeklyMinutes": 30,
-        "calculation": "60 min/incident \u00d7 ~2 incidents/month \u00f7 4 weeks"
+        "minutes": 15,
+        "per": "scan request",
+        "frequency": "~10/week",
+        "weeklyMinutes": 150,
+        "manualMinutes": 20,
+        "automatedMinutes": 5,
+        "calculation": "15 min/request \u00d7 10 requests/week"
       },
-      "tech": [
-        "Python",
-        "Flask",
-        "Zendesk API",
-        "Slack SDK",
-        "GPT Actions",
-        "Render"
-      ],
-      "repo": "https://github.com/LucasWillett/incident-commander",
-      "icon": "\ud83d\udea8"
+      "tech": ["Python", "Selenium", "Slack SDK", "Google Sheets API", "GA4 API"],
+      "repo": null,
+      "icon": "\ud83d\udd17"
     },
     {
       "id": "claude-relay",
       "publish": true,
       "audience": "team",
+      "team": "support",
       "name": "Claude Relay",
       "tagline": "Multi-agent coordination system",
       "status": "production",
       "date": "2026-02",
-      "description": "Two-agent system enabling Claude Code (terminal) and Browser Claude to work together. Task queue with web UI for real-time coordination between AI instances.",
+      "description": "Two-agent system enabling Claude Code (terminal) and Browser Claude to work together. Task queue with web UI for real-time coordination.",
       "impact": [
         "Terminal + Browser AI working in tandem",
         "Automated task handoffs",
@@ -332,242 +375,264 @@
         "per": "task",
         "frequency": "~8/week",
         "weeklyMinutes": 120,
+        "manualMinutes": 20,
+        "automatedMinutes": 5,
         "calculation": "15 min/task \u00d7 8 tasks/week"
       },
-      "tech": [
-        "Python",
-        "Flask",
-        "WebSockets",
-        "Multi-Agent"
-      ],
+      "tech": ["Python", "Flask", "WebSockets", "Multi-Agent"],
       "repo": "https://github.com/LucasWillett/claude-relay",
       "icon": "\ud83d\udd17"
-    },
-    {
-      "id": "tourfinder",
-      "publish": true,
-      "audience": "team",
-      "name": "TourFinder",
-      "tagline": "Property lookups + third-party example finder",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Slack bot monitoring #channel-distribution and #support-internal. Responds to property questions with high-traffic examples from ChurnZero, and finds verified third-party platform examples automatically. When someone asks 'any Hilton properties on Cvent?', TourFinder crawls the Cvent venue directory, searches DuckDuckGo, checks each profile for embedded TrueTour links, and returns verified examples with live URLs \u2014 a process that takes 30+ minutes manually per platform search.",
-      "impact": [
-        "Third-party example finder \u2014 crawls Cvent, TripAdvisor, etc. for verified TrueTour embeds",
-        "Eliminates manual platform-by-platform searching for distribution examples",
-        "Instant property lookups with brand hierarchy awareness (IHG \u2192 Holiday Inn Express)",
-        "Distribution gap detection \u2014 flags properties with platform profiles but no TrueTour embed",
-        "Self-service for sales and distribution team prep"
-      ],
-      "timeSaved": {
-        "minutes": 30,
-        "per": "query",
-        "frequency": "~15/week",
-        "weeklyMinutes": 450,
-        "calculation": "30 min/query \u00d7 15 queries/week (third-party example searches are 30+ min manual)"
-      },
-      "tech": [
-        "Python",
-        "Slack SDK",
-        "ChurnZero API",
-        "GA4 API",
-        "BeautifulSoup",
-        "DuckDuckGo Search",
-        "launchd"
-      ],
-      "repo": "https://github.com/LucasWillett/tourfinder",
-      "icon": "\ud83d\udd0d"
-    },
-    {
-      "id": "cvent-synergy",
-      "publish": true,
-      "audience": "team",
-      "name": "Cvent Synergy",
-      "tagline": "Automated Cvent Event Diagramming workflow",
-      "status": "production",
-      "date": "2026-02",
-      "description": "End-to-end automation for Cvent Event Diagramming channel distribution requests. Google Form intake feeds a tracking sheet. Bot validates URLs, scrapes space names, generates ready-to-paste task packages (Mattertag content, Element configs, appearance settings), and posts to Slack. Human does the spatial/creative work, replies 'done', and the bot runs QA link checks and closes the loop.",
-      "impact": [
-        "Formal submission process replaces ad-hoc spreadsheet updates",
-        "URL validation catches bad links before work begins",
-        "Pre-filled task packages eliminate copy-paste hunting",
-        "QA link check catches broken links before customer sees them"
-      ],
-      "timeSaved": {
-        "minutes": 15,
-        "per": "request",
-        "frequency": "~10/month",
-        "weeklyMinutes": 38,
-        "calculation": "15 min/request \u00d7 10 requests/month \u00f7 4 weeks"
-      },
-      "tech": [
-        "Python",
-        "Slack SDK",
-        "Google Sheets API",
-        "Google Drive API",
-        "BeautifulSoup",
-        "launchd"
-      ],
-      "repo": null,
-      "icon": "\ud83c\udfdb\ufe0f"
     },
     {
       "id": "matterport-checker",
       "publish": true,
       "audience": "team",
+      "team": "support",
       "name": "Matterport Health Checker",
       "tagline": "Proactive 3D model health monitoring",
       "status": "production",
       "date": "2026-02",
-      "description": "Crawls all Matterport embed URLs from TrueTour (20K+ models), checks each against the Matterport API for active/dead status, and maps failures back to property IDs. First run found 1,021 dead models across 204 properties \u2014 broken 3D tours customers were hitting as oops screens. Runs with checkpoint/resume, concurrent workers, and produces actionable CSV + JSON reports.",
+      "description": "Crawls all Matterport embed URLs from TrueTour (20K+ models), checks each against the Matterport API for active/dead status. First run found 1,021 dead models.",
       "impact": [
         "First scan caught 1,021 dead models across 204 properties",
-        "Proactive detection before customers report oops errors",
-        "Full scan of 20K models completes in under 10 minutes",
-        "Dead model report mapped to property IDs for targeted fixes"
+        "Proactive detection before customers report",
+        "Full scan of 20K models in under 10 minutes"
       ],
       "timeSaved": {
         "minutes": 120,
         "per": "weekly scan",
         "frequency": "1/week",
         "weeklyMinutes": 120,
-        "calculation": "Manual verification of 20K models is impossible \u2014 conservatively 2 hrs/week of reactive ticket investigation eliminated"
+        "manualMinutes": 480,
+        "automatedMinutes": 10,
+        "calculation": "Manual verification of 20K models impossible \u2014 2 hrs/week reactive work eliminated"
       },
-      "tech": [
-        "Python",
-        "Requests",
-        "Matterport API",
-        "ThreadPoolExecutor"
-      ],
+      "tech": ["Python", "Requests", "Matterport API", "ThreadPoolExecutor"],
       "repo": null,
       "icon": "\ud83c\udfdb\ufe0f"
     },
     {
-      "id": "redirect-checker",
+      "id": "helm",
       "publish": true,
-      "audience": "team",
-      "name": "Redirect Checker",
-      "tagline": "On-demand URL validation via Slack",
+      "audience": "lucas",
+      "team": "support",
+      "name": "Helm",
+      "tagline": "Personal ops command center",
       "status": "production",
       "date": "2026-02",
-      "description": "Validates TrueTour embed URLs on hotel websites. Selenium crawls the site, finds visitingmedia.com embeds, checks if redirects fire, then resolves legacy fragment URLs (#/360?group=X&tour=Y, #/3d-model/G/T) to actual asset names by loading the TrueTour viewer and reading the Angular scope. Matched assets get mapped to truetour.app media IDs via API. Sheet output includes asset names, types, and flags for URLs needing manual update.",
+      "description": "Operational memory dashboard. Turns meetings into memory, memory into action. OKR tracking, Heads Up alerts, Calendar, Weather, Quick Capture, Meeting Prep.",
       "impact": [
-        "Self-service redirect scans via Slack",
-        "Fragment resolution via Angular scope \u2014 maps group/tour indexes to real asset names",
-        "Two-step mapping: viewer name \u2192 API lookup \u2192 truetour.app /media/ URL",
-        "Flags unmapped legacy assets for manual review",
-        "Results auto-exported to Google Sheets with asset metadata"
+        "Single tab replaces 4+ context switches",
+        "AI Quick Capture turns Slack DMs into Google Tasks",
+        "Kevin Might Ask \u2014 AI-generated prep for 1:1s"
       ],
       "timeSaved": {
-        "minutes": 15,
-        "per": "scan request",
-        "frequency": "~10/week",
-        "weeklyMinutes": 150,
-        "calculation": "15 min/request \u00d7 10 requests/week"
+        "minutes": 20,
+        "per": "morning planning session",
+        "frequency": "5/week",
+        "weeklyMinutes": 100,
+        "manualMinutes": 25,
+        "automatedMinutes": 5,
+        "calculation": "20 min/day \u00d7 5 days"
       },
-      "tech": [
-        "Python",
-        "Selenium",
-        "Slack SDK",
-        "Google Sheets API",
-        "BeautifulSoup"
+      "tech": ["Python", "Flask", "Google Tasks API", "Google Calendar API", "Claude Haiku"],
+      "repo": "https://github.com/LucasWillett/support-memory",
+      "icon": "\u2638\ufe0f"
+    },
+    {
+      "id": "browser-automation",
+      "publish": true,
+      "audience": "lucas",
+      "team": "support",
+      "name": "Browser Automation",
+      "tagline": "Headless Playwright scripts",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Playwright-based browser automation with persistent sessions. Replaces screenshot-heavy AI workflows with lightweight scripts.",
+      "impact": [
+        "90% reduction in AI token usage",
+        "Persistent sessions across script runs",
+        "Integrates with Command Bot"
       ],
+      "timeSaved": {
+        "minutes": 20,
+        "per": "browser task",
+        "frequency": "~5/week",
+        "weeklyMinutes": 100,
+        "manualMinutes": 25,
+        "automatedMinutes": 5,
+        "calculation": "20 min/task \u00d7 5 tasks/week"
+      },
+      "tech": ["Python", "Playwright", "Chromium", "Session Management"],
       "repo": null,
-      "icon": "\ud83d\udd17"
-    },
-    {
-      "id": "tour-opener",
-      "publish": true,
-      "audience": "team",
-      "name": "Tour Opener",
-      "tagline": "Disabled license audit via headless browser",
-      "status": "production",
-      "date": "2026-03",
-      "description": "Three-step audit pipeline for disabled TrueTour licenses. Step 1: HTTP redirect check on all 638 URLs. Step 2: Headless Selenium (5 parallel Chrome instances) renders each page and classifies what end users see. Step 3: Deep pass on legacy URLs to distinguish welcome/under construction screens from live tour content. Built to answer 'what happens when a customer clicks a disabled license link?'",
-      "impact": [
-        "Audited 638 disabled licenses in under 10 minutes total",
-        "Found 198 showing 'Under Construction' welcome screens",
-        "Found 410 still serving live tour content despite being disabled",
-        "Identified 140 properly redirecting to expired page"
-      ],
-      "timeSaved": {
-        "minutes": 480,
-        "per": "audit",
-        "frequency": "as needed",
-        "weeklyMinutes": 0,
-        "calculation": "Manual click-through of 638 URLs would take 8+ hours. Automated in 10 min."
-      },
-      "tech": [
-        "Python",
-        "Selenium",
-        "aiohttp",
-        "ThreadPoolExecutor",
-        "openpyxl"
-      ],
-      "repo": "https://github.com/LucasWillett/tour-opener",
-      "icon": "\ud83d\udee4\ufe0f"
-    },
-    {
-      "id": "cx-ai-dashboard",
-      "publish": true,
-      "audience": "leadership",
-      "name": "CX AI Impact Dashboard",
-      "tagline": "CX-wide AI time savings tracker for ELT reporting",
-      "status": "production",
-      "date": "2026-03",
-      "description": "Dashboard tracking AI time savings across Kevin Huang's full CX org \u2014 Executive, Support, PMO, and Customer Success. Live on Render with Slack bot intake. Team members log wins via 'ai win: Tool | hrs/wk | description' in Slack. Auto-captures usage from instrumented tools. Kevin gets a URL he can show ELT.",
-      "impact": [
-        "Single URL for CX-wide AI impact \u2014 no GitHub knowledge required",
-        "Four team tiers with subtotals rolling up to org total",
-        "Slack-native intake replaces forms \u2014 zero friction logging",
-        "ELT-ready presentation with weekly/monthly/annual projections"
-      ],
-      "timeSaved": {
-        "minutes": 30,
-        "per": "reporting cycle",
-        "frequency": "1/week",
-        "weeklyMinutes": 30,
-        "calculation": "30 min/week manually compiling AI impact data for leadership"
-      },
-      "tech": [
-        "Python",
-        "Flask",
-        "Slack SDK",
-        "Render",
-        "Gunicorn"
-      ],
-      "repo": "https://github.com/LucasWillett/cx-ai-dashboard",
-      "icon": "\ud83d\udcca"
+      "icon": "\ud83c\udfad"
     },
     {
       "id": "kb-skill",
       "publish": true,
       "audience": "team",
+      "team": "support",
       "name": "KB Capture Skill",
-      "tagline": "Auto-generate knowledge base articles from ticket resolutions",
+      "tagline": "Auto-generate KB articles from ticket resolutions",
       "status": "production",
       "date": "2026-03",
-      "description": "Claude Code skill that captures ticket resolution context and generates structured knowledge base articles. Support agent resolves a ticket, types /kb, and Claude extracts the problem, steps, root cause, and solution into a formatted article. Publishes directly to Confluence Support Lobby. KB builds itself from real work \u2014 no separate documentation effort.",
+      "description": "Claude Code skill that captures ticket resolution context and generates structured knowledge base articles. /kb command after any ticket resolution.",
       "impact": [
-        "Zero-friction KB capture \u2014 /kb command after any ticket resolution",
-        "Structured articles with taxonomy, tier, and severity metadata",
-        "Direct Confluence publish \u2014 one confirmation step",
-        "KB grows organically from actual support work, not documentation sprints"
+        "Zero-friction KB capture via /kb command",
+        "Direct Confluence publish",
+        "KB grows organically from actual support work"
       ],
       "timeSaved": {
         "minutes": 20,
         "per": "article",
         "frequency": "~5/week",
         "weeklyMinutes": 100,
-        "calculation": "20 min/article writing time eliminated \u00d7 5 articles/week"
+        "manualMinutes": 25,
+        "automatedMinutes": 5,
+        "calculation": "20 min/article \u00d7 5 articles/week"
       },
-      "tech": [
-        "Claude Code Skills",
-        "Confluence API",
-        "Markdown"
-      ],
+      "tech": ["Claude Code Skills", "Confluence API", "Markdown"],
       "repo": null,
       "icon": "\ud83d\udcda"
+    },
+    {
+      "id": "command-bot",
+      "publish": true,
+      "audience": "lucas",
+      "team": "support",
+      "name": "Command Bot",
+      "tagline": "Run automation from your phone",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Slack-based remote control for all automation. Send commands from phone: !status, !run pipeline, !services, !zaps.",
+      "impact": [
+        "Trigger automation from anywhere",
+        "Check system health on the go",
+        "No laptop needed"
+      ],
+      "timeSaved": {
+        "minutes": 5,
+        "per": "remote check",
+        "frequency": "~10/week",
+        "weeklyMinutes": 50,
+        "manualMinutes": 8,
+        "automatedMinutes": 3,
+        "calculation": "5 min/check \u00d7 10 checks/week"
+      },
+      "tech": ["Python", "Slack SDK", "launchd", "subprocess"],
+      "repo": null,
+      "icon": "\ud83d\udcf1"
+    },
+    {
+      "id": "cvent-synergy",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Cvent Synergy",
+      "tagline": "Automated Cvent Event Diagramming workflow",
+      "status": "production",
+      "date": "2026-02",
+      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form \u2192 validation \u2192 task package \u2192 Slack \u2192 QA.",
+      "impact": [
+        "URL validation catches bad links before work begins",
+        "Pre-filled task packages eliminate copy-paste",
+        "QA link check on completion"
+      ],
+      "timeSaved": {
+        "minutes": 15,
+        "per": "request",
+        "frequency": "~10/month",
+        "weeklyMinutes": 38,
+        "manualMinutes": 20,
+        "automatedMinutes": 5,
+        "calculation": "15 min/request \u00d7 10/month"
+      },
+      "tech": ["Python", "Slack SDK", "Google Sheets API", "BeautifulSoup", "launchd"],
+      "repo": null,
+      "icon": "\ud83c\udfdb\ufe0f"
+    },
+    {
+      "id": "incident-commander",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Incident Commander",
+      "tagline": "P1 response automation via GPT",
+      "status": "production",
+      "date": "2026-02",
+      "description": "Custom GPT for incident response. Automates declaration, macros, Help Center updates, and cross-channel comms.",
+      "impact": [
+        "Reduced P1 coordination overhead",
+        "Consistent messaging across channels",
+        "Draft-then-publish approval workflow"
+      ],
+      "timeSaved": {
+        "minutes": 60,
+        "per": "incident",
+        "frequency": "~2/month",
+        "weeklyMinutes": 30,
+        "manualMinutes": 90,
+        "automatedMinutes": 30,
+        "calculation": "60 min/incident \u00d7 ~2/month"
+      },
+      "tech": ["Python", "Flask", "Zendesk API", "Slack SDK", "GPT Actions", "Render"],
+      "repo": "https://github.com/LucasWillett/incident-commander",
+      "icon": "\ud83d\udea8"
+    },
+    {
+      "id": "cx-ai-dashboard",
+      "publish": true,
+      "audience": "leadership",
+      "team": "support",
+      "name": "CX AI Impact Dashboard",
+      "tagline": "CX-wide AI time savings tracker for ELT",
+      "status": "production",
+      "date": "2026-03",
+      "description": "Dashboard tracking AI savings across Kevin's full CX org. Live on Render with Slack bot intake.",
+      "impact": [
+        "Single URL for CX-wide AI impact",
+        "Four team tiers rolling up to org total",
+        "ELT-ready with weekly/monthly/annual projections"
+      ],
+      "timeSaved": {
+        "minutes": 30,
+        "per": "reporting cycle",
+        "frequency": "1/week",
+        "weeklyMinutes": 30,
+        "manualMinutes": 45,
+        "automatedMinutes": 15,
+        "calculation": "30 min/week compiling AI impact data"
+      },
+      "tech": ["Python", "Flask", "Slack SDK", "Render", "Gunicorn"],
+      "repo": "https://github.com/LucasWillett/cx-ai-dashboard",
+      "icon": "\ud83d\udcca"
+    },
+    {
+      "id": "tour-opener",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Tour Opener",
+      "tagline": "Disabled license audit via headless browser",
+      "status": "production",
+      "date": "2026-03",
+      "description": "Three-step audit pipeline for disabled TrueTour licenses. 638 URLs checked, classified by what end users actually see.",
+      "impact": [
+        "Audited 638 disabled licenses in under 10 minutes",
+        "Found 410 still serving live content despite being disabled"
+      ],
+      "timeSaved": {
+        "minutes": 480,
+        "per": "audit",
+        "frequency": "as needed",
+        "weeklyMinutes": 0,
+        "manualMinutes": 480,
+        "automatedMinutes": 10,
+        "calculation": "8+ hours manual \u2192 10 min automated"
+      },
+      "tech": ["Python", "Selenium", "aiohttp", "ThreadPoolExecutor"],
+      "repo": "https://github.com/LucasWillett/tour-opener",
+      "icon": "\ud83d\udee4\ufe0f"
     }
   ]
 }
