@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-03-21T06:42:57Z",
+    "lastUpdated": "2026-03-22T06:36:30Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -93,7 +93,7 @@
       "threshold": 1,
       "type": "projects",
       "icon": ":blob-wave:",
-      "html": "⭐"
+      "html": "\u2b50"
     },
     {
       "id": "hat-trick",
@@ -102,7 +102,7 @@
       "threshold": 3,
       "type": "projects",
       "icon": ":meow_salute:",
-      "html": "🎩"
+      "html": "\ud83c\udfa9"
     },
     {
       "id": "high-five",
@@ -111,7 +111,7 @@
       "threshold": 5,
       "type": "projects",
       "icon": ":blob-hearts:",
-      "html": "✋"
+      "html": "\u270b"
     },
     {
       "id": "double-digits",
@@ -120,7 +120,7 @@
       "threshold": 10,
       "type": "projects",
       "icon": ":meow_detective:",
-      "html": "🔟"
+      "html": "\ud83d\udd1f"
     },
     {
       "id": "baker-dozen",
@@ -129,7 +129,7 @@
       "threshold": 13,
       "type": "projects",
       "icon": ":party_blob:",
-      "html": "🍞"
+      "html": "\ud83c\udf5e"
     },
     {
       "id": "score",
@@ -138,7 +138,7 @@
       "threshold": 20,
       "type": "projects",
       "icon": ":meow-hehehe:",
-      "html": "🏆"
+      "html": "\ud83c\udfc6"
     },
     {
       "id": "fifty-club",
@@ -147,7 +147,7 @@
       "threshold": 50,
       "type": "projects",
       "icon": ":blob-heart:",
-      "html": "💎"
+      "html": "\ud83d\udc8e"
     },
     {
       "id": "century",
@@ -156,7 +156,7 @@
       "threshold": 100,
       "type": "projects",
       "icon": ":meow_heart:",
-      "html": "🚀"
+      "html": "\ud83d\ude80"
     },
     {
       "id": "week-1",
@@ -165,7 +165,7 @@
       "threshold": 1,
       "type": "special",
       "icon": ":blob_cozy:",
-      "html": "🌟"
+      "html": "\ud83c\udf1f"
     },
     {
       "id": "back-to-back",
@@ -174,7 +174,7 @@
       "threshold": 2,
       "type": "streak",
       "icon": ":meow_this_is_fine:",
-      "html": "🔥"
+      "html": "\ud83d\udd25"
     },
     {
       "id": "three-peat",
@@ -183,7 +183,7 @@
       "threshold": 3,
       "type": "streak",
       "icon": ":blob-wave:",
-      "html": "🤩"
+      "html": "\ud83e\udd29"
     },
     {
       "id": "on-fire",
@@ -192,7 +192,7 @@
       "threshold": 5,
       "type": "streak",
       "icon": ":meow_detective:",
-      "html": "🔥"
+      "html": "\ud83d\udd25"
     },
     {
       "id": "iron-streak",
@@ -201,7 +201,7 @@
       "threshold": 10,
       "type": "streak",
       "icon": ":party_blob:",
-      "html": "⚡"
+      "html": "\u26a1"
     },
     {
       "id": "cross-team",
@@ -210,7 +210,7 @@
       "threshold": 1,
       "type": "special",
       "icon": ":meow_salute:",
-      "html": "🤝"
+      "html": "\ud83e\udd1d"
     },
     {
       "id": "evangelist",
@@ -219,7 +219,7 @@
       "threshold": 1,
       "type": "special",
       "icon": ":blob-hearts:",
-      "html": "📣"
+      "html": "\ud83d\udce3"
     },
     {
       "id": "documented",
@@ -228,7 +228,7 @@
       "threshold": 1,
       "type": "docs",
       "icon": ":meow_detective:",
-      "html": "📖"
+      "html": "\ud83d\udcd6"
     },
     {
       "id": "playbook-author",
@@ -237,7 +237,7 @@
       "threshold": 3,
       "type": "docs",
       "icon": ":blob-hearts:",
-      "html": "📚"
+      "html": "\ud83d\udcda"
     },
     {
       "id": "blueprint",
@@ -246,7 +246,7 @@
       "threshold": 1,
       "type": "docs",
       "icon": ":party_blob:",
-      "html": "🏗️"
+      "html": "\ud83c\udfd7\ufe0f"
     }
   ],
   "contributors": [
@@ -324,7 +324,7 @@
     },
     {
       "timestamp": "2026-03-20T06:00:00Z",
-      "event": "Dark Room launched — bot-to-bot brainstorm channel with CZ/GA4/embed data",
+      "event": "Dark Room launched \u2014 bot-to-bot brainstorm channel with CZ/GA4/embed data",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -340,7 +340,7 @@
     },
     {
       "timestamp": "2026-03-12T18:30:00Z",
-      "event": "CX AI Impact Dashboard launched — 4 tiers, 13 projects, live on Render",
+      "event": "CX AI Impact Dashboard launched \u2014 4 tiers, 13 projects, live on Render",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -380,7 +380,7 @@
     },
     {
       "timestamp": "2026-03-06T17:00:00Z",
-      "event": "Tour Opener built — 638 disabled licenses audited in 10 min",
+      "event": "Tour Opener built \u2014 638 disabled licenses audited in 10 min",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -388,7 +388,7 @@
     },
     {
       "timestamp": "2026-02-25T18:00:00Z",
-      "event": "Matterport Health Checker — 20K+ models scanned, 1,021 dead found",
+      "event": "Matterport Health Checker \u2014 20K+ models scanned, 1,021 dead found",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -396,7 +396,7 @@
     },
     {
       "timestamp": "2026-02-24T23:00:00Z",
-      "event": "Cvent Synergy deployed — automated Event Diagramming workflow",
+      "event": "Cvent Synergy deployed \u2014 automated Event Diagramming workflow",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -404,7 +404,7 @@
     },
     {
       "timestamp": "2026-02-23T19:00:00Z",
-      "event": "Support Triage Assistant built — Gemini Gem with 6 knowledge docs",
+      "event": "Support Triage Assistant built \u2014 Gemini Gem with 6 knowledge docs",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -412,7 +412,7 @@
     },
     {
       "timestamp": "2026-02-20T15:00:00Z",
-      "event": "Helm dashboard launched — personal ops command center",
+      "event": "Helm dashboard launched \u2014 personal ops command center",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -420,7 +420,7 @@
     },
     {
       "timestamp": "2026-02-18T06:36:00Z",
-      "event": "Browser Automation deployed — headless Playwright scripts",
+      "event": "Browser Automation deployed \u2014 headless Playwright scripts",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -428,7 +428,7 @@
     },
     {
       "timestamp": "2026-02-17T15:00:00Z",
-      "event": "Command Bot deployed — run automation from phone via Slack",
+      "event": "Command Bot deployed \u2014 run automation from phone via Slack",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
@@ -469,11 +469,11 @@
       "tagline": "Property lookups + third-party example finder",
       "status": "production",
       "date": "2026-02",
-      "description": "Slack bot monitoring #channel-distribution. Responds to property questions with high-traffic examples from ChurnZero, finds verified third-party platform examples, runs redirect checks, maps legacy URLs, and checks GA4 traffic — all from Slack.",
+      "description": "Slack bot monitoring #channel-distribution. Responds to property questions with high-traffic examples from ChurnZero, finds verified third-party platform examples, runs redirect checks, maps legacy URLs, and checks GA4 traffic \u2014 all from Slack.",
       "impact": [
-        "Third-party example finder — crawls Cvent, TripAdvisor, etc.",
+        "Third-party example finder \u2014 crawls Cvent, TripAdvisor, etc.",
         "Eliminates manual platform-by-platform searching",
-        "Brand hierarchy awareness (IHG → Holiday Inn Express)",
+        "Brand hierarchy awareness (IHG \u2192 Holiday Inn Express)",
         "Distribution gap detection",
         "Self-service for sales and distribution team prep"
       ],
@@ -484,7 +484,7 @@
         "weeklyMinutes": 450,
         "manualMinutes": 30,
         "automatedMinutes": 2,
-        "calculation": "30 min/query × 15 queries/week"
+        "calculation": "30 min/query \u00d7 15 queries/week"
       },
       "tech": [
         "Python",
@@ -495,7 +495,7 @@
         "launchd"
       ],
       "repo": "https://github.com/LucasWillett/tourfinder",
-      "icon": "🔍"
+      "icon": "\ud83d\udd0d"
     },
     {
       "id": "support-triage-gem",
@@ -506,7 +506,7 @@
       "tagline": "AI triage copilot for platform migration support",
       "status": "production",
       "date": "2026-02",
-      "description": "Gemini Gem for the 3-person support team. Covers 5 triage workflows — login failures, broken share links, terminology confusion, 502/504 errors, and enterprise admin issues.",
+      "description": "Gemini Gem for the 3-person support team. Covers 5 triage workflows \u2014 login failures, broken share links, terminology confusion, 502/504 errors, and enterprise admin issues.",
       "impact": [
         "Single-mode smart routing",
         "Copy-paste Jira ticket generation",
@@ -519,7 +519,7 @@
         "weeklyMinutes": 200,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/session × 10 sessions/week"
+        "calculation": "20 min/session \u00d7 10 sessions/week"
       },
       "tech": [
         "Gemini Gems",
@@ -528,7 +528,7 @@
         "Google Drive"
       ],
       "repo": null,
-      "icon": "🎯"
+      "icon": "\ud83c\udfaf"
     },
     {
       "id": "help-center-pipeline",
@@ -539,7 +539,7 @@
       "tagline": "Slack to Zendesk article automation",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end article workflow. Team posts ideas to Slack → AI generates draft → uploads to Google Drive → tracks in spreadsheet → notifies SME.",
+      "description": "End-to-end article workflow. Team posts ideas to Slack \u2192 AI generates draft \u2192 uploads to Google Drive \u2192 tracks in spreadsheet \u2192 notifies SME.",
       "impact": [
         "Self-service article submissions via Slack",
         "AI-generated first drafts with templates",
@@ -552,7 +552,7 @@
         "weeklyMinutes": 150,
         "manualMinutes": 35,
         "automatedMinutes": 5,
-        "calculation": "30 min/draft × 5 articles/week"
+        "calculation": "30 min/draft \u00d7 5 articles/week"
       },
       "tech": [
         "Python",
@@ -562,7 +562,7 @@
         "launchd"
       ],
       "repo": null,
-      "icon": "📝"
+      "icon": "\ud83d\udcdd"
     },
     {
       "id": "redirect-checker",
@@ -587,7 +587,7 @@
         "weeklyMinutes": 150,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/request × 10 requests/week"
+        "calculation": "15 min/request \u00d7 10 requests/week"
       },
       "tech": [
         "Python",
@@ -597,7 +597,7 @@
         "GA4 API"
       ],
       "repo": null,
-      "icon": "🔗"
+      "icon": "\ud83d\udd17"
     },
     {
       "id": "claude-relay",
@@ -621,7 +621,7 @@
         "weeklyMinutes": 120,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/task × 8 tasks/week"
+        "calculation": "15 min/task \u00d7 8 tasks/week"
       },
       "tech": [
         "Python",
@@ -630,7 +630,7 @@
         "Multi-Agent"
       ],
       "repo": "https://github.com/LucasWillett/claude-relay",
-      "icon": "🔗"
+      "icon": "\ud83d\udd17"
     },
     {
       "id": "matterport-checker",
@@ -654,7 +654,7 @@
         "weeklyMinutes": 120,
         "manualMinutes": 480,
         "automatedMinutes": 10,
-        "calculation": "Manual verification of 20K models impossible — 2 hrs/week reactive work eliminated"
+        "calculation": "Manual verification of 20K models impossible \u2014 2 hrs/week reactive work eliminated"
       },
       "tech": [
         "Python",
@@ -663,7 +663,7 @@
         "ThreadPoolExecutor"
       ],
       "repo": null,
-      "icon": "🏛️"
+      "icon": "\ud83c\udfdb\ufe0f"
     },
     {
       "id": "helm",
@@ -678,7 +678,7 @@
       "impact": [
         "Single tab replaces 4+ context switches",
         "AI Quick Capture turns Slack DMs into Google Tasks",
-        "Kevin Might Ask — AI-generated prep for 1:1s"
+        "Kevin Might Ask \u2014 AI-generated prep for 1:1s"
       ],
       "timeSaved": {
         "minutes": 20,
@@ -687,7 +687,7 @@
         "weeklyMinutes": 100,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/day × 5 days"
+        "calculation": "20 min/day \u00d7 5 days"
       },
       "tech": [
         "Python",
@@ -697,7 +697,7 @@
         "Claude Haiku"
       ],
       "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "☸️"
+      "icon": "\u2638\ufe0f"
     },
     {
       "id": "browser-automation",
@@ -721,7 +721,7 @@
         "weeklyMinutes": 100,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/task × 5 tasks/week"
+        "calculation": "20 min/task \u00d7 5 tasks/week"
       },
       "tech": [
         "Python",
@@ -730,7 +730,7 @@
         "Session Management"
       ],
       "repo": null,
-      "icon": "🎭"
+      "icon": "\ud83c\udfad"
     },
     {
       "id": "kb-skill",
@@ -754,7 +754,7 @@
         "weeklyMinutes": 100,
         "manualMinutes": 25,
         "automatedMinutes": 5,
-        "calculation": "20 min/article × 5 articles/week"
+        "calculation": "20 min/article \u00d7 5 articles/week"
       },
       "tech": [
         "Claude Code Skills",
@@ -762,7 +762,7 @@
         "Markdown"
       ],
       "repo": null,
-      "icon": "📚"
+      "icon": "\ud83d\udcda"
     },
     {
       "id": "command-bot",
@@ -786,7 +786,7 @@
         "weeklyMinutes": 50,
         "manualMinutes": 8,
         "automatedMinutes": 3,
-        "calculation": "5 min/check × 10 checks/week"
+        "calculation": "5 min/check \u00d7 10 checks/week"
       },
       "tech": [
         "Python",
@@ -795,7 +795,7 @@
         "subprocess"
       ],
       "repo": null,
-      "icon": "📱"
+      "icon": "\ud83d\udcf1"
     },
     {
       "id": "cvent-synergy",
@@ -806,7 +806,7 @@
       "tagline": "Automated Cvent Event Diagramming workflow",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form → validation → task package → Slack → QA.",
+      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form \u2192 validation \u2192 task package \u2192 Slack \u2192 QA.",
       "impact": [
         "URL validation catches bad links before work begins",
         "Pre-filled task packages eliminate copy-paste",
@@ -819,7 +819,7 @@
         "weeklyMinutes": 38,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/request × 10/month"
+        "calculation": "15 min/request \u00d7 10/month"
       },
       "tech": [
         "Python",
@@ -829,7 +829,7 @@
         "launchd"
       ],
       "repo": null,
-      "icon": "🏛️"
+      "icon": "\ud83c\udfdb\ufe0f"
     },
     {
       "id": "incident-commander",
@@ -853,7 +853,7 @@
         "weeklyMinutes": 30,
         "manualMinutes": 90,
         "automatedMinutes": 30,
-        "calculation": "60 min/incident × ~2/month"
+        "calculation": "60 min/incident \u00d7 ~2/month"
       },
       "tech": [
         "Python",
@@ -864,7 +864,7 @@
         "Render"
       ],
       "repo": "https://github.com/LucasWillett/incident-commander",
-      "icon": "🚨"
+      "icon": "\ud83d\udea8"
     },
     {
       "id": "cx-ai-dashboard",
@@ -898,7 +898,7 @@
         "Gunicorn"
       ],
       "repo": "https://github.com/LucasWillett/cx-ai-dashboard",
-      "icon": "📊"
+      "icon": "\ud83d\udcca"
     },
     {
       "id": "tour-opener",
@@ -921,7 +921,7 @@
         "weeklyMinutes": 0,
         "manualMinutes": 480,
         "automatedMinutes": 10,
-        "calculation": "8+ hours manual → 10 min automated"
+        "calculation": "8+ hours manual \u2192 10 min automated"
       },
       "tech": [
         "Python",
@@ -930,7 +930,7 @@
         "ThreadPoolExecutor"
       ],
       "repo": "https://github.com/LucasWillett/tour-opener",
-      "icon": "🛤️"
+      "icon": "\ud83d\udee4\ufe0f"
     }
   ]
 }
