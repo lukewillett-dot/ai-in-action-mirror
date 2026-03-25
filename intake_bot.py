@@ -165,7 +165,7 @@ def handle_intake_reply(channel, thread_ts, text, user):
         intake["description"] = text.strip()
         intake["state"] = "need_time"
         reply(channel, thread_ts,
-            "Got it. How much time does this save per week?\n"
+            "Got it. How much time does this save?\n"
             "_(e.g., \"2 hours\", \"30 min\", \"about an hour\")_"
         )
 
@@ -176,14 +176,53 @@ def handle_intake_reply(channel, thread_ts, text, user):
                 "Hmm, couldn't parse that. Try something like \"2 hours\" or \"30 min\"."
             )
             return
-        intake["weeklyMinutes"] = minutes
+        intake["rawMinutes"] = minutes
+        intake["state"] = "need_frequency"
+        time_str = f"{minutes} min" if minutes < 60 else f"{minutes/60:.1f} hrs"
+        reply(channel, thread_ts,
+            f"Got it — ~{time_str}. Is that:\n"
+            f"• *one-time* — a one-time save\n"
+            f"• *weekly* — saves that much every week, ongoing\n"
+            f"• *monthly* — saves that much every month, ongoing"
+        )
+
+    elif state == "need_frequency":
+        text_lower = text.strip().lower()
+        if "one" in text_lower or "once" in text_lower or "1" == text_lower:
+            intake["frequency"] = "one-time"
+            intake["weeklyMinutes"] = round(intake["rawMinutes"] / 52)  # spread across year
+            freq_label = "one-time"
+        elif "month" in text_lower:
+            intake["frequency"] = "monthly"
+            intake["weeklyMinutes"] = round(intake["rawMinutes"] / 4.33)  # monthly → weekly
+            freq_label = "monthly"
+        elif "week" in text_lower or "recurring" in text_lower or "ongoing" in text_lower:
+            intake["frequency"] = "weekly"
+            intake["weeklyMinutes"] = intake["rawMinutes"]
+            freq_label = "weekly"
+        else:
+            reply(channel, thread_ts,
+                "Didn't catch that — say *one-time*, *weekly*, or *monthly*."
+            )
+            return
+
+        raw = intake["rawMinutes"]
+        raw_str = f"{raw} min" if raw < 60 else f"{raw/60:.1f} hrs"
+        weekly = intake["weeklyMinutes"]
+        weekly_str = f"{weekly} min" if weekly < 60 else f"{weekly/60:.1f} hrs"
+
+        if freq_label == "one-time":
+            confirm = f"Logged as a one-time save of {raw_str} ({weekly_str}/week annualized)."
+        elif freq_label == "monthly":
+            confirm = f"Logged as {raw_str}/month ({weekly_str}/week)."
+        else:
+            confirm = f"Logged as {weekly_str}/week."
+
         intake["state"] = "need_confluence"
         reply(channel, thread_ts,
-            "Got it — ~{} per week.\n\n"
+            f"{confirm}\n\n"
             "Did you document this in Confluence (the Support Lobby)? Paste the link for a :meow_detective: *Documented* badge.\n"
-            "Or say `skip` to finish without one.".format(
-                f"{minutes} min" if minutes < 60 else f"{minutes/60:.1f} hrs"
-            )
+            "Or say `skip` to finish without one."
         )
 
     elif state == "need_confluence":
@@ -257,7 +296,9 @@ def save_project(channel, thread_ts, intake):
         "impact": [],
         "timeSaved": {
             "weeklyMinutes": intake["weeklyMinutes"],
-            "calculation": f"Self-reported: ~{intake['weeklyMinutes']} min/week"
+            "frequency": intake.get("frequency", "weekly"),
+            "rawMinutes": intake.get("rawMinutes", intake["weeklyMinutes"]),
+            "calculation": f"Self-reported: ~{intake.get('rawMinutes', intake['weeklyMinutes'])} min ({intake.get('frequency', 'weekly')})"
         },
         "tech": [],
         "repo": None,
@@ -310,13 +351,24 @@ def save_project(channel, thread_ts, intake):
     # Celebrate
     celebration = random.choice(CELEBRATIONS)
     hours = intake["weeklyMinutes"] / 60
+    freq = intake.get("frequency", "weekly")
+    raw_mins = intake.get("rawMinutes", intake["weeklyMinutes"])
+    raw_hrs = raw_mins / 60
+
+    if freq == "one-time":
+        time_label = f"{raw_hrs:.1f} hrs saved (one-time)"
+    elif freq == "monthly":
+        time_label = f"{raw_hrs:.1f} hrs/month"
+    else:
+        time_label = f"{hours:.1f} hrs/week"
+
     badge_note = ""
     if intake.get("confluenceUrl"):
         badge_note = "\n:meow_detective: *Documented* badge earned!"
 
     reply(channel, thread_ts,
         f"{celebration}\n\n"
-        f"*{intake['name']}* — {hours:.1f} hrs/week for Team {intake['team'].upper()}"
+        f"*{intake['name']}* — {time_label} for Team {intake['team'].upper()}"
         f"{badge_note}\n\n"
         f"<https://cx-ai-dashboard.onrender.com|See it live on the dashboard.>"
     )
@@ -334,7 +386,7 @@ def save_project(channel, thread_ts, intake):
         public_text = (
             f"{celebrate_emoji} *New AI Win: {intake['name']}*\n\n"
             f"_{intake['description'][:150]}_\n\n"
-            f"*{hours:.1f} hrs/week* saved for Team {intake['team'].upper()} — hat tip to {user_display}\n"
+            f"*{time_label}* for Team {intake['team'].upper()} — hat tip to {user_display}\n"
             f"<https://cx-ai-dashboard.onrender.com|See all wins on the dashboard>"
         )
         get_client().chat_postMessage(channel=channel, text=public_text)
