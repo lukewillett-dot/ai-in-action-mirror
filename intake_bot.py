@@ -27,8 +27,8 @@ SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 # Channel progression — change this to advance launch stages
 STAGE = "test"  # "test", "soft", "prod"
 CHANNELS = {
-    "test": {"C0AGULNT9EU": "lucas-bot-testing"},
-    "soft": {"C06432E9H36": "cx-directors"},
+    "test": {"C0AGULNT9EU": "lucas-bot-testing", "C0ANH6WKU8N": "cs-bot-testing"},
+    "soft": {"C06432E9H36": "cx-directors", "C0ANH6WKU8N": "cs-bot-testing"},
     "prod": {"C05U74HDVLH": "cx-internal"},
 }
 LISTEN_CHANNELS = CHANNELS[STAGE]
@@ -180,7 +180,7 @@ def handle_intake_reply(channel, thread_ts, text, user):
         intake["state"] = "need_confluence"
         reply(channel, thread_ts,
             "Got it — ~{} per week.\n\n"
-            "Got a Confluence page for this? Paste the link for a :meow_detective: *Documented* badge.\n"
+            "Did you document this in Confluence (the Support Lobby)? Paste the link for a :meow_detective: *Documented* badge.\n"
             "Or say `skip` to finish without one.".format(
                 f"{minutes} min" if minutes < 60 else f"{minutes/60:.1f} hrs"
             )
@@ -293,6 +293,20 @@ def save_project(channel, thread_ts, intake):
 
     save_data(data)
 
+    # Push to CX dashboard on Render
+    try:
+        import requests as _req
+        user_name = get_user_name(intake["user"])
+        _req.post("https://cx-ai-dashboard.onrender.com/api/add-project", json={
+            "team": intake["team"],
+            "name": intake["name"],
+            "description": intake["description"],
+            "weeklyMinutes": intake["weeklyMinutes"],
+            "owner": user_name,
+        }, timeout=30)
+    except Exception as e:
+        print(f"Render push failed (cold start?): {e}")
+
     # Celebrate
     celebration = random.choice(CELEBRATIONS)
     hours = intake["weeklyMinutes"] / 60
@@ -304,10 +318,28 @@ def save_project(channel, thread_ts, intake):
         f"{celebration}\n\n"
         f"*{intake['name']}* — {hours:.1f} hrs/week for Team {intake['team'].upper()}"
         f"{badge_note}\n\n"
-        f"See it live on the dashboard."
+        f"<https://cx-ai-dashboard.onrender.com|See it live on the dashboard.>"
     )
 
     react(channel, thread_ts.split(".")[0] if "." not in thread_ts else thread_ts, "tada")
+
+    # Public celebration — new top-level post in the channel
+    try:
+        user_display = f"<@{intake['user']}>"
+        celebrate_emoji = random.choice([
+            ":trophy:", ":first_place_medal:", ":Fact_check:", ":rocket:",
+            ":star2:", ":dart:", ":muscle:", ":fire:", ":medal:",
+            ":chart_with_upwards_trend:", ":sparkles:", ":raised_hands:",
+        ])
+        public_text = (
+            f"{celebrate_emoji} *New AI Win: {intake['name']}*\n\n"
+            f"_{intake['description'][:150]}_\n\n"
+            f"*{hours:.1f} hrs/week* saved for Team {intake['team'].upper()} — hat tip to {user_display}\n"
+            f"<https://cx-ai-dashboard.onrender.com|See all wins on the dashboard>"
+        )
+        get_client().chat_postMessage(channel=channel, text=public_text)
+    except Exception as e:
+        print(f"Public celebration post failed: {e}")
 
     # Clean up
     del active_intakes[thread_ts]
@@ -525,7 +557,11 @@ def run():
                     ts = msg.get("ts", "")
                     if ts in processed_messages:
                         continue
-                    if msg.get("bot_id") or msg.get("subtype"):
+                    if msg.get("subtype"):
+                        processed_messages.add(ts)
+                        continue
+                    # Skip own bot messages (prevent loops), allow other bots
+                    if msg.get("bot_id") and msg.get("user") == BOT_USER_ID:
                         processed_messages.add(ts)
                         continue
                     # Skip messages older than 5 min

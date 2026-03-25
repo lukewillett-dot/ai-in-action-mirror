@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI in Action | CX Organization</title>
+    <title>AI in Action | Lucas Willett</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
         :root {
             --bg-primary: #030014;
             --bg-secondary: #0a0a1a;
             --bg-card: rgba(15, 15, 35, 0.6);
             --bg-card-hover: rgba(25, 25, 55, 0.8);
-            --bg-card-solid: rgba(15, 15, 35, 0.9);
             --border: rgba(255, 255, 255, 0.08);
             --border-hover: rgba(255, 255, 255, 0.15);
             --text-primary: #f0f0f5;
@@ -27,10 +28,8 @@
             --accent-green: #10b981;
             --accent-purple: #a855f7;
             --accent-pink: #ec4899;
-            --accent-amber: #f59e0b;
             --glow-blue: rgba(99, 102, 241, 0.4);
             --glow-green: rgba(16, 185, 129, 0.4);
-            --glow-purple: rgba(168, 85, 247, 0.3);
         }
 
         body {
@@ -42,18 +41,34 @@
             overflow-x: hidden;
         }
 
+        /* Animated Background */
         .bg-gradient {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
             background:
                 radial-gradient(ellipse 80% 50% at 50% -20%, rgba(99, 102, 241, 0.15), transparent),
                 radial-gradient(ellipse 60% 40% at 100% 0%, rgba(168, 85, 247, 0.1), transparent),
                 radial-gradient(ellipse 50% 30% at 0% 100%, rgba(34, 211, 238, 0.08), transparent);
             animation: bgShift 20s ease-in-out infinite;
         }
-        @keyframes bgShift { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
 
+        @keyframes bgShift {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Grid overlay */
         .bg-grid {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: -1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1;
             background-image:
                 linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
@@ -61,411 +76,481 @@
             mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
         }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
         /* Header */
-        header { padding: 40px 0 20px; }
-        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
-        .header-left { display: flex; align-items: center; gap: 16px; }
+        header {
+            padding: 50px 0 40px;
+            position: relative;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
         .logo {
-            width: 48px; height: 48px;
+            width: 48px;
+            height: 48px;
             background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            border-radius: 12px; display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 1.125rem; letter-spacing: -0.02em;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.125rem;
+            letter-spacing: -0.02em;
             box-shadow: 0 0 30px var(--glow-blue);
         }
-        .header-text h1 {
-            font-size: 1.75rem; font-weight: 700; letter-spacing: -0.03em;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .header-text p { color: var(--text-secondary); font-size: 0.875rem; }
-        .status-badge {
-            display: inline-flex; align-items: center; gap: 10px; padding: 10px 18px;
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 100px;
-            font-size: 0.8125rem; color: var(--text-secondary); font-weight: 500;
-        }
-        .status-dot {
-            width: 8px; height: 8px; background: var(--accent-green); border-radius: 50%;
-            box-shadow: 0 0 12px var(--glow-green); animation: pulse 2s ease-in-out infinite;
-        }
-        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.2); opacity: 0.7; } }
 
-        /* Sections */
-        section { padding: 30px 0; animation: fadeInUp 0.6s ease-out forwards; opacity: 0; }
+        .header-text h1 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 50%, var(--accent-purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-text p {
+            color: var(--text-secondary);
+            font-size: 0.9375rem;
+            font-weight: 400;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 18px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--glow-green);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+        }
+
+        /* Section styling */
+        section {
+            padding: 40px 0;
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
         section:nth-child(2) { animation-delay: 0.1s; }
-        section:nth-child(3) { animation-delay: 0.15s; }
-        section:nth-child(4) { animation-delay: 0.2s; }
-        section:nth-child(5) { animation-delay: 0.25s; }
-        section:nth-child(6) { animation-delay: 0.3s; }
-        section:nth-child(7) { animation-delay: 0.35s; }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        section:nth-child(3) { animation-delay: 0.2s; }
+        section:nth-child(4) { animation-delay: 0.3s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         .section-title {
-            font-size: 0.6875rem; font-weight: 600; text-transform: uppercase;
-            letter-spacing: 0.15em; color: var(--text-muted); margin-bottom: 20px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--text-muted);
+            margin-bottom: 24px;
         }
 
-        /* ═══════════════════════════════════════════
-           HERO SCOREBOARD
-           ═══════════════════════════════════════════ */
-        .hero-grid {
-            display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
         }
-        .hero-card {
-            background: var(--bg-card-solid); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 16px;
-            padding: 24px 20px; text-align: center; position: relative; overflow: hidden;
+
+        .stat-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
         }
-        .hero-card:hover { border-color: var(--border-hover); transform: translateY(-2px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-        .hero-card.primary {
-            border-color: rgba(16, 185, 129, 0.3);
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(34, 211, 238, 0.04));
-        }
-        .hero-card.primary .hero-value {
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero-card.dollar {
-            border-color: rgba(168, 85, 247, 0.3);
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.08), rgba(236, 72, 153, 0.04));
-        }
-        .hero-card.dollar .hero-value {
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .hero-value {
-            font-size: 2.75rem; font-weight: 700; font-family: 'JetBrains Mono', monospace;
-            letter-spacing: -0.03em; color: var(--text-primary); line-height: 1.1;
-        }
-        .hero-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
-        .hero-sub { font-size: 0.6875rem; color: var(--text-muted); margin-top: 4px; font-family: 'JetBrains Mono', monospace; opacity: 0.7; }
 
-        /* ═══════════════════════════════════════════
-           HOW IT WORKS
-           ═══════════════════════════════════════════ */
-        .onboarding-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-        .onboarding-step {
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 16px;
-            padding: 24px; display: flex; gap: 16px; align-items: flex-start;
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(99, 102, 241, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card.highlight {
+            border-color: rgba(16, 185, 129, 0.3);
+        }
+
+        .stat-card.highlight::before {
+            background: linear-gradient(135deg, transparent 0%, rgba(16, 185, 129, 0.08) 100%);
+            opacity: 1;
+        }
+
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.02em;
+        }
+
+        .stat-card.highlight .stat-value {
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+
+
+        /* Activity Feed */
+        .activity-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
             transition: all 0.2s ease;
         }
-        .onboarding-step:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-        .step-number {
-            width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-            display: flex; align-items: center; justify-content: center;
-            font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1rem;
+
+        .activity-item:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-hover);
         }
-        .step-title { font-weight: 600; font-size: 0.9375rem; margin-bottom: 4px; }
-        .step-desc { font-size: 0.8125rem; color: var(--text-secondary); line-height: 1.6; }
-        .step-desc code {
-            background: rgba(99, 102, 241, 0.15); color: var(--accent-cyan);
-            padding: 2px 6px; border-radius: 4px; font-family: 'JetBrains Mono', monospace;
+
+        .activity-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .activity-icon.deploy { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(34, 211, 238, 0.1)); }
+        .activity-icon.integration { background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1)); }
+        .activity-icon.update { background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.1)); }
+
+        .activity-text {
+            flex: 1;
+            font-size: 0.9375rem;
+            font-weight: 400;
+        }
+
+        .activity-time {
             font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
         }
-        @media (max-width: 768px) { .onboarding-grid { grid-template-columns: 1fr; } }
 
-        /* ═══════════════════════════════════════════
-           LEADERBOARD + RECENT WINS (2-col)
-           ═══════════════════════════════════════════ */
-        .split-section { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 20px;
+        }
 
-        /* Team Board */
-        .team-board { display: flex; flex-direction: column; gap: 14px; }
-        .tb-card {
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 16px;
-            padding: 20px 24px; transition: all 0.3s ease;
-            border-left: 3px solid;
-        }
-        .tb-card:hover { background: var(--bg-card-hover); border-color: var(--border-hover); border-left-color: inherit; }
-        .tb-card.no-projects { border-left-color: rgba(255,255,255,0.08) !important; }
-        .tb-top { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
-        .tb-emoji { font-size: 1.5rem; }
-        .tb-info { flex: 1; }
-        .tb-name { font-weight: 600; font-size: 1rem; }
-        .tb-meta { font-size: 0.75rem; color: var(--text-muted); }
-        .tb-stats-row { display: flex; gap: 12px; flex-wrap: wrap; }
-        .tb-stat-box {
-            flex: 1; min-width: 80px; padding: 10px 14px;
-            background: rgba(255,255,255,0.02); border-radius: 10px; text-align: center;
-        }
-        .tb-stat-val { font-family: 'JetBrains Mono', monospace; font-size: 1.25rem; font-weight: 700; }
-        .tb-stat-label { font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 2px; }
-        .tb-per-person { color: var(--accent-cyan); }
-        .tb-badge {
-            display: inline-block; padding: 4px 12px; border-radius: 100px;
-            font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.03em;
-        }
-        .tb-badge.opportunity {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(168, 85, 247, 0.1));
-            color: var(--accent-blue);
-            animation: softPulse 3s ease-in-out infinite;
-        }
-        @keyframes softPulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
-            50% { box-shadow: 0 0 12px 2px rgba(99, 102, 241, 0.15); }
-        }
-        .tb-opportunity-body { text-align: center; padding: 8px 0; }
-        .tb-opp-text { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 6px; }
-        .tb-opp-sub { font-size: 0.75rem; color: var(--text-muted); }
-        .tb-card.at-zero .tb-stat-val { color: var(--text-muted); }
-        .tb-legacy {
-            font-size: 0.6875rem; color: var(--text-muted); margin-top: 10px;
-            font-family: 'JetBrains Mono', monospace; opacity: 0.6;
-        }
-        .tb-race-banner {
-            display: flex; align-items: center; gap: 16px;
-            padding: 16px 22px; border-radius: 14px; margin-bottom: 6px;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(168, 85, 247, 0.06));
-            border: 1px solid rgba(99, 102, 241, 0.2);
-        }
-        .tb-race-banner.live {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 211, 238, 0.06));
-            border-color: rgba(16, 185, 129, 0.3);
-        }
-        .tb-race-countdown { text-align: center; min-width: 56px; }
-        .tb-race-number {
-            font-family: 'JetBrains Mono', monospace; font-size: 1.75rem; font-weight: 700;
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-        }
-        .tb-race-banner.live .tb-race-number {
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-        .tb-race-unit { display: block; font-size: 0.625rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; }
-        .tb-race-title { font-weight: 600; font-size: 0.9375rem; }
-        .tb-race-sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 2px; }
-        .tb-sponsor {
-            display: flex; align-items: center; justify-content: space-between;
-            padding: 14px 20px; border-radius: 12px; margin-bottom: 4px;
-            background: linear-gradient(135deg, rgba(168, 85, 247, 0.06), rgba(99, 102, 241, 0.04));
-            border: 1px solid rgba(168, 85, 247, 0.15);
-        }
-        .tb-sponsor-left { display: flex; align-items: center; gap: 12px; }
-        .tb-sponsor-avatar {
-            width: 36px; height: 36px; border-radius: 10px;
-            background: rgba(168, 85, 247, 0.2); color: var(--accent-purple);
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 0.75rem; font-family: 'JetBrains Mono', monospace;
-        }
-        .tb-sponsor-name { font-weight: 600; font-size: 0.875rem; }
-        .tb-sponsor-role { font-size: 0.6875rem; color: var(--text-muted); }
-        .tb-sponsor-stats { display: flex; gap: 10px; }
-        .tb-sponsor-stat {
-            padding: 4px 10px; border-radius: 8px; font-size: 0.6875rem;
-            font-family: 'JetBrains Mono', monospace; color: var(--accent-purple);
-            background: rgba(168, 85, 247, 0.1);
-        }
-        .tb-cta {
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.08), rgba(168, 85, 247, 0.06));
-            border: 1px dashed rgba(99, 102, 241, 0.3); border-radius: 14px;
-            padding: 16px 20px; text-align: center; margin-top: 4px;
-        }
-        .tb-cta-text { font-size: 0.8125rem; color: var(--text-secondary); }
-        .tb-cta-sub { font-size: 0.6875rem; color: var(--text-muted); margin-top: 4px; }
-
-        /* Recent Wins Feed */
-        .wins-feed { display: flex; flex-direction: column; gap: 10px; }
-        .win-item {
-            display: flex; align-items: flex-start; gap: 14px; padding: 14px 18px;
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 12px;
-            transition: all 0.2s ease;
-        }
-        .win-item:hover { background: var(--bg-card-hover); border-color: var(--border-hover); }
-        .win-icon {
-            width: 36px; height: 36px; border-radius: 10px;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 0.9375rem; flex-shrink: 0;
-        }
-        .win-icon.deploy { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(34, 211, 238, 0.1)); }
-        .win-icon.integration { background: linear-gradient(135deg, rgba(168, 85, 247, 0.2), rgba(236, 72, 153, 0.1)); }
-        .win-icon.update { background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.1)); }
-        .win-body { flex: 1; min-width: 0; }
-        .win-text { font-size: 0.875rem; font-weight: 400; line-height: 1.5; }
-        .win-meta { display: flex; gap: 12px; margin-top: 4px; }
-        .win-meta span { font-size: 0.6875rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
-        .win-contributor { color: var(--accent-cyan) !important; }
-
-        /* ═══════════════════════════════════════════
-           ACTIVITY HEATMAP
-           ═══════════════════════════════════════════ */
-        .heatmap-wrap {
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 16px; padding: 24px;
-        }
-        .heatmap-grid { display: flex; gap: 3px; overflow-x: auto; padding-bottom: 4px; }
-        .heatmap-col { display: flex; flex-direction: column; gap: 3px; }
-        .heatmap-cell {
-            width: 14px; height: 14px; border-radius: 3px;
-            background: rgba(255,255,255,0.04); transition: all 0.2s ease;
-            cursor: default; position: relative;
-        }
-        .heatmap-cell.l1 { background: rgba(16, 185, 129, 0.2); }
-        .heatmap-cell.l2 { background: rgba(16, 185, 129, 0.4); }
-        .heatmap-cell.l3 { background: rgba(16, 185, 129, 0.65); }
-        .heatmap-cell.l4 { background: rgba(16, 185, 129, 0.9); box-shadow: 0 0 6px rgba(16, 185, 129, 0.3); }
-        .heatmap-cell:hover { transform: scale(1.4); z-index: 1; }
-        .heatmap-legend { display: flex; align-items: center; gap: 6px; margin-top: 12px; justify-content: flex-end; }
-        .heatmap-legend span { font-size: 0.6875rem; color: var(--text-muted); }
-        .heatmap-months { display: flex; gap: 3px; margin-bottom: 8px; padding-left: 0; }
-        .heatmap-months span { font-size: 0.625rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; min-width: 14px; text-align: center; }
-
-        /* ═══════════════════════════════════════════
-           CUMULATIVE CHART
-           ═══════════════════════════════════════════ */
-        .chart-wrap {
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 16px; padding: 24px;
-        }
-        .chart-container { position: relative; height: 280px; }
-
-        /* ═══════════════════════════════════════════
-           CONTRIBUTORS
-           ═══════════════════════════════════════════ */
-        .contributors-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 14px; }
-        .contributor-card {
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 16px;
-            padding: 20px; transition: all 0.2s ease;
-        }
-        .contributor-card:hover { border-color: var(--border-hover); transform: translateY(-2px); }
-        .contributor-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-        .contributor-avatar {
-            width: 44px; height: 44px; border-radius: 12px;
-            display: flex; align-items: center; justify-content: center;
-            font-weight: 700; font-size: 0.8125rem; font-family: 'JetBrains Mono', monospace;
-        }
-        .contributor-info { flex: 1; }
-        .contributor-name { font-weight: 600; font-size: 0.9375rem; }
-        .contributor-meta { font-size: 0.6875rem; color: var(--text-muted); }
-        .badges { display: flex; flex-wrap: wrap; gap: 6px; }
-        .badge-chip {
-            display: inline-flex; align-items: center; gap: 4px;
-            padding: 4px 10px; border-radius: 100px; font-size: 0.625rem;
-            font-weight: 600; background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.08); color: var(--text-secondary);
-            transition: all 0.2s ease;
-        }
-        .badge-chip:hover { background: rgba(255,255,255,0.08); border-color: var(--border-hover); }
-        .badge-chip .badge-icon { font-size: 0.75rem; }
-        .badge-chip.earned { border-color: rgba(16, 185, 129, 0.3); color: var(--accent-green); background: rgba(16, 185, 129, 0.08); }
-        .badge-chip.next { opacity: 0.4; border-style: dashed; }
-
-        /* ═══════════════════════════════════════════
-           PROJECT CARDS
-           ═══════════════════════════════════════════ */
-        .filter-bar { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
-        .filter-btn {
-            padding: 6px 14px; border-radius: 100px; border: 1px solid var(--border);
-            background: transparent; color: var(--text-muted); font-size: 0.75rem;
-            font-weight: 500; cursor: pointer; transition: all 0.2s ease;
-            font-family: 'Inter', sans-serif;
-        }
-        .filter-btn:hover { border-color: var(--border-hover); color: var(--text-secondary); }
-        .filter-btn.active { border-color: var(--accent-blue); color: var(--accent-blue); background: rgba(99, 102, 241, 0.1); }
-
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
         .project-card {
-            background: var(--bg-card); backdrop-filter: blur(20px);
-            border: 1px solid var(--border); border-radius: 20px; padding: 28px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative; overflow: hidden;
+            position: relative;
+            overflow: hidden;
         }
+
         .project-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
             background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple), var(--accent-pink));
-            opacity: 0; transition: opacity 0.3s ease;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .project-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 100px rgba(99, 102, 241, 0.1); }
-        .project-card:hover::before { opacity: 1; }
-        .project-card > * { position: relative; z-index: 1; }
-        .project-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 14px; }
-        .project-icon { font-size: 2.25rem; filter: drop-shadow(0 0 20px rgba(255,255,255,0.1)); }
-        .project-status { padding: 4px 10px; border-radius: 100px; font-size: 0.625rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; }
-        .project-status.production { background: rgba(16, 185, 129, 0.15); color: var(--accent-green); }
-        .project-name { font-size: 1.25rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 4px; }
+
+        .project-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.08) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.4),
+                0 0 100px rgba(99, 102, 241, 0.1);
+        }
+
+        .project-card:hover::before,
+        .project-card:hover::after {
+            opacity: 1;
+        }
+
+        .project-card > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+        }
+
+        .project-status {
+            padding: 5px 12px;
+            border-radius: 100px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-status.production {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+        }
+
+        .project-status.development {
+            background: rgba(245, 158, 11, 0.15);
+            color: #f59e0b;
+        }
+
+        .project-name {
+            font-size: 1.375rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+
         .project-tagline {
-            font-size: 0.875rem; font-weight: 500; margin-bottom: 12px;
+            font-size: 0.9375rem;
             background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 500;
+            margin-bottom: 16px;
         }
-        .project-description { font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.7; }
 
-        /* Before/After Bar */
-        .time-comparison { margin-bottom: 16px; }
-        .time-bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-        .time-bar-label { font-size: 0.6875rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); width: 50px; text-align: right; }
-        .time-bar-track { flex: 1; height: 6px; background: rgba(255,255,255,0.05); border-radius: 3px; overflow: hidden; }
-        .time-bar-fill { height: 100%; border-radius: 3px; transition: width 1s ease; }
-        .time-bar-fill.manual { background: linear-gradient(90deg, rgba(239, 68, 68, 0.6), rgba(239, 68, 68, 0.3)); }
-        .time-bar-fill.auto { background: linear-gradient(90deg, var(--accent-green), var(--accent-cyan)); }
-        .time-bar-val { font-size: 0.6875rem; font-family: 'JetBrains Mono', monospace; color: var(--text-secondary); width: 50px; }
+        .project-description {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
 
-        .time-saved-pill {
-            display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+        .project-impact {
+            margin-bottom: 20px;
+        }
+
+        .impact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .impact-item::before {
+            content: '→';
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .time-saved {
             background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(34, 211, 238, 0.05));
-            border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 100px; margin-bottom: 14px;
-        }
-        .time-saved-pill span {
-            font-size: 0.75rem; font-weight: 600;
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 18px;
         }
 
-        .project-tech { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-        .tech-tag {
-            padding: 4px 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border);
-            border-radius: 8px; font-size: 0.625rem; font-family: 'JetBrains Mono', monospace;
-            color: var(--text-muted); transition: all 0.2s ease;
+        .time-saved-value {
+            display: block;
+            font-weight: 600;
+            font-size: 0.9375rem;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 4px;
         }
-        .tech-tag:hover { border-color: var(--accent-blue); color: var(--text-secondary); }
-        .project-link {
-            display: inline-flex; align-items: center; gap: 8px; font-size: 0.8125rem;
-            color: var(--accent-blue); text-decoration: none; font-weight: 500;
+
+        .time-saved-calc {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            padding: 5px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.6875rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-muted);
             transition: all 0.2s ease;
         }
-        .project-link:hover { color: var(--accent-cyan); gap: 12px; }
 
-        /* Milestone Banner */
-        .milestone-banner {
-            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(168, 85, 247, 0.08));
-            border: 1px solid rgba(16, 185, 129, 0.2); border-radius: 16px;
-            padding: 20px 28px; display: flex; align-items: center; justify-content: center;
-            gap: 16px; margin-bottom: 30px;
+        .tech-tag:hover {
+            border-color: var(--accent-blue);
+            color: var(--text-secondary);
         }
-        .milestone-text { font-size: 1.125rem; font-weight: 600; }
-        .milestone-number { font-family: 'JetBrains Mono', monospace; color: var(--accent-green); }
-        .milestone-date { font-size: 0.75rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .project-link:hover {
+            color: var(--accent-cyan);
+            gap: 12px;
+        }
 
         /* Footer */
-        footer { padding: 40px 0; text-align: center; border-top: 1px solid var(--border); margin-top: 40px; }
-        .footer-text { font-size: 0.75rem; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            margin-top: 40px;
+        }
+
+        .footer-text {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .update-time {
+            color: var(--text-secondary);
+        }
 
         /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-grid { grid-template-columns: repeat(3, 1fr); }
-            .split-section { grid-template-columns: 1fr; }
-        }
         @media (max-width: 768px) {
-            .hero-grid { grid-template-columns: repeat(2, 1fr); }
-            .hero-value { font-size: 2rem; }
-            .projects-grid { grid-template-columns: 1fr; }
-            .header-left { flex-direction: column; align-items: flex-start; gap: 12px; }
+            .header-text h1 {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 1.75rem;
+            }
+
+            .header-left {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
         }
 
-        html { scroll-behavior: smooth; }
-
-        /* Sort dropdown */
-        .sort-bar { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
-        .sort-label { font-size: 0.6875rem; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; }
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -479,116 +564,34 @@
                     <div class="logo">LW</div>
                     <div class="header-text">
                         <h1>AI in Action</h1>
-                        <p>CX Organization AI & Automation Impact</p>
+                        <p>Automation & AI Projects</p>
                     </div>
                 </div>
                 <div class="status-badge">
                     <span class="status-dot"></span>
-                    <span id="status-text">All Systems Online</span>
+                    <span>All Systems Online</span>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- HERO SCOREBOARD -->
-    <section>
+    <section class="stats-section">
         <div class="container">
-            <div id="milestone-banner"></div>
-            <div class="hero-grid" id="hero-grid"></div>
+            <h2 class="section-title">Overview</h2>
+            <div class="stats-grid" id="stats-grid"></div>
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
-    <section>
+    <section class="activity-section">
         <div class="container">
-            <h2 class="section-title">How It Works</h2>
-            <div class="onboarding-grid">
-                <div class="onboarding-step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <div class="step-title">Log a win</div>
-                        <div class="step-desc">Say <code>ai win: My Project</code> in Slack. The bot walks you through it in 30 seconds.</div>
-                    </div>
-                </div>
-                <div class="onboarding-step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <div class="step-title">Earn badges</div>
-                        <div class="step-desc">Ship projects, keep streaks, document on Confluence. Each milestone unlocks a new badge.</div>
-                    </div>
-                </div>
-                <div class="onboarding-step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <div class="step-title">Climb the board</div>
-                        <div class="step-desc">Your wins count toward your team's score. Per-person hours is the equalizer — small teams can lead.</div>
-                    </div>
-                </div>
-            </div>
+            <h2 class="section-title">Recent Activity</h2>
+            <div class="activity-feed" id="activity-feed"></div>
         </div>
     </section>
 
-    <!-- LEADERBOARD + RECENT WINS -->
-    <section>
-        <div class="container">
-            <div class="split-section">
-                <div>
-                    <h2 class="section-title">Teams</h2>
-                    <div class="team-board" id="team-board"></div>
-                </div>
-                <div>
-                    <h2 class="section-title">Latest Wins</h2>
-                    <div class="wins-feed" id="wins-feed"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ACTIVITY HEATMAP -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Activity</h2>
-            <div class="heatmap-wrap">
-                <div class="heatmap-months" id="heatmap-months"></div>
-                <div class="heatmap-grid" id="heatmap-grid"></div>
-                <div class="heatmap-legend">
-                    <span>Less</span>
-                    <div class="heatmap-cell" style="width:12px;height:12px;display:inline-block"></div>
-                    <div class="heatmap-cell l1" style="width:12px;height:12px;display:inline-block"></div>
-                    <div class="heatmap-cell l2" style="width:12px;height:12px;display:inline-block"></div>
-                    <div class="heatmap-cell l3" style="width:12px;height:12px;display:inline-block"></div>
-                    <div class="heatmap-cell l4" style="width:12px;height:12px;display:inline-block"></div>
-                    <span>More</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CUMULATIVE CHART -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Cumulative Hours Saved</h2>
-            <div class="chart-wrap">
-                <div class="chart-container">
-                    <canvas id="cumulative-chart"></canvas>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CONTRIBUTORS -->
-    <section>
-        <div class="container">
-            <h2 class="section-title">Contributors</h2>
-            <div class="contributors-grid" id="contributors-grid"></div>
-        </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section>
+    <section class="projects-section">
         <div class="container">
             <h2 class="section-title">Projects</h2>
-            <div class="filter-bar" id="filter-bar"></div>
             <div class="projects-grid" id="projects-grid"></div>
         </div>
     </section>
@@ -596,536 +599,109 @@
     <footer>
         <div class="container">
             <p class="footer-text">
-                Last updated: <span id="update-time">--</span> &middot; Built by Lucas Willett &middot; Powered by Claude Code + launchd
+                Last updated: <span class="update-time" id="update-time">--</span>
             </p>
         </div>
     </footer>
 
     <script>
-        let DATA = null;
-        let currentFilter = 'all';
-        let currentSort = 'hours';
-
         async function loadData() {
             try {
-                const res = await fetch('data.json');
-                DATA = await res.json();
-                render();
-            } catch (e) { console.error('Error loading data:', e); }
+                const response = await fetch('data.json');
+                const data = await response.json();
+                renderStats(data.stats, data.projects);
+                renderActivity(data.activity);
+                renderProjects(data.projects);
+                document.getElementById('update-time').textContent =
+                    new Date(data.meta.lastUpdated).toLocaleString();
+            } catch (error) {
+                console.error('Error loading data:', error);
+            }
         }
 
-        function render() {
-            renderHero();
-            renderMilestone();
-            renderLeaderboard();
-            renderWins();
-            renderHeatmap();
-            renderChart();
-            renderContributors();
-            renderProjects();
-            document.getElementById('update-time').textContent = new Date(DATA.meta.lastUpdated).toLocaleString();
-            document.getElementById('status-text').textContent = `${DATA.stats.projectsLive} automations live`;
-        }
+        function renderStats(stats, projects) {
+            const grid = document.getElementById('stats-grid');
 
-        // ── HERO SCOREBOARD ──
-        function renderHero() {
-            const grid = document.getElementById('hero-grid');
-            const totalMin = DATA.projects.filter(p => p.publish !== false && p.timeSaved).reduce((s, p) => s + (p.timeSaved.weeklyMinutes || 0), 0);
-            const weeklyHrs = totalMin / 60;
-            const annualHrs = Math.round(weeklyHrs * 52);
-            const fte = (annualHrs / 1920).toFixed(1);
-            const dollarVal = Math.round(annualHrs * (DATA.meta.costPerHour || 39));
-            const teamsActive = DATA.teams.filter(t => DATA.projects.some(p => p.team === t.id && p.timeSaved && p.timeSaved.weeklyMinutes > 0)).length;
+            const totalMinutes = projects
+                .filter(p => p.publish !== false && p.timeSaved)
+                .reduce((sum, p) => sum + (p.timeSaved.weeklyMinutes || 0), 0);
+            const totalHours = Math.round(totalMinutes / 60);
 
-            const items = [
-                { value: annualHrs.toLocaleString(), label: 'Hours Saved / Year', sub: `${Math.round(weeklyHrs)} hrs/week`, cls: 'primary' },
-                { value: fte, label: 'FTE Equivalent', sub: '1 FTE = 1,920 hrs', cls: '' },
-                { value: `$${(dollarVal / 1000).toFixed(0)}K`, label: 'Annual Value', sub: `@$${DATA.meta.costPerHour}/hr`, cls: 'dollar' },
-                { value: DATA.stats.projectsLive, label: 'Projects Live', sub: 'all production', cls: '' },
-                { value: `${teamsActive}/${DATA.teams.length}`, label: 'Teams Active', sub: `${DATA.meta.orgSize} people`, cls: '' },
+            const statItems = [
+                { value: stats.projectsLive, label: 'Projects Live' },
+                { value: stats.automationsRunning, label: 'Running 24/7' },
+                { value: stats.apiCallsToday, label: 'API Calls/Day' },
+                { value: `~${totalHours} hrs`, label: 'Saved Weekly', highlight: true }
             ];
 
-            grid.innerHTML = items.map(s => `
-                <div class="hero-card ${s.cls}">
-                    <div class="hero-value" data-target="${s.value}">${s.value}</div>
-                    <div class="hero-label">${s.label}</div>
-                    ${s.sub ? `<div class="hero-sub">${s.sub}</div>` : ''}
-                </div>
-            `).join('');
-
-            // Count-up animation
-            grid.querySelectorAll('.hero-value').forEach(el => {
-                const raw = el.dataset.target;
-                const numMatch = raw.replace(/[^0-9.]/g, '');
-                if (!numMatch || isNaN(parseFloat(numMatch))) return;
-                const target = parseFloat(numMatch);
-                const prefix = raw.match(/^[^0-9]*/)[0];
-                const suffix = raw.match(/[^0-9.]*$/)[0];
-                const isDecimal = raw.includes('.');
-                let start = 0;
-                const duration = 1200;
-                const startTime = performance.now();
-                function tick(now) {
-                    const elapsed = now - startTime;
-                    const progress = Math.min(elapsed / duration, 1);
-                    const eased = 1 - Math.pow(1 - progress, 3);
-                    const current = start + (target - start) * eased;
-                    el.textContent = prefix + (isDecimal ? current.toFixed(1) : Math.round(current).toLocaleString()) + suffix;
-                    if (progress < 1) requestAnimationFrame(tick);
-                }
-                el.textContent = prefix + '0' + suffix;
-                requestAnimationFrame(tick);
-            });
-        }
-
-        // ── MILESTONE BANNER ──
-        function renderMilestone() {
-            const banner = document.getElementById('milestone-banner');
-            if (!DATA.milestones) return;
-            const reached = DATA.milestones.filter(m => m.reached).sort((a, b) => b.hours - a.hours);
-            if (!reached.length) return;
-            const latest = reached[0];
-            const reachedDate = new Date(latest.reached);
-            const daysSince = Math.floor((Date.now() - reachedDate) / 86400000);
-
-            if (daysSince <= 14) {
-                banner.innerHTML = `
-                    <div class="milestone-banner">
-                        <span style="font-size:1.5rem">&#127942;</span>
-                        <span class="milestone-text">Milestone: <span class="milestone-number">${latest.label}</span></span>
-                        <span class="milestone-date">reached ${reachedDate.toLocaleDateString()}</span>
-                    </div>`;
-                // Fire confetti
-                if (typeof confetti === 'function' && daysSince <= 3) {
-                    setTimeout(() => {
-                        confetti({ particleCount: 80, spread: 70, origin: { y: 0.3 }, colors: ['#10b981', '#6366f1', '#a855f7', '#22d3ee'] });
-                    }, 800);
-                }
-            }
-        }
-
-        // ── TEAM BOARD ──
-        function renderLeaderboard() {
-            const board = document.getElementById('team-board');
-            const teamEmoji = { support: '\u{1F3A7}', cs: '\u{1F91D}', pmo: '\u{1F4CB}' };
-
-            // Kevin = executive sponsor, above the board
-            const sponsor = DATA.contributors ? DATA.contributors.find(c => c.role === 'sponsor') : null;
-            const sponsorMins = DATA.projects.filter(p => p.team === 'executive' && p.timeSaved).reduce((s, p) => s + (p.timeSaved.weeklyMinutes || 0), 0);
-            const sponsorProjects = DATA.projects.filter(p => p.team === 'executive').length;
-
-            // Competition start date — only projects after this count for the race
-            const comp = DATA.competition || {};
-            const raceStart = comp.startDate ? new Date(comp.startDate) : null;
-
-            function isNewProject(p) {
-                if (!raceStart) return false;
-                // If project has an explicit challengeDate, use that (opted-in to the race)
-                if (p.challengeDate) {
-                    const cd = new Date(p.challengeDate);
-                    return cd >= raceStart;
-                }
-                // Otherwise, use the project's creation date
-                if (!p.date) return false;
-                const parts = p.date.split('-');
-                const projDate = new Date(parts[0], (parseInt(parts[1]) || 1) - 1, 1);
-                return projDate >= raceStart;
-            }
-
-            // Only competing teams (not executive)
-            const competingTeams = DATA.teams.filter(t => t.id !== 'executive');
-            const teamData = competingTeams.map(t => {
-                const newProjects = DATA.projects.filter(p => p.team === t.id && isNewProject(p));
-                const newMins = newProjects.filter(p => p.timeSaved).reduce((s, p) => s + (p.timeSaved.weeklyMinutes || 0), 0);
-                const newCount = newProjects.length;
-                const legacyCount = DATA.projects.filter(p => p.team === t.id && !isNewProject(p)).length;
-                const size = Math.max(t.members.length, 1);
-                const perPerson = newMins / size;
-                return { ...t, weeklyMinutes: newMins, projectCount: newCount, legacyCount, perPersonMinutes: perPerson, teamSize: size };
-            });
-
-            // Sort by per-person hours (the equalizer)
-            teamData.sort((a, b) => b.perPersonMinutes - a.perPersonMinutes);
-
-            // Everyone competes — no split between active/opportunity when race hasn't started
-            const raceStarted = raceStart && new Date() >= raceStart;
-            const anyoneScored = teamData.some(t => t.projectCount > 0);
-
-            // Sponsor strip
-            const sponsorHtml = sponsor ? `
-                <div class="tb-sponsor">
-                    <div class="tb-sponsor-left">
-                        <span class="tb-sponsor-avatar">${sponsor.avatar || 'KH'}</span>
-                        <div>
-                            <div class="tb-sponsor-name">${sponsor.name}</div>
-                            <div class="tb-sponsor-role">SVP Customer Experience &middot; Executive Sponsor</div>
-                        </div>
-                    </div>
-                    <div class="tb-sponsor-stats">
-                        ${sponsorProjects > 0 ? `<span class="tb-sponsor-stat">${sponsorProjects} project${sponsorProjects !== 1 ? 's' : ''}</span>` : ''}
-                        ${sponsorMins > 0 ? `<span class="tb-sponsor-stat">${(sponsorMins / 60).toFixed(1)} hrs/wk</span>` : ''}
-                    </div>
-                </div>` : '';
-
-            // Race countdown or status
-            const now = new Date();
-            const daysUntilRace = raceStart ? Math.ceil((raceStart - now) / 86400000) : 0;
-
-            let raceStatusHtml = '';
-            if (raceStart && daysUntilRace > 0) {
-                raceStatusHtml = `
-                <div class="tb-race-banner">
-                    <div class="tb-race-countdown">
-                        <span class="tb-race-number">${daysUntilRace}</span>
-                        <span class="tb-race-unit">day${daysUntilRace !== 1 ? 's' : ''}</span>
-                    </div>
-                    <div class="tb-race-info">
-                        <div class="tb-race-title">${comp.name || 'The Race Starts Soon'}</div>
-                        <div class="tb-race-sub">${comp.tagline || ''} &middot; ${raceStart.toLocaleDateString('en', { month: 'short', day: 'numeric' })}</div>
-                    </div>
-                </div>`;
-            } else if (raceStarted && !anyoneScored) {
-                raceStatusHtml = `
-                <div class="tb-race-banner live">
-                    <div class="tb-race-countdown"><span class="tb-race-number">GO</span></div>
-                    <div class="tb-race-info">
-                        <div class="tb-race-title">${comp.name || 'The Race Is On'}</div>
-                        <div class="tb-race-sub">First project wins bragging rights. Who's it gonna be?</div>
-                    </div>
-                </div>`;
-            }
-
-            // All teams get the same card — equal footing
-            const teamsHtml = teamData.map(t => {
-                const totalHrs = (t.weeklyMinutes / 60).toFixed(1);
-                const perPersonHrs = (t.perPersonMinutes / 60).toFixed(1);
-                const hasScore = t.projectCount > 0;
-                return `
-                <div class="tb-card ${hasScore ? '' : 'at-zero'}" style="border-left-color:${t.color}">
-                    <div class="tb-top">
-                        <div class="tb-emoji">${teamEmoji[t.id] || '\u{1F465}'}</div>
-                        <div class="tb-info">
-                            <div class="tb-name">${t.name}</div>
-                            <div class="tb-meta">${t.lead} &middot; ${t.teamSize} member${t.teamSize !== 1 ? 's' : ''}</div>
-                        </div>
-                    </div>
-                    <div class="tb-stats-row">
-                        <div class="tb-stat-box">
-                            <div class="tb-stat-val" style="color:${t.color}">${t.projectCount}</div>
-                            <div class="tb-stat-label">Projects</div>
-                        </div>
-                        <div class="tb-stat-box">
-                            <div class="tb-stat-val">${hasScore ? totalHrs : '\u2014'}</div>
-                            <div class="tb-stat-label">Hrs / Week</div>
-                        </div>
-                        <div class="tb-stat-box">
-                            <div class="tb-stat-val tb-per-person">${hasScore ? perPersonHrs : '\u2014'}</div>
-                            <div class="tb-stat-label">Per Person</div>
-                        </div>
-                    </div>
-                </div>`;
-            }).join('');
-
-            const ctaHtml = `
-                <div class="tb-cta">
-                    <div class="tb-cta-text">Log a win: say <strong style="color:var(--accent-cyan)">"ai win: My Project"</strong> in Slack</div>
-                    <div class="tb-cta-sub">Per-person hours = the equalizer. Small teams can lead.</div>
-                </div>`;
-
-            board.innerHTML = sponsorHtml + raceStatusHtml + teamsHtml + ctaHtml;
-        }
-
-        // ── RECENT WINS ──
-        function renderWins() {
-            const feed = document.getElementById('wins-feed');
-            const icons = { deploy: '\u{1F680}', integration: '\u{1F50C}', update: '\u2728' };
-            feed.innerHTML = DATA.activity.slice(0, 6).map(a => `
-                <div class="win-item">
-                    <div class="win-icon ${a.type || 'deploy'}">${icons[a.type] || '\u{1F4CC}'}</div>
-                    <div class="win-body">
-                        <div class="win-text">${a.event}</div>
-                        <div class="win-meta">
-                            ${a.contributor ? `<span class="win-contributor">${a.contributor}</span>` : ''}
-                            <span>${formatTime(a.timestamp)}</span>
-                        </div>
-                    </div>
+            grid.innerHTML = statItems.map(stat => `
+                <div class="stat-card ${stat.highlight ? 'highlight' : ''}">
+                    <div class="stat-value">${stat.value}</div>
+                    <div class="stat-label">${stat.label}</div>
                 </div>
             `).join('');
         }
 
-        // ── HEATMAP ──
-        function renderHeatmap() {
-            const grid = document.getElementById('heatmap-grid');
-            const monthsRow = document.getElementById('heatmap-months');
+        function renderActivity(activities) {
+            const feed = document.getElementById('activity-feed');
+            const icons = {
+                deploy: '🚀',
+                integration: '🔌',
+                update: '✨'
+            };
 
-            // Build activity counts by date
-            const counts = {};
-            DATA.activity.forEach(a => {
-                const d = a.timestamp.split('T')[0];
-                counts[d] = (counts[d] || 0) + 1;
-            });
-
-            // Go back 26 weeks
-            const now = new Date();
-            const start = new Date(now);
-            start.setDate(start.getDate() - (26 * 7) - start.getDay());
-
-            let html = '';
-            let monthLabels = [];
-            let lastMonth = -1;
-            let colCount = 0;
-
-            for (let w = 0; w < 27; w++) {
-                let col = '';
-                for (let d = 0; d < 7; d++) {
-                    const date = new Date(start);
-                    date.setDate(start.getDate() + w * 7 + d);
-                    if (date > now) { col += '<div class="heatmap-cell" style="opacity:0"></div>'; continue; }
-                    const key = date.toISOString().split('T')[0];
-                    const count = counts[key] || 0;
-                    const level = count === 0 ? '' : count === 1 ? 'l1' : count === 2 ? 'l2' : count <= 4 ? 'l3' : 'l4';
-                    col += `<div class="heatmap-cell ${level}" title="${key}: ${count} event${count !== 1 ? 's' : ''}"></div>`;
-
-                    if (d === 0) {
-                        const m = date.getMonth();
-                        if (m !== lastMonth) { monthLabels.push({ col: colCount, label: date.toLocaleDateString('en', { month: 'short' }) }); lastMonth = m; }
-                    }
-                }
-                html += `<div class="heatmap-col">${col}</div>`;
-                colCount++;
-            }
-
-            grid.innerHTML = html;
-
-            // Month labels
-            const totalWidth = 27 * 17; // 14px cell + 3px gap
-            monthsRow.innerHTML = monthLabels.map(m => {
-                const left = m.col * 17;
-                return `<span style="position:absolute;left:${left}px">${m.label}</span>`;
-            }).join('');
-            monthsRow.style.position = 'relative';
-            monthsRow.style.height = '16px';
-            monthsRow.style.width = totalWidth + 'px';
+            feed.innerHTML = activities.slice(0, 4).map(activity => `
+                <div class="activity-item">
+                    <div class="activity-icon ${activity.type}">${icons[activity.type] || '📌'}</div>
+                    <div class="activity-text">${activity.event}</div>
+                    <div class="activity-time">${formatTime(activity.timestamp)}</div>
+                </div>
+            `).join('');
         }
 
-        // ── CUMULATIVE CHART ──
-        function renderChart() {
-            const ctx = document.getElementById('cumulative-chart').getContext('2d');
-            const series = DATA.weeklySeries || [];
-
-            const labels = series.map(s => {
-                const d = new Date(s.week);
-                return d.toLocaleDateString('en', { month: 'short', day: 'numeric' });
-            });
-            const hours = series.map(s => Math.round(s.cumulativeMinutes / 60));
-
-            // Find milestones that fall in range
-            const milestoneAnnotations = [];
-            if (DATA.milestones) {
-                DATA.milestones.filter(m => m.reached).forEach(m => {
-                    const mDate = new Date(m.reached);
-                    const idx = series.findIndex((s, i) => {
-                        const sDate = new Date(s.week);
-                        const nextDate = series[i + 1] ? new Date(series[i + 1].week) : new Date();
-                        return mDate >= sDate && mDate < nextDate;
-                    });
-                    if (idx >= 0) milestoneAnnotations.push({ idx, label: m.label, hours: m.hours });
-                });
-            }
-
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels,
-                    datasets: [{
-                        label: 'Cumulative Hours Saved',
-                        data: hours,
-                        borderColor: '#10b981',
-                        backgroundColor: (ctx2) => {
-                            const gradient = ctx2.chart.ctx.createLinearGradient(0, 0, 0, 280);
-                            gradient.addColorStop(0, 'rgba(16, 185, 129, 0.2)');
-                            gradient.addColorStop(1, 'rgba(16, 185, 129, 0)');
-                            return gradient;
-                        },
-                        fill: true,
-                        tension: 0.4,
-                        borderWidth: 2.5,
-                        pointBackgroundColor: '#10b981',
-                        pointBorderColor: '#030014',
-                        pointBorderWidth: 2,
-                        pointRadius: 4,
-                        pointHoverRadius: 7,
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: {
-                            backgroundColor: 'rgba(15, 15, 35, 0.95)',
-                            titleColor: '#f0f0f5',
-                            bodyColor: '#9090a8',
-                            borderColor: 'rgba(255,255,255,0.1)',
-                            borderWidth: 1,
-                            padding: 12,
-                            cornerRadius: 8,
-                            titleFont: { family: 'Inter', weight: 600 },
-                            bodyFont: { family: 'JetBrains Mono', size: 12 },
-                            callbacks: {
-                                label: (ctx2) => `${ctx2.parsed.y.toLocaleString()} hours saved`
-                            }
-                        }
-                    },
-                    scales: {
-                        x: {
-                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
-                            ticks: { color: '#5a5a70', font: { family: 'JetBrains Mono', size: 11 } }
-                        },
-                        y: {
-                            grid: { color: 'rgba(255,255,255,0.04)', drawBorder: false },
-                            ticks: {
-                                color: '#5a5a70',
-                                font: { family: 'JetBrains Mono', size: 11 },
-                                callback: v => v.toLocaleString() + 'h'
-                            }
-                        }
-                    },
-                    interaction: { intersect: false, mode: 'index' }
-                }
-            });
-        }
-
-        // ── CONTRIBUTORS ──
-        function renderContributors() {
-            const grid = document.getElementById('contributors-grid');
-            if (!DATA.contributors) return;
-
-            const ladder = DATA.badgeLadder || [];
-            const ladderMap = {};
-            ladder.forEach(b => ladderMap[b.id] = b);
-
-            // Show competitors, not sponsors (Kevin is on the sponsor strip)
-            const competitors = DATA.contributors.filter(c => c.role !== 'sponsor');
-
-            grid.innerHTML = competitors.map(c => {
-                const team = DATA.teams.find(t => t.id === c.team);
-                const color = team ? team.color : '#6366f1';
-                const joinDate = c.joined ? new Date(c.joined).toLocaleDateString('en', { month: 'short', year: 'numeric' }) : '';
-                const earnedSet = new Set(c.badges || []);
-
-                // Show earned badges + next 2 unearned as motivation
-                const earned = (c.badges || []).map(id => ladderMap[id]).filter(Boolean);
-                const unearned = ladder.filter(b => !earnedSet.has(b.id) && (b.type === 'projects' || b.type === 'docs')).slice(0, 2);
-
-                const badgesHtml = earned.map(b =>
-                    `<span class="badge-chip earned" title="${b.description}"><span class="badge-icon">${b.html || b.icon}</span> ${b.label}</span>`
-                ).join('') + unearned.map(b =>
-                    `<span class="badge-chip next" title="${b.description} (${b.threshold} projects)"><span class="badge-icon">${b.html || b.icon}</span> ${b.label}</span>`
-                ).join('');
-
-                return `
-                <div class="contributor-card">
-                    <div class="contributor-top">
-                        <div class="contributor-avatar" style="background:${color}22;color:${color}">${c.avatar || c.name.split(' ').map(n => n[0]).join('')}</div>
-                        <div class="contributor-info">
-                            <div class="contributor-name">${c.name}</div>
-                            <div class="contributor-meta">${team ? team.name : ''} &middot; since ${joinDate}</div>
-                        </div>
-                    </div>
-                    <div class="badges">${badgesHtml}</div>
-                </div>`;
-            }).join('');
-        }
-
-        // ── PROJECTS ──
-        function renderProjects() {
+        function renderProjects(projects) {
             const grid = document.getElementById('projects-grid');
-            const filterBar = document.getElementById('filter-bar');
+            projects = projects.filter(p => p.publish !== false);
 
-            // Build filter buttons
-            const teams = ['all', ...DATA.teams.map(t => t.id)];
-            const teamNames = { all: 'All', ...Object.fromEntries(DATA.teams.map(t => [t.id, t.name])) };
-            filterBar.innerHTML = teams.map(t => `
-                <button class="filter-btn ${t === currentFilter ? 'active' : ''}" data-filter="${t}">${teamNames[t]}</button>
-            `).join('') + `
-                <span style="margin-left:auto;display:flex;gap:8px">
-                    <button class="filter-btn ${currentSort === 'hours' ? 'active' : ''}" data-sort="hours">By Hours</button>
-                    <button class="filter-btn ${currentSort === 'name' ? 'active' : ''}" data-sort="name">A-Z</button>
-                    <button class="filter-btn ${currentSort === 'date' ? 'active' : ''}" data-sort="date">Newest</button>
-                </span>`;
-
-            filterBar.querySelectorAll('[data-filter]').forEach(btn => {
-                btn.addEventListener('click', () => { currentFilter = btn.dataset.filter; renderProjects(); });
-            });
-            filterBar.querySelectorAll('[data-sort]').forEach(btn => {
-                btn.addEventListener('click', () => { currentSort = btn.dataset.sort; renderProjects(); });
-            });
-
-            let projects = DATA.projects.filter(p => p.publish !== false);
-            if (currentFilter !== 'all') projects = projects.filter(p => p.team === currentFilter);
-            if (currentSort === 'hours') projects.sort((a, b) => (b.timeSaved?.weeklyMinutes || 0) - (a.timeSaved?.weeklyMinutes || 0));
-            else if (currentSort === 'name') projects.sort((a, b) => a.name.localeCompare(b.name));
-            else if (currentSort === 'date') projects.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
-
-            grid.innerHTML = projects.map(p => {
-                const ts = p.timeSaved;
-                const hasComparison = ts && ts.manualMinutes && ts.automatedMinutes;
-                const maxTime = hasComparison ? Math.max(ts.manualMinutes, ts.automatedMinutes) : 0;
-                const hrsPerWeek = ts ? (ts.weeklyMinutes / 60) : 0;
-
-                return `
+            grid.innerHTML = projects.map(project => `
                 <div class="project-card">
                     <div class="project-header">
-                        <div class="project-icon">${p.icon}</div>
-                        <span class="project-status ${p.status}">${p.status}</span>
+                        <div class="project-icon">${project.icon}</div>
+                        <span class="project-status ${project.status}">${project.status}</span>
                     </div>
-                    <h3 class="project-name">${p.name}</h3>
-                    <p class="project-tagline">${p.tagline}</p>
-                    <p class="project-description">${p.description}</p>
-                    ${hasComparison ? `
-                    <div class="time-comparison">
-                        <div class="time-bar-row">
-                            <span class="time-bar-label">Before</span>
-                            <div class="time-bar-track"><div class="time-bar-fill manual" style="width:${ts.manualMinutes / maxTime * 100}%"></div></div>
-                            <span class="time-bar-val">${ts.manualMinutes} min</span>
-                        </div>
-                        <div class="time-bar-row">
-                            <span class="time-bar-label">After</span>
-                            <div class="time-bar-track"><div class="time-bar-fill auto" style="width:${ts.automatedMinutes / maxTime * 100}%"></div></div>
-                            <span class="time-bar-val">${ts.automatedMinutes} min</span>
-                        </div>
-                    </div>` : ''}
-                    ${ts && hrsPerWeek > 0 ? `
-                    <div class="time-saved-pill">
-                        <span>\u23F1 ~${hrsPerWeek.toFixed(1)} hrs/week saved</span>
+                    <h3 class="project-name">${project.name}</h3>
+                    <p class="project-tagline">${project.tagline}</p>
+                    <p class="project-description">${project.description}</p>
+                    <div class="project-impact">
+                        ${project.impact.map(i => `<div class="impact-item">${i}</div>`).join('')}
+                    </div>
+                    ${project.timeSaved ? `
+                    <div class="time-saved">
+                        <span class="time-saved-value">⏱ ~${Math.round(project.timeSaved.weeklyMinutes / 60 * 10) / 10} hrs/week saved</span>
+                        <span class="time-saved-calc">${project.timeSaved.calculation}</span>
                     </div>` : ''}
                     <div class="project-tech">
-                        ${p.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+                        ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
-                    ${p.repo ? `<a href="${p.repo}" class="project-link" target="_blank">View Repository \u2192</a>` : ''}
-                </div>`;
-            }).join('');
+                    ${project.repo ? `<a href="${project.repo}" class="project-link" target="_blank">View Repository →</a>` : ''}
+                </div>
+            `).join('');
         }
 
-        // ── HELPERS ──
         function formatTime(timestamp) {
             const date = new Date(timestamp);
             const now = new Date();
             const diff = now - date;
-            const mins = Math.floor(diff / 60000);
-            const hours = Math.floor(diff / 3600000);
-            const days = Math.floor(diff / 86400000);
+            const mins = Math.floor(diff / (1000 * 60));
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+
             if (mins < 5) return 'Just now';
             if (mins < 60) return `${mins}m ago`;
             if (hours < 24) return `${hours}h ago`;
-            if (days < 7) return `${days}d ago`;
             return date.toLocaleDateString();
         }
 
-        // ── INIT ──
         loadData();
-        setInterval(loadData, 60000);
     </script>
 </body>
 </html>
