@@ -25,10 +25,10 @@ DATA_FILE = os.path.join(SCRIPT_DIR, "data.json")
 SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 
 # Channel progression — change this to advance launch stages
-STAGE = "test"  # "test", "soft", "prod"
+STAGE = "test"  # "test", "soft", "prod" — flip to "soft" for Tuesday demo
 CHANNELS = {
-    "test": {"C0AGULNT9EU": "lucas-bot-testing", "C0ANH6WKU8N": "cs-bot-testing"},
-    "soft": {"C06432E9H36": "cx-directors", "C0ANH6WKU8N": "cs-bot-testing"},
+    "test": {"C0AGULNT9EU": "lucas-bot-testing"},  # cs-bot-testing reserved for cx-dashboard bot
+    "soft": {"C06432E9H36": "cx-directors"},
     "prod": {"C05U74HDVLH": "cx-internal"},
 }
 LISTEN_CHANNELS = CHANNELS[STAGE]
@@ -46,8 +46,9 @@ USER_TEAM_MAP = {
     "U9NLNTPDK": "support",       # Lucas
     "U03NP6HCMJA": "support",     # Christian
     "U04K118RSLS": "support",     # Hannah
-    "U01572F2Z8U": "cs",          # Ryan Schwartz
+    "U01572F2Z8U": "cs-ryan",     # Ryan Schwartz
     "UNZ4YMDR9": "pmo",           # Jackie George
+    # Jenny's team — add Slack IDs as they submit
 }
 
 CELEBRATIONS = [
@@ -247,7 +248,7 @@ def handle_intake_reply(channel, thread_ts, text, user):
             save_project(channel, thread_ts, intake)
         else:
             reply(channel, thread_ts,
-                "Which team are you on?\n• *Support*\n• *Customer Success*\n• *PMO*"
+                "Which team are you on?\n• *Support* (Lucas)\n• *CS — Ryan's Team*\n• *CS — Jenny's Team*\n• *PMO* (Jackie)"
             )
 
     elif state == "need_team":
@@ -255,14 +256,18 @@ def handle_intake_reply(channel, thread_ts, text, user):
         team = None
         if "support" in text_lower:
             team = "support"
+        elif "jenny" in text_lower:
+            team = "cs-jenny"
+        elif "ryan" in text_lower:
+            team = "cs-ryan"
         elif "success" in text_lower or "cs" in text_lower:
-            team = "cs"
+            team = "cs-ryan"  # default CS to Ryan's team
         elif "pmo" in text_lower or "project" in text_lower:
             team = "pmo"
 
         if not team:
             reply(channel, thread_ts,
-                "Didn't catch that — say *Support*, *Customer Success*, or *PMO*."
+                "Didn't catch that — say *Support*, *Ryan's team*, *Jenny's team*, or *PMO*."
             )
             return
 
@@ -344,7 +349,7 @@ def save_project(channel, thread_ts, intake):
             "description": intake["description"],
             "weeklyMinutes": intake["weeklyMinutes"],
             "owner": user_name,
-        }, timeout=30)
+        }, timeout=60)
     except Exception as e:
         print(f"Render push failed (cold start?): {e}")
 
@@ -636,6 +641,9 @@ def run():
                         if rts in processed_messages:
                             continue
                         processed_messages.add(rts)
+                        # Skip bot's own replies — prevents infinite loops
+                        if r.get("bot_id") or r.get("user") == BOT_USER_ID:
+                            continue
                         handle_intake_reply(channel_id, thread_ts, clean_text(r.get("text", "")), r.get("user", ""))
 
             cleanup_stale_intakes()
