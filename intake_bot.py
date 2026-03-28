@@ -21,7 +21,8 @@ from slack_sdk.errors import SlackApiError
 
 # ── Config ──
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_FILE = os.path.join(SCRIPT_DIR, "data.json")
+CX_DASHBOARD_DIR = os.path.expanduser("~/projects/cx-ai-dashboard")
+DATA_FILE = os.path.join(CX_DASHBOARD_DIR, "data.json")
 SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 
 # Channel progression — change this to advance launch stages
@@ -276,79 +277,66 @@ def handle_intake_reply(channel, thread_ts, text, user):
 
 
 def save_project(channel, thread_ts, intake):
-    """Save the completed intake to data.json."""
+    """Save the completed intake to cx-ai-dashboard data.json (team-nested format)."""
     data = load_data()
-
-    # Build project entry
-    project_id = re.sub(r'[^a-z0-9]+', '-', intake["name"].lower()).strip('-')
     now = datetime.now()
+    user_name = get_user_name(intake["user"])
 
-    # Check for dupes
-    existing_ids = {p["id"] for p in data["projects"]}
-    if project_id in existing_ids:
-        project_id = f"{project_id}-{now.strftime('%m%d')}"
+    # Find the target team
+    team_obj = next((t for t in data["teams"] if t["id"] == intake["team"]), None)
+    if not team_obj:
+        reply(channel, thread_ts, f":warning: Unknown team: {intake['team']}")
+        return
 
+    # Dedup check
+    if any(p["name"].lower() == intake["name"].lower() for p in team_obj["projects"]):
+        reply(channel, thread_ts, f":warning: *{intake['name']}* already exists in {team_obj['name']}")
+        return
+
+    # Build project in cx-ai-dashboard format
     new_project = {
-        "id": project_id,
-        "publish": True,
-        "audience": "team",
-        "team": intake["team"],
         "name": intake["name"],
-        "tagline": intake["description"][:80] if len(intake["description"]) > 80 else intake["description"],
-        "status": "production",
-        "date": now.strftime("%Y-%m"),
         "description": intake["description"],
-        "impact": [],
-        "timeSaved": {
-            "weeklyMinutes": intake["weeklyMinutes"],
-            "frequency": intake.get("frequency", "weekly"),
-            "rawMinutes": intake.get("rawMinutes", intake["weeklyMinutes"]),
-            "calculation": f"Self-reported: ~{intake.get('rawMinutes', intake['weeklyMinutes'])} min ({intake.get('frequency', 'weekly')})"
-        },
-        "tech": [],
-        "repo": None,
-        "icon": "\u2728",
+        "weeklyMinutes": intake["weeklyMinutes"],
+        "owner": user_name,
+        "status": "production",
+        "since": now.strftime("%Y-%m"),
+        "addedDate": now.strftime("%Y-%m-%d"),
+        "frequency": intake.get("frequency", "weekly"),
+        "rawMinutes": intake.get("rawMinutes", intake["weeklyMinutes"]),
     }
-
     if intake.get("confluenceUrl"):
         new_project["confluenceUrl"] = intake["confluenceUrl"]
 
-    data["projects"].append(new_project)
+    team_obj["projects"].append(new_project)
 
-    # Add activity entry
-    # Look up user name
-    user_name = get_user_name(intake["user"])
-
-    data["activity"].insert(0, {
+    # Activity log (top-level)
+    data.setdefault("activity", []).insert(0, {
         "timestamp": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
         "event": f"{intake['name']} — {intake['description'][:100]}",
         "type": "deploy",
         "contributor": user_name,
         "team": intake["team"],
-        "projectId": project_id,
     })
 
-    # Add/update contributor
+    # Contributor tracking + badges
     update_contributor(data, intake["user"], user_name, intake["team"], intake.get("confluenceUrl"))
-
-    # Auto-calculate badges for this contributor
     auto_badges(data, user_name)
-
-    # Update stats
-    data["stats"]["projectsLive"] = len([p for p in data["projects"] if p.get("publish", True)])
 
     save_data(data)
 
     # Push to CX dashboard on Render
     try:
         import requests as _req
-        user_name = get_user_name(intake["user"])
         _req.post("https://cx-ai-dashboard.onrender.com/api/add-project", json={
             "team": intake["team"],
             "name": intake["name"],
             "description": intake["description"],
             "weeklyMinutes": intake["weeklyMinutes"],
             "owner": user_name,
+            "frequency": intake.get("frequency"),
+            "rawMinutes": intake.get("rawMinutes"),
+            "confluenceUrl": intake.get("confluenceUrl"),
         }, timeout=60)
     except Exception as e:
         print(f"Render push failed (cold start?): {e}")
@@ -451,21 +439,23 @@ def auto_badges(data, user_name):
     if not contributor:
         return
 
-    # Count their projects
-    team = contributor.get("team", "")
-    # Count projects where this person is the contributor in activity
+    # Count their projects (unique project names in activity log)
     project_count = len(set(
-        a["projectId"] for a in data.get("activity", [])
+        a.get("event", "").split(" — ")[0]
+        for a in data.get("activity", [])
         if a.get("contributor") == user_name
     ))
 
-    # Count documented projects
+    # Count documented projects (projects with confluenceUrl across all teams)
+    all_projects = [p for t in data.get("teams", []) for p in t["projects"]]
+    user_project_names = {
+        a.get("event", "").split(" — ")[0]
+        for a in data.get("activity", [])
+        if a.get("contributor") == user_name
+    }
     doc_count = len([
-        p for p in data["projects"]
-        if p.get("confluenceUrl") and any(
-            a.get("contributor") == user_name and a.get("projectId") == p["id"]
-            for a in data.get("activity", [])
-        )
+        p for p in all_projects
+        if p.get("confluenceUrl") and p["name"] in user_project_names
     ])
 
     # Check streaks (consecutive weeks with activity)
@@ -578,19 +568,19 @@ def post_stats(channel_id, thread_ts):
     """Post org-wide stats summary."""
     data = load_data()
     total_min = sum(
-        p.get("timeSaved", {}).get("weeklyMinutes", 0)
-        for p in data["projects"]
-        if p.get("publish", True)
+        p.get("weeklyMinutes", 0)
+        for t in data["teams"]
+        for p in t["projects"]
     )
     hours = total_min / 60
-    projects = len([p for p in data["projects"] if p.get("publish", True)])
+    projects = sum(len(t["projects"]) for t in data["teams"])
 
     reply(channel_id, thread_ts,
-        f":bar_chart: *AI in Action — Org Stats*\n"
+        f":bar_chart: *CX AI Impact — Org Stats*\n"
         f"• *{projects}* projects live\n"
         f"• *{hours:.1f}* hrs/week saved\n"
         f"• *{hours * 52:.0f}* hrs/year projected\n"
-        f"• *${hours * 52 * 39:,.0f}* annual value"
+        f"• *${hours * 52 * 35:,.0f}* annual value"
     )
 
 
