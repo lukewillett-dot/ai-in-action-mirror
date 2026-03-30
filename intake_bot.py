@@ -28,7 +28,7 @@ SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 # Channel progression — change this to advance launch stages
 STAGE = "test"  # "test", "soft", "prod" — flip to "soft" for Tuesday demo
 CHANNELS = {
-    "test": {"C0AGULNT9EU": "lucas-bot-testing"},  # cs-bot-testing reserved for cx-dashboard bot
+    "test": {"C0AGULNT9EU": "lucas-bot-testing", "C0ANH6WKU8N": "cs-bot-testing"},
     "soft": {"C06432E9H36": "cx-directors"},
     "prod": {"C05U74HDVLH": "cx-internal"},
 }
@@ -38,8 +38,31 @@ POLL_INTERVAL = 15
 BOT_USER_ID = None
 
 # ── Conversation state ──
-processed_messages = set()
+PROCESSED_FILE = os.path.join(SCRIPT_DIR, ".processed_messages.json")
 active_intakes = {}  # {thread_ts: {state, name, team, ...}}
+
+
+def _load_processed():
+    """Load processed message timestamps from disk so restarts don't re-trigger."""
+    try:
+        with open(PROCESSED_FILE) as f:
+            data = json.load(f)
+            # Only keep timestamps from the last hour to avoid unbounded growth
+            cutoff = time.time() - 3600
+            return {ts for ts in data if float(ts) > cutoff}
+    except (FileNotFoundError, json.JSONDecodeError):
+        return set()
+
+
+def _save_processed():
+    """Persist processed timestamps to disk."""
+    cutoff = time.time() - 3600
+    trimmed = [ts for ts in processed_messages if float(ts) > cutoff]
+    with open(PROCESSED_FILE, "w") as f:
+        json.dump(trimmed, f)
+
+
+processed_messages = _load_processed()
 
 # Team lookup by Slack user ID → team
 # Will be populated from org data; fallback asks the user
@@ -71,7 +94,7 @@ client = None
 def get_client():
     global client, BOT_USER_ID
     if client is None:
-        client = WebClient(token=SLACK_TOKEN)
+        client = WebClient(token=SLACK_TOKEN, timeout=30)
         try:
             auth = client.auth_test()
             BOT_USER_ID = auth["user_id"]
@@ -192,7 +215,12 @@ def handle_intake_reply(channel, thread_ts, text, user):
         text_lower = text.strip().lower()
         if "one" in text_lower or "once" in text_lower or "1" == text_lower:
             intake["frequency"] = "one-time"
-            intake["weeklyMinutes"] = round(intake["rawMinutes"] / 52)  # spread across year
+            # Annualize from April 1 to Dec 31 (~39 weeks remaining)
+            from datetime import date
+            today = date.today()
+            year_end = date(today.year, 12, 31)
+            weeks_remaining = max((year_end - today).days / 7, 1)
+            intake["weeklyMinutes"] = round(intake["rawMinutes"] / weeks_remaining)
             freq_label = "one-time"
         elif "month" in text_lower:
             intake["frequency"] = "monthly"
@@ -611,8 +639,8 @@ def run():
                     if msg.get("bot_id") and msg.get("user") == BOT_USER_ID:
                         processed_messages.add(ts)
                         continue
-                    # Skip messages older than 5 min
-                    if time.time() - float(ts) > 300:
+                    # Skip messages older than 15 min (generous window for rate-limit gaps)
+                    if time.time() - float(ts) > 900:
                         processed_messages.add(ts)
                         continue
 
@@ -637,11 +665,13 @@ def run():
                         handle_intake_reply(channel_id, thread_ts, clean_text(r.get("text", "")), r.get("user", ""))
 
             cleanup_stale_intakes()
+            _save_processed()
 
         except Exception as e:
             print(f"Error in main loop: {e}")
 
-        time.sleep(POLL_INTERVAL)
+        # Poll faster when active intakes are waiting for replies
+        time.sleep(5 if active_intakes else POLL_INTERVAL)
 
 
 if __name__ == "__main__":
