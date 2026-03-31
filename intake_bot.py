@@ -19,6 +19,30 @@ from datetime import datetime
 from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
+import anthropic
+
+
+def _extract_title(raw_text):
+    """Use Haiku to extract a 2-4 word project title from the ai win text."""
+    try:
+        client = anthropic.Anthropic()
+        resp = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=20,
+            messages=[{"role": "user", "content": (
+                f"Extract a short project title (2-4 words) from this AI win description. "
+                f"Return ONLY the title, nothing else. Examples: 'Distribution Analytics Dashboard', "
+                f"'Churn Score Rebuild', 'Weekly Report Automation'.\n\n{raw_text}"
+            )}],
+        )
+        title = resp.content[0].text.strip().strip('"\'')
+        return title if title else raw_text[:50]
+    except Exception as e:
+        print(f"  Haiku title extraction failed: {e}")
+        # Fallback: first 50 chars
+        return raw_text[:50].rsplit(' ', 1)[0] if len(raw_text) > 50 else raw_text
+
+
 # ── Config ──
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 CX_DASHBOARD_DIR = os.path.expanduser("~/projects/cx-ai-dashboard")
@@ -579,16 +603,10 @@ def process_message(msg, channel_id):
     # Check for "ai win:" trigger
     match = re.match(r'ai\s+win[:\s]+(.+)', text, re.IGNORECASE | re.DOTALL)
     if match:
-        project_name = match.group(1).strip()
-        # Strip MCP/Slack attribution suffixes
-        project_name = re.sub(r'\s*\*Sent using\*.*$', '', project_name).strip()
-        project_name = re.sub(r'\s*<@[^>]+>.*$', '', project_name).strip()
-        # Take first sentence or first 60 chars as the title
-        first_sentence = re.split(r'[.\n]', project_name)[0].strip()
-        if first_sentence and len(first_sentence) >= 10:
-            project_name = first_sentence
-        if len(project_name) > 60:
-            project_name = project_name[:57] + '...'
+        raw_text = match.group(1).strip()
+        raw_text = re.sub(r'\s*\*Sent using\*.*$', '', raw_text).strip()
+        raw_text = re.sub(r'\s*<@[^>]+>.*$', '', raw_text).strip()
+        project_name = _extract_title(raw_text)
         if project_name:
             start_intake(channel_id, ts, user, project_name)
             return
