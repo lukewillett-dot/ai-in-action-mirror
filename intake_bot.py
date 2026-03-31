@@ -26,7 +26,7 @@ DATA_FILE = os.path.join(CX_DASHBOARD_DIR, "data.json")
 SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 
 # Channel progression — change this to advance launch stages
-STAGE = "test"  # "test", "soft", "prod" — flip to "soft" for Tuesday demo
+STAGE = "soft"  # "test", "soft", "prod"
 CHANNELS = {
     "test": {"C0AGULNT9EU": "lucas-bot-testing", "C0ANH6WKU8N": "cs-bot-testing"},
     "soft": {"C06432E9H36": "cx-directors"},
@@ -577,12 +577,18 @@ def process_message(msg, channel_id):
         return
 
     # Check for "ai win:" trigger
-    match = re.match(r'ai\s+win[:\s]+(.+)', text, re.IGNORECASE)
+    match = re.match(r'ai\s+win[:\s]+(.+)', text, re.IGNORECASE | re.DOTALL)
     if match:
         project_name = match.group(1).strip()
         # Strip MCP/Slack attribution suffixes
         project_name = re.sub(r'\s*\*Sent using\*.*$', '', project_name).strip()
         project_name = re.sub(r'\s*<@[^>]+>.*$', '', project_name).strip()
+        # Take first sentence or first 60 chars as the title
+        first_sentence = re.split(r'[.\n]', project_name)[0].strip()
+        if first_sentence and len(first_sentence) >= 10:
+            project_name = first_sentence
+        if len(project_name) > 60:
+            project_name = project_name[:57] + '...'
         if project_name:
             start_intake(channel_id, ts, user, project_name)
             return
