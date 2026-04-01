@@ -127,9 +127,13 @@ def get_client():
     return client
 
 
-def reply(channel, thread_ts, text):
+def reply(channel, thread_ts, text, user=None):
+    """Reply in thread. If user is provided, sends ephemeral (only visible to them)."""
     try:
-        get_client().chat_postMessage(channel=channel, thread_ts=thread_ts, text=text)
+        if user:
+            get_client().chat_postEphemeral(channel=channel, thread_ts=thread_ts, text=text, user=user)
+        else:
+            get_client().chat_postMessage(channel=channel, thread_ts=thread_ts, text=text)
     except SlackApiError as e:
         print(f"Reply failed: {e}")
 
@@ -196,7 +200,8 @@ def start_intake(channel, ts, user, project_name):
     react(channel, ts, "eyes")
     reply(channel, ts,
         f":blob-wave: *{project_name.strip()}* — nice!\n\n"
-        f"Tell me what it does (one or two sentences)."
+        f"Tell me what it does (one or two sentences).",
+        user=user
     )
 
 
@@ -210,19 +215,23 @@ def handle_intake_reply(channel, thread_ts, text, user):
 
     state = intake["state"]
 
+    uid = intake["user"]
+
     if state == "need_description":
         intake["description"] = text.strip()
         intake["state"] = "need_time"
         reply(channel, thread_ts,
             "Got it. How much time does this save?\n"
-            "_(e.g., \"2 hours\", \"30 min\", \"about an hour\")_"
+            "_(e.g., \"2 hours\", \"30 min\", \"about an hour\")_",
+            user=uid
         )
 
     elif state == "need_time":
         minutes = parse_time(text)
         if minutes is None:
             reply(channel, thread_ts,
-                "Hmm, couldn't parse that. Try something like \"2 hours\" or \"30 min\"."
+                "Hmm, couldn't parse that. Try something like \"2 hours\" or \"30 min\".",
+                user=uid
             )
             return
         intake["rawMinutes"] = minutes
@@ -232,7 +241,8 @@ def handle_intake_reply(channel, thread_ts, text, user):
             f"Got it — ~{time_str}. Is that:\n"
             f"• *one-time* — a one-time save\n"
             f"• *weekly* — saves that much every week, ongoing\n"
-            f"• *monthly* — saves that much every month, ongoing"
+            f"• *monthly* — saves that much every month, ongoing",
+            user=uid
         )
 
     elif state == "need_frequency":
@@ -256,7 +266,8 @@ def handle_intake_reply(channel, thread_ts, text, user):
             freq_label = "weekly"
         else:
             reply(channel, thread_ts,
-                "Didn't catch that — say *one-time*, *weekly*, or *monthly*."
+                "Didn't catch that — say *one-time*, *weekly*, or *monthly*.",
+                user=uid
             )
             return
 
@@ -276,7 +287,8 @@ def handle_intake_reply(channel, thread_ts, text, user):
         reply(channel, thread_ts,
             f"{confirm}\n\n"
             "Did you document this in Confluence (the Support Lobby)? Paste the link for a :meow_detective: *Documented* badge.\n"
-            "Or say `skip` to finish without one."
+            "Or say `skip` to finish without one.",
+            user=uid
         )
 
     elif state == "need_confluence":
@@ -287,7 +299,8 @@ def handle_intake_reply(channel, thread_ts, text, user):
                 confluence_url = urls[0]
             elif text.strip().lower() not in ("no", "nah", "none", "n/a", "na"):
                 reply(channel, thread_ts,
-                    "Doesn't look like a Confluence link. Paste the URL or say `skip`."
+                    "Doesn't look like a Confluence link. Paste the URL or say `skip`.",
+                    user=uid
                 )
                 return
 
@@ -301,7 +314,8 @@ def handle_intake_reply(channel, thread_ts, text, user):
             save_project(channel, thread_ts, intake)
         else:
             reply(channel, thread_ts,
-                "Which team are you on?\n• *Support* (Lucas)\n• *CS — Ryan's Team*\n• *CS — Jenny's Team*\n• *PMO* (Jackie)"
+                "Which team are you on?\n• *Support* (Lucas)\n• *CS — Ryan's Team*\n• *CS — Jenny's Team*\n• *PMO* (Jackie)",
+                user=uid
             )
 
     elif state == "need_team":
@@ -320,7 +334,8 @@ def handle_intake_reply(channel, thread_ts, text, user):
 
         if not team:
             reply(channel, thread_ts,
-                "Didn't catch that — say *Support*, *Ryan's team*, *Jenny's team*, or *PMO*."
+                "Didn't catch that — say *Support*, *Ryan's team*, *Jenny's team*, or *PMO*.",
+                user=uid
             )
             return
 
@@ -337,12 +352,12 @@ def save_project(channel, thread_ts, intake):
     # Find the target team
     team_obj = next((t for t in data["teams"] if t["id"] == intake["team"]), None)
     if not team_obj:
-        reply(channel, thread_ts, f":warning: Unknown team: {intake['team']}")
+        reply(channel, thread_ts, f":warning: Unknown team: {intake['team']}", user=intake["user"])
         return
 
     # Dedup check
     if any(p["name"].lower() == intake["name"].lower() for p in team_obj["projects"]):
-        reply(channel, thread_ts, f":warning: *{intake['name']}* already exists in {team_obj['name']}")
+        reply(channel, thread_ts, f":warning: *{intake['name']}* already exists in {team_obj['name']}", user=intake["user"])
         return
 
     # Build project in cx-ai-dashboard format
@@ -415,7 +430,8 @@ def save_project(channel, thread_ts, intake):
         f"{celebration}\n\n"
         f"*{intake['name']}* — {time_label} for Team {intake['team'].upper()}"
         f"{badge_note}\n\n"
-        f"<https://cx-ai-dashboard.onrender.com|See it live on the dashboard.>"
+        f"<https://cx-ai-dashboard.onrender.com|See it live on the dashboard.>",
+        user=intake["user"]
     )
 
     react(channel, thread_ts.split(".")[0] if "." not in thread_ts else thread_ts, "tada")
