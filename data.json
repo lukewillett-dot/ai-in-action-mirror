@@ -457,7 +457,9 @@
         "Third-party example finder \u2014 crawls Cvent, TripAdvisor, etc.",
         "Eliminates manual platform-by-platform searching",
         "Brand hierarchy awareness (IHG \u2192 Holiday Inn Express)",
+        "Property-specific search \u2014 \u201crosewood carlyle\u201d narrows to that hotel",
         "Distribution gap detection",
+        "Automated weekly QA audit of response quality",
         "Self-service for sales and distribution team prep"
       ],
       "timeSaved": {
