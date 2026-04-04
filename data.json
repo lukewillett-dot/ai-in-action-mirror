@@ -788,6 +788,42 @@
       "tech": [],
       "repo": null,
       "icon": "\u2728"
+    },
+    {
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Triage Buddy",
+      "tagline": "Automated website distribution diagnostics — CSP, redirects, embed detection in 15 seconds",
+      "status": "production",
+      "date": "2026-04",
+      "description": "TourFinder Slack command (triage site: <url>) that auto-diagnoses why a VM tour isn't loading on a customer's website. Checks CSP headers, X-Frame-Options, embed detection (7 methods), tt8 redirect status, WP slug health, migration domain mismatch, security URL unwrapping, lazy-load warnings, mixed content, WAF, deprecated domains, and property status. Replaces manual DevTools investigation.",
+      "impact": [],
+      "timeSaved": {
+        "weeklyMinutes": 30,
+        "calculation": "~5 min per triage × ~6 embed tickets/week = 30 min/week"
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "\ud83e\ude7a"
+    },
+    {
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "VMP Collection Automation",
+      "tagline": "Bulk asset organization via reverse-engineered Next.js Server Actions — 341 assets in 52 seconds",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Automated VMP asset library organization using captured Next.js Server Action API. Reverse-engineered the VMP add-to-collection endpoint by intercepting browser fetch calls, then replayed via requests.post() to organize 455+ assets into 14 collections for Fairmont Waterfront. Replaced manual Scout work that would have taken 30+ Scout lives and 6+ hours.",
+      "impact": [],
+      "timeSaved": {
+        "weeklyMinutes": 120,
+        "calculation": "One-time: ~6 hrs manual work done in <1 min. Reusable for future property migrations."
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "\ud83d\udce6"
     }
   ]
 }
