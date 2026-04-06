@@ -141,8 +141,8 @@ def reply(channel, thread_ts, text, user=None):
 def react(channel, ts, emoji):
     try:
         get_client().reactions_add(channel=channel, timestamp=ts, name=emoji)
-    except SlackApiError:
-        pass
+    except SlackApiError as e:
+        print(f"React failed: {e}")
 
 
 # ── Data ──
@@ -624,10 +624,22 @@ def process_message(msg, channel_id):
         raw_text = match.group(1).strip()
         raw_text = re.sub(r'\s*\*Sent using\*.*$', '', raw_text).strip()
         raw_text = re.sub(r'\s*<@[^>]+>.*$', '', raw_text).strip()
-        project_name = _extract_title(raw_text)
+        print(f"  ai win: matched, raw_text={raw_text[:60]}")
+        try:
+            project_name = _extract_title(raw_text)
+            print(f"  title extracted: {project_name}")
+        except Exception as e:
+            print(f"  _extract_title FAILED: {e}")
+            project_name = None
         if project_name:
-            start_intake(channel_id, ts, user, project_name)
+            try:
+                start_intake(channel_id, ts, user, project_name)
+                print(f"  start_intake OK for '{project_name}'")
+            except Exception as e:
+                print(f"  start_intake FAILED: {e}")
             return
+        else:
+            print(f"  No project name extracted, skipping")
 
     # Check for stats request
     if re.match(r'ai\s+(stats|dashboard|impact|total)', text, re.IGNORECASE):
