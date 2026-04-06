@@ -305,54 +305,8 @@ def handle_interaction():
 
 def _save_project(*, name, description, weekly_minutes, raw_minutes, frequency,
                   team, user_id, user_name, confluence_url, channel_id):
-    """Save to data.json, push to Render, post celebration."""
-    # Load and update data
-    with open(DATA_FILE) as f:
-        data = json.load(f)
-
-    team_obj = next((t for t in data["teams"] if t["id"] == team), None)
-    if not team_obj:
-        print(f"Unknown team: {team}")
-        return
-
-    # Dedup check
-    if any(p["name"].lower() == name.lower() for p in team_obj["projects"]):
-        print(f"Duplicate project: {name}")
-        return
-
-    now = datetime.now()
-    new_project = {
-        "name": name,
-        "description": description,
-        "weeklyMinutes": weekly_minutes,
-        "owner": user_name,
-        "status": "production",
-        "since": now.strftime("%Y-%m"),
-        "addedDate": now.strftime("%Y-%m-%d"),
-        "frequency": frequency,
-        "rawMinutes": raw_minutes,
-    }
-    if confluence_url:
-        new_project["confluenceUrl"] = confluence_url
-
-    team_obj["projects"].append(new_project)
-
-    data.setdefault("activity", []).insert(0, {
-        "timestamp": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "event": f"{name} — {description[:100]}",
-        "type": "deploy",
-        "contributor": user_name,
-        "team": team,
-    })
-
-    # Contributor + badges
-    _update_contributor(data, user_id, user_name, team)
-
-    data["meta"]["lastUpdated"] = now.strftime("%Y-%m-%dT%H:%M:%SZ")
-    with open(DATA_FILE, "w") as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-    # Push to Render dashboard
+    """Push to Render dashboard + post celebration. No local file on Render."""
+    # Push to CX dashboard on Render
     try:
         import requests as _req
         _req.post("https://cx-ai-dashboard.onrender.com/api/add-project", json={
