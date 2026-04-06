@@ -202,6 +202,13 @@ def build_modal(initial_text=""):
     return modal
 
 
+@app.route("/slack/interact", methods=["GET", "OPTIONS"])
+@app.route("/slack/ai-win", methods=["GET", "OPTIONS"])
+def handle_verification():
+    """Handle Slack URL verification and preflight checks."""
+    return "ok", 200
+
+
 @app.route("/slack/ai-win", methods=["POST"])
 def handle_slash_command():
     """Handle /ai-win slash command — open modal."""
