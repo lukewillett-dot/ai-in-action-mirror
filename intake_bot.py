@@ -53,7 +53,7 @@ SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 STAGE = "soft"  # "test", "soft", "prod"
 CHANNELS = {
     "test": {"C0AGULNT9EU": "lucas-bot-testing", "C0ANH6WKU8N": "cs-bot-testing"},
-    "soft": {"C06432E9H36": "cx-directors"},
+    "soft": {"C06432E9H36": "cx-directors", "C0AGULNT9EU": "lucas-bot-testing"},
     "prod": {"C05U74HDVLH": "cx-internal"},
 }
 LISTEN_CHANNELS = CHANNELS[STAGE]
@@ -599,8 +599,10 @@ def fetch_replies(channel_id, thread_ts):
 
 
 def clean_text(text):
-    """Strip MCP/Slack attribution suffixes from message text."""
+    """Strip Slack formatting and MCP/Slack attribution suffixes from message text."""
     text = re.sub(r'\s*\*Sent using\*.*$', '', text, flags=re.DOTALL).strip()
+    # Strip Slack markdown formatting chars so regex triggers work
+    text = re.sub(r'[*_~]', '', text)
     return text
 
 
