@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-04-07T06:30:11Z",
+    "lastUpdated": "2026-04-07T18:00:00Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -313,6 +313,14 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-04-07T18:00:00Z",
+      "event": "TourFinder: 9 fixes shipped \u2014 sub-brand expansion (~100 brands), location filter, qualifier cleanup, rescue search, prospect responses, embed sort scoring",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "tourfinder"
+    },
     {
       "timestamp": "2026-03-24T17:48:37Z",
       "event": "Cvent Distribution Report \u2014 Automated GA4 query that pulls all accounts with Cvent referral traffic in the last 90 days, generat",
