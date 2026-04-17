@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-04-17T06:30:11Z",
+    "lastUpdated": "2026-04-17T22:45:00Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -451,6 +451,44 @@
     }
   ],
   "projects": [
+    {
+      "id": "three-path-onboarding",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Three Path Onboarding Bot",
+      "tagline": "Q&A over Jackie's new onboarding docs",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Slack bot grounded in Jackie George's new Three-Path Onboarding documentation (process model, 2026 email templates, SOPs, kickoff deck templates). Lives in #three-path-onboarding \u2014 answers any message in the channel (no @-mention needed), cites the source doc on every reply, and tags Jackie + Jenny when the docs don't cover a question. Built end-to-end in one afternoon from request to live.",
+      "impact": [
+        "Jackie and Jenny stop fielding the same onboarding Qs over and over",
+        "CSMs self-serve path/process questions instead of waiting on async replies",
+        "Auto-cites source docs so answers are verifiable",
+        "Tags owners on unknown questions \u2014 surfaces doc gaps",
+        "One-command reindex (/onboarding-reindex) when docs are updated"
+      ],
+      "timeSaved": {
+        "minutes": 10,
+        "per": "question",
+        "frequency": "~10/week",
+        "weeklyMinutes": 100,
+        "manualMinutes": 10,
+        "automatedMinutes": 1,
+        "calculation": "10 min/question \u00d7 10 questions/week (Jackie+Jenny+CSMs combined)"
+      },
+      "tech": [
+        "Python",
+        "Flask",
+        "Claude Sonnet 4.6",
+        "Prompt caching",
+        "Google Drive API",
+        "Slack Events API",
+        "Render"
+      ],
+      "repo": "https://github.com/LucasWillett/three-path-onboarding-bot",
+      "icon": "\ud83d\udeeb"
+    },
     {
       "id": "tourfinder",
       "publish": true,
