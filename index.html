@@ -146,6 +146,41 @@
             font-weight: 500;
         }
 
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .header-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 18px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            font-size: 0.8125rem;
+            color: var(--text-primary);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .header-link:hover {
+            border-color: rgba(99, 102, 241, 0.5);
+            background: var(--bg-card-hover);
+            box-shadow: 0 0 20px var(--glow-blue);
+            transform: translateY(-1px);
+        }
+
+        .header-link .arrow {
+            font-size: 0.75rem;
+            opacity: 0.7;
+        }
+
         .status-dot {
             width: 8px;
             height: 8px;
@@ -567,9 +602,15 @@
                         <p>Automation & AI Projects</p>
                     </div>
                 </div>
-                <div class="status-badge">
-                    <span class="status-dot"></span>
-                    <span>All Systems Online</span>
+                <div class="header-right">
+                    <a href="https://kb-answer-bar.lucaswillett.dev" target="_blank" rel="noopener" class="header-link">
+                        <span>KB Answer Bar</span>
+                        <span class="arrow">↗</span>
+                    </a>
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span>All Systems Online</span>
+                    </div>
                 </div>
             </div>
         </div>
