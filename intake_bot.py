@@ -20,12 +20,14 @@ from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 
 import anthropic
+import sys as _sys; _sys.path.insert(0, os.path.expanduser("~/projects/support-memory/lib"))
+from anthropic_client import get_client  # shared: single-source key, retry, usage logging
 
 
 def _extract_title(raw_text):
     """Use Haiku to extract a 2-4 word project title from the ai win text."""
     try:
-        client = anthropic.Anthropic()
+        client = get_client("ai-in-action/intake_bot")
         resp = client.messages.create(
             model="claude-haiku-4-5-20251001",
             max_tokens=20,
