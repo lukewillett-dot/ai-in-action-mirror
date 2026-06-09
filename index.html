@@ -295,6 +295,116 @@
         }
 
 
+        /* Growth / Cumulative Impact */
+        .growth-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 28px 28px 18px;
+            margin-bottom: 16px;
+        }
+
+        .growth-headline {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .growth-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .growth-sub {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .growth-chart {
+            width: 100%;
+            height: auto;
+            display: block;
+            overflow: visible;
+        }
+
+        .milestones {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .milestone {
+            flex: 1 1 140px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 16px;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .milestone.reached {
+            border-color: rgba(16, 185, 129, 0.3);
+            background: linear-gradient(135deg, var(--bg-card), rgba(16, 185, 129, 0.06));
+        }
+
+        .milestone.next {
+            border-color: rgba(99, 102, 241, 0.4);
+            box-shadow: 0 0 24px rgba(99, 102, 241, 0.12);
+        }
+
+        .milestone-check {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            font-weight: 700;
+        }
+
+        .milestone.reached .milestone-check {
+            background: rgba(16, 185, 129, 0.18);
+            color: var(--accent-green);
+        }
+
+        .milestone.next .milestone-check {
+            background: rgba(99, 102, 241, 0.18);
+            color: var(--accent-blue);
+        }
+
+        .milestone:not(.reached):not(.next) .milestone-check {
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--text-muted);
+        }
+
+        .milestone-label {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .milestone-meta {
+            font-size: 0.6875rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
         /* Activity Feed */
         .activity-feed {
             display: flex;
@@ -623,6 +733,14 @@
         </div>
     </section>
 
+    <section class="growth-section">
+        <div class="container">
+            <h2 class="section-title">Cumulative Impact</h2>
+            <div class="growth-card" id="growth-card"></div>
+            <div class="milestones" id="milestones"></div>
+        </div>
+    </section>
+
     <section class="activity-section">
         <div class="container">
             <h2 class="section-title">Recent Activity</h2>
@@ -651,6 +769,7 @@
                 const response = await fetch('data.json');
                 const data = await response.json();
                 renderStats(data.stats, data.projects);
+                renderGrowth(data.weeklySeries, data.milestones);
                 renderActivity(data.activity);
                 renderProjects(data.projects);
                 document.getElementById('update-time').textContent =
@@ -681,6 +800,63 @@
                     <div class="stat-label">${stat.label}</div>
                 </div>
             `).join('');
+        }
+
+        function renderGrowth(series, milestones) {
+            const card = document.getElementById('growth-card');
+            const msWrap = document.getElementById('milestones');
+            if (!series || series.length < 2) { card.style.display = 'none'; return; }
+
+            const hrs = series.map(s => Math.round((s.cumulativeMinutes || 0) / 60));
+            const current = hrs[hrs.length - 1];
+            const max = Math.max(...hrs, 1);
+            const n = series.length;
+            const W = 1000, H = 220, padX = 8, padTop = 16, padBot = 8;
+            const xAt = i => padX + i * (W - 2 * padX) / (n - 1);
+            const yAt = v => padTop + (H - padTop - padBot) * (1 - v / max);
+            const pts = hrs.map((v, i) => [xAt(i), yAt(v)]);
+            const line = pts.map((p, i) => (i ? 'L' : 'M') + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ');
+            const area = `M ${xAt(0).toFixed(1)} ${(H - padBot).toFixed(1)} `
+                + pts.map(p => 'L ' + p[0].toFixed(1) + ' ' + p[1].toFixed(1)).join(' ')
+                + ` L ${xAt(n - 1).toFixed(1)} ${(H - padBot).toFixed(1)} Z`;
+            const lastFirst = series[0].week, lastLast = series[n - 1].week;
+            const lx = xAt(n - 1), ly = yAt(current);
+
+            card.innerHTML = `
+                <div class="growth-headline">
+                    <span class="growth-value">~${current.toLocaleString()} hrs</span>
+                    <span class="growth-sub">cumulative time saved by recurring automations · ${lastFirst} → ${lastLast}</span>
+                </div>
+                <svg class="growth-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Cumulative hours saved over time">
+                    <defs>
+                        <linearGradient id="growthFill" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stop-color="#10b981" stop-opacity="0.35"/>
+                            <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
+                        </linearGradient>
+                        <linearGradient id="growthLine" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0%" stop-color="#10b981"/>
+                            <stop offset="100%" stop-color="#22d3ee"/>
+                        </linearGradient>
+                    </defs>
+                    <path d="${area}" fill="url(#growthFill)"/>
+                    <path d="${line}" fill="none" stroke="url(#growthLine)" stroke-width="2.5" vector-effect="non-scaling-stroke"/>
+                    <circle cx="${lx.toFixed(1)}" cy="${ly.toFixed(1)}" r="4.5" fill="#22d3ee"/>
+                </svg>`;
+
+            const reachedHrs = (milestones || []).filter(m => m.reached).map(m => m.hours);
+            const nextIdx = (milestones || []).findIndex(m => !m.reached);
+            msWrap.innerHTML = (milestones || []).map((m, i) => {
+                const cls = m.reached ? 'reached' : (i === nextIdx ? 'next' : '');
+                const mark = m.reached ? '✓' : (i === nextIdx ? '◆' : '○');
+                const meta = m.reached ? `reached ${m.reached}` : (i === nextIdx ? 'next target' : 'upcoming');
+                return `<div class="milestone ${cls}">
+                    <div class="milestone-check">${mark}</div>
+                    <div>
+                        <div class="milestone-label">${m.label}</div>
+                        <div class="milestone-meta">${meta}</div>
+                    </div>
+                </div>`;
+            }).join('');
         }
 
         function renderActivity(activities) {

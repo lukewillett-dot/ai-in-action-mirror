@@ -351,7 +351,7 @@ def _post_celebration(channel_id, name, description, weekly_minutes, raw_minutes
         f"{celebrate_emoji} *New AI Win: {name}*\n\n"
         f"_{description[:150]}_\n\n"
         f"*{time_label}* for Team {team.upper()} — hat tip to <@{user_id}>\n"
-        f"<https://cx-ai-dashboard.onrender.com|See all wins on the dashboard>"
+        f"<https://lucaswillett.github.io/ai-in-action|See all wins on the dashboard>"
     )
 
     try:

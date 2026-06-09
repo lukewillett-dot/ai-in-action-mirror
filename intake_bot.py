@@ -46,14 +46,16 @@ def _extract_title(raw_text):
 
 
 # ── Config ──
+# Personal board lives in THIS repo and deploys to GitHub Pages. (The org cx-ai-dashboard
+# Render service is dead — intake now writes the local board + git-pushes to Pages.)
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
-CX_DASHBOARD_DIR = os.path.expanduser("~/projects/cx-ai-dashboard")
-DATA_FILE = os.path.join(CX_DASHBOARD_DIR, "data.json")
+DATA_FILE = os.path.join(SCRIPT_DIR, "data.json")
 SLACK_TOKEN = os.environ.get("SLACK_BOT_TOKEN", "")
 
-# Channel progression — change this to advance launch stages
-STAGE = "soft"  # "test", "soft", "prod"
+# Personal board → listen to Lucas's own channel only.
+STAGE = "personal"
 CHANNELS = {
+    "personal": {"C0AGULNT9EU": "lucas-bot-testing"},
     "test": {"C0AGULNT9EU": "lucas-bot-testing", "C0ANH6WKU8N": "cs-bot-testing"},
     "soft": {"C06432E9H36": "cx-directors", "C0AGULNT9EU": "lucas-bot-testing"},
     "prod": {"C05U74HDVLH": "cx-internal"},
@@ -362,17 +364,29 @@ def save_project(channel, thread_ts, intake):
         reply(channel, thread_ts, f":warning: *{intake['name']}* already exists in {team_obj['name']}", user=intake["user"])
         return
 
-    # Build project in cx-ai-dashboard format
+    # Build project in the Pages-board render schema (index.html needs impact[]/tech[]/timeSaved/icon).
+    freq = intake.get("frequency", "weekly")
+    raw_mins = intake.get("rawMinutes", intake["weeklyMinutes"])
+    calc = {"weekly": f"~{raw_mins} min × {freq}",
+            "monthly": f"~{raw_mins} min/month",
+            "one-time": f"~{raw_mins} min one-time"}.get(freq, f"~{raw_mins} min/{freq}")
     new_project = {
         "name": intake["name"],
-        "description": intake["description"],
-        "weeklyMinutes": intake["weeklyMinutes"],
-        "owner": user_name,
+        "publish": True,
+        "audience": "team",
+        "team": intake["team"],
+        "tagline": intake["description"][:80],
         "status": "production",
-        "since": now.strftime("%Y-%m"),
+        "date": now.strftime("%Y-%m"),
+        "description": intake["description"],
+        "impact": [],
+        "timeSaved": {"weeklyMinutes": intake["weeklyMinutes"], "calculation": f"Self-reported: {calc}"},
+        "tech": [],
+        "repo": None,
+        "owner": user_name,
         "addedDate": now.strftime("%Y-%m-%d"),
-        "frequency": intake.get("frequency", "weekly"),
-        "rawMinutes": intake.get("rawMinutes", intake["weeklyMinutes"]),
+        "frequency": freq,
+        "icon": random.choice(["✨", "🚀", "⚡", "🤖", "🛠️", "📊", "🎯", "🔧"]),
     }
     if intake.get("confluenceUrl"):
         new_project["confluenceUrl"] = intake["confluenceUrl"]
@@ -394,21 +408,18 @@ def save_project(channel, thread_ts, intake):
 
     save_data(data)
 
-    # Push to CX dashboard on Render
+    # Publish to the live board: commit data.json + push so GitHub Pages redeploys.
+    # (Replaces the dead cx-ai-dashboard Render POST — that service no longer exists.)
     try:
-        import requests as _req
-        _req.post("https://cx-ai-dashboard.onrender.com/api/add-project", json={
-            "team": intake["team"],
-            "name": intake["name"],
-            "description": intake["description"],
-            "weeklyMinutes": intake["weeklyMinutes"],
-            "owner": user_name,
-            "frequency": intake.get("frequency"),
-            "rawMinutes": intake.get("rawMinutes"),
-            "confluenceUrl": intake.get("confluenceUrl"),
-        }, timeout=60)
+        import subprocess
+        repo = os.path.dirname(os.path.abspath(__file__))
+        subprocess.run(["git", "-C", repo, "add", "data.json"], check=True, timeout=30)
+        subprocess.run(["git", "-C", repo, "commit", "--no-gpg-sign",
+                        "-m", f"ai win: {intake['name']}"], check=True, timeout=30)
+        subprocess.run(["git", "-C", repo, "push", "origin", "main"], check=True, timeout=90)
+        print(f"Board published: {intake['name']}")
     except Exception as e:
-        print(f"Render push failed (cold start?): {e}")
+        print(f"Board push failed (data saved locally, will sync next nightly): {e}")
 
     # Celebrate
     celebration = random.choice(CELEBRATIONS)
@@ -432,7 +443,7 @@ def save_project(channel, thread_ts, intake):
         f"{celebration}\n\n"
         f"*{intake['name']}* — {time_label} for Team {intake['team'].upper()}"
         f"{badge_note}\n\n"
-        f"<https://cx-ai-dashboard.onrender.com|See it live on the dashboard.>",
+        f"<https://lucaswillett.github.io/ai-in-action|See it live on the dashboard.>",
         user=intake["user"]
     )
 
@@ -450,7 +461,7 @@ def save_project(channel, thread_ts, intake):
             f"{celebrate_emoji} *New AI Win: {intake['name']}*\n\n"
             f"_{intake['description'][:150]}_\n\n"
             f"*{time_label}* for Team {intake['team'].upper()} — hat tip to {user_display}\n"
-            f"<https://cx-ai-dashboard.onrender.com|See all wins on the dashboard>"
+            f"<https://lucaswillett.github.io/ai-in-action|See all wins on the dashboard>"
         )
         get_client().chat_postMessage(channel=channel, text=public_text)
     except Exception as e:

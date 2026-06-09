@@ -136,7 +136,7 @@ def format_slack_message(data, activity):
         else:
             scoreboard_text += "\n\n:chart_with_upwards_trend: Challenge is *live* — log wins with `ai win: Project Name` in Slack"
 
-    scoreboard_text += "\n\n<https://cx-ai-dashboard.onrender.com|:link: View Full Dashboard>"
+    scoreboard_text += "\n\n<https://lucaswillett.github.io/ai-in-action|:link: View Full Dashboard>"
 
     blocks.append({
         "type": "section",
