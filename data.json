@@ -20,22 +20,22 @@
   "milestones": [
     {
       "hours": 250,
-      "reached": "2026-02-20",
+      "reached": "2026-04-14",
       "label": "250 Hours Saved"
     },
     {
       "hours": 500,
-      "reached": "2026-02-28",
+      "reached": "2026-05-19",
       "label": "500 Hours Saved"
     },
     {
       "hours": 1000,
-      "reached": "2026-03-12",
+      "reached": null,
       "label": "1,000 Hours Saved"
     },
     {
       "hours": 2500,
-      "reached": "2026-05-15",
+      "reached": null,
       "label": "2,500 Hours Saved"
     },
     {
@@ -283,92 +283,92 @@
   "weeklySeries": [
     {
       "week": "2026-02-10",
-      "cumulativeMinutes": 0,
-      "projects": 0
+      "cumulativeMinutes": 1038,
+      "projects": 7
     },
     {
       "week": "2026-02-17",
-      "cumulativeMinutes": 1200,
-      "projects": 8
+      "cumulativeMinutes": 2076,
+      "projects": 7
     },
     {
       "week": "2026-02-24",
-      "cumulativeMinutes": 2800,
-      "projects": 11
+      "cumulativeMinutes": 3114,
+      "projects": 7
     },
     {
       "week": "2026-03-03",
-      "cumulativeMinutes": 4400,
-      "projects": 12
+      "cumulativeMinutes": 4722,
+      "projects": 11
     },
     {
       "week": "2026-03-10",
-      "cumulativeMinutes": 6038,
-      "projects": 13
+      "cumulativeMinutes": 6330,
+      "projects": 11
     },
     {
       "week": "2026-03-17",
-      "cumulativeMinutes": 7676,
-      "projects": 14
+      "cumulativeMinutes": 7938,
+      "projects": 11
     },
     {
       "week": "2026-03-24",
-      "cumulativeMinutes": 9314,
-      "projects": 14
+      "cumulativeMinutes": 9546,
+      "projects": 11
     },
     {
       "week": "2026-03-31",
-      "cumulativeMinutes": 11000,
-      "projects": 15
+      "cumulativeMinutes": 11154,
+      "projects": 11
     },
     {
       "week": "2026-04-07",
-      "cumulativeMinutes": 12800,
-      "projects": 16
+      "cumulativeMinutes": 13957,
+      "projects": 20
     },
     {
       "week": "2026-04-14",
-      "cumulativeMinutes": 14700,
-      "projects": 17
+      "cumulativeMinutes": 16760,
+      "projects": 20
     },
     {
       "week": "2026-04-21",
-      "cumulativeMinutes": 16900,
-      "projects": 19
+      "cumulativeMinutes": 19563,
+      "projects": 20
     },
     {
       "week": "2026-04-28",
-      "cumulativeMinutes": 19400,
-      "projects": 21
+      "cumulativeMinutes": 22366,
+      "projects": 20
     },
     {
       "week": "2026-05-05",
-      "cumulativeMinutes": 21800,
-      "projects": 23
+      "cumulativeMinutes": 25494,
+      "projects": 25
     },
     {
       "week": "2026-05-12",
-      "cumulativeMinutes": 24000,
-      "projects": 24
+      "cumulativeMinutes": 28622,
+      "projects": 25
     },
     {
       "week": "2026-05-19",
-      "cumulativeMinutes": 26100,
-      "projects": 24
+      "cumulativeMinutes": 31750,
+      "projects": 25
     },
     {
       "week": "2026-05-26",
-      "cumulativeMinutes": 28400,
+      "cumulativeMinutes": 34878,
       "projects": 25
     },
     {
       "week": "2026-06-02",
-      "cumulativeMinutes": 30700,
+      "cumulativeMinutes": 38006,
       "projects": 25
     },
     {
       "week": "2026-06-09",
-      "cumulativeMinutes": 33000,
+      "cumulativeMinutes": 41134,
       "projects": 25
     }
   ],
