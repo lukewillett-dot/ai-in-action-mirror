@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-06-10T06:30:25Z",
+    "lastUpdated": "2026-06-30T06:30:29Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -373,6 +373,14 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-06-29T12:00:00Z",
+      "event": "- HC pipeline front door made atomic. create_google_doc() now writes the tracker row in the same call (register=True default) — a Help Center doc can no longer exist without a pipeline row, retiring the recurring orphan-adopt mop-up. Also h",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-06-09T16:00:00Z",
       "event": "Anchor memory hits index-of-indexes architecture + systems_check weekly stack-health monitor live",
