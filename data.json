@@ -8,8 +8,8 @@
     "costPerHour": 39
   },
   "stats": {
-    "projectsLive": 23,
-    "automationsRunning": 18,
+    "projectsLive": 21,
+    "automationsRunning": 17,
     "apiCallsToday": "~270"
   },
   "competition": {
@@ -25,7 +25,7 @@
     },
     {
       "hours": 500,
-      "reached": "2026-06-02",
+      "reached": "2026-06-09",
       "label": "500 Hours Saved"
     },
     {
@@ -343,58 +343,58 @@
     },
     {
       "week": "2026-05-05",
-      "cumulativeMinutes": 20832,
-      "projects": 25
+      "cumulativeMinutes": 20772,
+      "projects": 24
     },
     {
       "week": "2026-05-12",
-      "cumulativeMinutes": 23225,
-      "projects": 25
+      "cumulativeMinutes": 23105,
+      "projects": 24
     },
     {
       "week": "2026-05-19",
-      "cumulativeMinutes": 25618,
-      "projects": 25
+      "cumulativeMinutes": 25438,
+      "projects": 24
     },
     {
       "week": "2026-05-26",
-      "cumulativeMinutes": 27951,
-      "projects": 25
+      "cumulativeMinutes": 27711,
+      "projects": 24
     },
     {
       "week": "2026-06-02",
-      "cumulativeMinutes": 30284,
-      "projects": 25
+      "cumulativeMinutes": 29984,
+      "projects": 24
     },
     {
       "week": "2026-06-09",
-      "cumulativeMinutes": 32617,
-      "projects": 25
+      "cumulativeMinutes": 32257,
+      "projects": 24
     },
     {
       "week": "2026-06-16",
-      "cumulativeMinutes": 34950,
-      "projects": 25
+      "cumulativeMinutes": 34530,
+      "projects": 24
     },
     {
       "week": "2026-06-23",
-      "cumulativeMinutes": 37283,
-      "projects": 25
+      "cumulativeMinutes": 36803,
+      "projects": 24
     },
     {
       "week": "2026-06-30",
-      "cumulativeMinutes": 39616,
-      "projects": 25
+      "cumulativeMinutes": 39076,
+      "projects": 24
     },
     {
       "week": "2026-07-07",
-      "cumulativeMinutes": 41589,
-      "projects": 27
+      "cumulativeMinutes": 40989,
+      "projects": 26
     },
     {
       "week": "2026-07-14",
-      "cumulativeMinutes": 43947,
-      "projects": 32
+      "cumulativeMinutes": 43287,
+      "projects": 31
     }
   ],
   "activity": [
@@ -1119,7 +1119,7 @@
     },
     {
       "id": "supabase-mcp",
-      "publish": true,
+      "publish": false,
       "audience": "team",
       "team": "support",
       "name": "Supabase MCP",
@@ -1155,9 +1155,9 @@
       "team": "support",
       "name": "Distribution Digest v2",
       "tagline": "Tinybird-only weekly distribution briefing — top wins + losses with CSM names",
-      "status": "production",
+      "status": "paused",
       "date": "2026-05",
-      "description": "Replaced the noisy v1 that scaremongered on GA4→Tinybird artifacts. v2 is Tinybird-only (post-5/3 referrer era): top-5 wins + top-5 losses with CSM names, materiality-gated headline, WoW% suppressed until a real trailing baseline exists. Reads as a top-level briefing, not 23 bullets of noise.",
+      "description": "Replaced the noisy v1 that scaremongered on GA4→Tinybird artifacts. v2 is Tinybird-only (post-5/3 referrer era): top-5 wins + top-5 losses with CSM names, materiality-gated headline, WoW% suppressed until a real trailing baseline exists. Reads as a top-level briefing, not 23 bullets of noise. On hold since mid-2026 — candidate for revival or retirement.",
       "impact": [
         "Materiality gate kills 53%-on-a-1K-base false alarms",
         "Wins + losses attributed to the owning CSM",
@@ -1165,8 +1165,9 @@
       ],
       "timeSaved": {
         "weeklyMinutes": 90,
-        "calculation": "~90 min/week of manual distribution-trend compilation",
-        "activeFrom": "2026-05-01"
+        "calculation": "~90 min/wk of manual trend compilation while running. On hold as of 7/14 board review.",
+        "activeFrom": "2026-05-01",
+        "activeUntil": "2026-07-14"
       },
       "tech": [
         "Python",
@@ -1177,7 +1178,7 @@
       "repo": null,
       "icon": "📈",
       "verification": "estimated",
-      "unattended": true
+      "unattended": false
     },
     {
       "id": "support-product-digest",
