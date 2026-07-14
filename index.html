@@ -546,6 +546,58 @@
             color: #f59e0b;
         }
 
+        .project-status.paused,
+        .project-status.dormant {
+            background: rgba(245, 158, 11, 0.12);
+            color: #f59e0b;
+        }
+
+        .project-status.on-demand {
+            background: rgba(34, 211, 238, 0.12);
+            color: var(--accent-cyan);
+        }
+
+        .project-status.completed {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent-blue);
+        }
+
+        .project-status.retired {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+        }
+
+        .project-card.inactive {
+            opacity: 0.72;
+        }
+
+        .verify-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            margin-left: 8px;
+            border-radius: 100px;
+            font-size: 0.5625rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            vertical-align: middle;
+        }
+
+        .verify-badge.measured {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+        }
+
+        .verify-badge.usage-verified {
+            background: rgba(34, 211, 238, 0.12);
+            color: var(--accent-cyan);
+        }
+
+        .verify-badge.estimated {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-muted);
+        }
+
         .project-name {
             font-size: 1.375rem;
             font-weight: 600;
@@ -750,8 +802,15 @@
 
     <section class="projects-section">
         <div class="container">
-            <h2 class="section-title">Projects</h2>
+            <h2 class="section-title">Live Projects</h2>
             <div class="projects-grid" id="projects-grid"></div>
+        </div>
+    </section>
+
+    <section class="projects-section" id="history-section">
+        <div class="container">
+            <h2 class="section-title">One-Time Wins, Paused & Retired</h2>
+            <div class="projects-grid" id="history-grid"></div>
         </div>
     </section>
 
@@ -782,8 +841,10 @@
         function renderStats(stats, projects) {
             const grid = document.getElementById('stats-grid');
 
+            // Headline sums PRODUCTION projects only — paused/retired keep their
+            // historical rates in data.json for the cumulative chart, not this stat.
             const totalMinutes = projects
-                .filter(p => p.publish !== false && p.timeSaved)
+                .filter(p => p.publish !== false && p.timeSaved && p.status === 'production')
                 .reduce((sum, p) => sum + (p.timeSaved.weeklyMinutes || 0), 0);
             const totalHours = Math.round(totalMinutes / 60);
 
@@ -876,12 +937,33 @@
             `).join('');
         }
 
-        function renderProjects(projects) {
-            const grid = document.getElementById('projects-grid');
-            projects = projects.filter(p => p.publish !== false);
+        function timeSavedBlock(project) {
+            const ts = project.timeSaved;
+            if (!ts) return '';
+            const badge = project.verification
+                ? `<span class="verify-badge ${project.verification}">${project.verification.replace('-', ' ')}</span>`
+                : '';
+            let value;
+            if (ts.weeklyMinutes > 0) {
+                const hrs = Math.round(ts.weeklyMinutes / 60 * 10) / 10;
+                value = project.status === 'production'
+                    ? `⏱ ~${hrs} hrs/week saved`
+                    : `⏱ ~${hrs} hrs/week while active`;
+            } else if (ts.oneTimeMinutes > 0) {
+                value = `⏱ one-time: ~${Math.round(ts.oneTimeMinutes / 60 * 10) / 10} hrs saved`;
+            } else {
+                value = `⏱ ${project.id === 'restic-backup' ? 'insurance, not hours' : 'not claiming hours'}`;
+            }
+            return `
+                    <div class="time-saved">
+                        <span class="time-saved-value">${value}${badge}</span>
+                        <span class="time-saved-calc">${ts.calculation || ''}</span>
+                    </div>`;
+        }
 
-            grid.innerHTML = projects.map(project => `
-                <div class="project-card">
+        function projectCard(project, inactive) {
+            return `
+                <div class="project-card${inactive ? ' inactive' : ''}">
                     <div class="project-header">
                         <div class="project-icon">${project.icon}</div>
                         <span class="project-status ${project.status}">${project.status}</span>
@@ -892,17 +974,29 @@
                     <div class="project-impact">
                         ${project.impact.map(i => `<div class="impact-item">${i}</div>`).join('')}
                     </div>
-                    ${project.timeSaved ? `
-                    <div class="time-saved">
-                        <span class="time-saved-value">⏱ ~${Math.round(project.timeSaved.weeklyMinutes / 60 * 10) / 10} hrs/week saved</span>
-                        <span class="time-saved-calc">${project.timeSaved.calculation}</span>
-                    </div>` : ''}
+                    ${timeSavedBlock(project)}
                     <div class="project-tech">
                         ${project.tech.map(t => `<span class="tech-tag">${t}</span>`).join('')}
                     </div>
                     ${project.repo ? `<a href="${project.repo}" class="project-link" target="_blank">View Repository →</a>` : ''}
-                </div>
-            `).join('');
+                </div>`;
+        }
+
+        function renderProjects(projects) {
+            projects = projects.filter(p => p.publish !== false);
+            const live = projects.filter(p => p.status === 'production' || p.status === 'development' || p.status === 'draft');
+            const history = projects.filter(p => !live.includes(p));
+
+            document.getElementById('projects-grid').innerHTML =
+                live.map(p => projectCard(p, false)).join('');
+
+            const historySection = document.getElementById('history-section');
+            if (history.length) {
+                document.getElementById('history-grid').innerHTML =
+                    history.map(p => projectCard(p, true)).join('');
+            } else {
+                historySection.style.display = 'none';
+            }
         }
 
         function formatTime(timestamp) {

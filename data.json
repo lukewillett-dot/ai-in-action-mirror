@@ -2,15 +2,15 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-06-30T06:30:29Z",
+    "lastUpdated": "2026-07-14T23:11:19Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
   },
   "stats": {
-    "projectsLive": 24,
+    "projectsLive": 23,
     "automationsRunning": 18,
-    "apiCallsToday": "~275"
+    "apiCallsToday": "~270"
   },
   "competition": {
     "startDate": null,
@@ -20,12 +20,12 @@
   "milestones": [
     {
       "hours": 250,
-      "reached": "2026-04-14",
+      "reached": "2026-04-21",
       "label": "250 Hours Saved"
     },
     {
       "hours": 500,
-      "reached": "2026-05-19",
+      "reached": "2026-06-02",
       "label": "500 Hours Saved"
     },
     {
@@ -283,96 +283,345 @@
   "weeklySeries": [
     {
       "week": "2026-02-10",
-      "cumulativeMinutes": 1038,
+      "cumulativeMinutes": 1626,
       "projects": 7
     },
     {
       "week": "2026-02-17",
-      "cumulativeMinutes": 2076,
+      "cumulativeMinutes": 2319,
       "projects": 7
     },
     {
       "week": "2026-02-24",
-      "cumulativeMinutes": 3114,
+      "cumulativeMinutes": 3012,
       "projects": 7
     },
     {
       "week": "2026-03-03",
-      "cumulativeMinutes": 4722,
+      "cumulativeMinutes": 4815,
       "projects": 11
     },
     {
       "week": "2026-03-10",
-      "cumulativeMinutes": 6330,
+      "cumulativeMinutes": 6018,
       "projects": 11
     },
     {
       "week": "2026-03-17",
-      "cumulativeMinutes": 7938,
+      "cumulativeMinutes": 7221,
       "projects": 11
     },
     {
       "week": "2026-03-24",
-      "cumulativeMinutes": 9546,
+      "cumulativeMinutes": 8424,
       "projects": 11
     },
     {
       "week": "2026-03-31",
-      "cumulativeMinutes": 11154,
+      "cumulativeMinutes": 9627,
       "projects": 11
     },
     {
       "week": "2026-04-07",
-      "cumulativeMinutes": 13957,
+      "cumulativeMinutes": 12115,
       "projects": 20
     },
     {
       "week": "2026-04-14",
-      "cumulativeMinutes": 16760,
+      "cumulativeMinutes": 14243,
       "projects": 20
     },
     {
       "week": "2026-04-21",
-      "cumulativeMinutes": 19563,
+      "cumulativeMinutes": 16341,
       "projects": 20
     },
     {
       "week": "2026-04-28",
-      "cumulativeMinutes": 22366,
+      "cumulativeMinutes": 18439,
       "projects": 20
     },
     {
       "week": "2026-05-05",
-      "cumulativeMinutes": 25494,
+      "cumulativeMinutes": 20832,
       "projects": 25
     },
     {
       "week": "2026-05-12",
-      "cumulativeMinutes": 28622,
+      "cumulativeMinutes": 23225,
       "projects": 25
     },
     {
       "week": "2026-05-19",
-      "cumulativeMinutes": 31750,
+      "cumulativeMinutes": 25618,
       "projects": 25
     },
     {
       "week": "2026-05-26",
-      "cumulativeMinutes": 34878,
+      "cumulativeMinutes": 27951,
       "projects": 25
     },
     {
       "week": "2026-06-02",
-      "cumulativeMinutes": 38006,
+      "cumulativeMinutes": 30284,
       "projects": 25
     },
     {
       "week": "2026-06-09",
-      "cumulativeMinutes": 41134,
+      "cumulativeMinutes": 32617,
       "projects": 25
+    },
+    {
+      "week": "2026-06-16",
+      "cumulativeMinutes": 34950,
+      "projects": 25
+    },
+    {
+      "week": "2026-06-23",
+      "cumulativeMinutes": 37283,
+      "projects": 25
+    },
+    {
+      "week": "2026-06-30",
+      "cumulativeMinutes": 39616,
+      "projects": 25
+    },
+    {
+      "week": "2026-07-07",
+      "cumulativeMinutes": 41589,
+      "projects": 27
+    },
+    {
+      "week": "2026-07-14",
+      "cumulativeMinutes": 43947,
+      "projects": 32
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-14T12:00:05Z",
+      "event": "Task OS v1 shipped + live (Asana replacement). Idea→spec→built→live in one day: /loop-shaper (9 iter, Helm autopsy) → Lucas-approved spec → /loop-builder (4 slices, every gate first-attempt). One command now propagates a task state change t",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-14T12:00:04Z",
+      "event": "TourFinder system review + hygiene ship. 4-agent audit of the original build (core pipeline, listening layer, infra, prod outcome logs) → canonical OPTIMIZATION_REVIEW.md in-repo; shipped same-day: log rotation launchd job (26MB reclaimed),",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-14T12:00:02Z",
+      "event": "Doc Train made absence-proof + Support Builders scaled out. Root-caused why the GTM Weekly call fell through Doc Train silently (title-locked Fathom intake + no miss-detection); shipped a notes-doc ingester (reads the meeting's Google Doc —",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-13T12:00:08Z",
+      "event": "KB Overhaul shipped same-day (6 phases): capture gate, one-tap claim review (~42% auto-verified), spine consumer cutover, promotions funnel metric. First 3 KB→HC promotions EVER same day; review cost per draft 45min→2min. Christian DM'd.",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-13T12:00:00Z",
+      "event": "Doc Train v2: dead pipeline → team-facing product in one day Top-down review found the core sweep dead 5+ weeks (silently), team digest broken a month (wrong bot token), 1 article \"published\" in 6 weeks. Rebuilt same-day: 2-second feature-d",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-08T12:00:08Z",
+      "event": "HC pipeline v2 + Support Builders launch. Smoke-tested the HC pipeline end-to-end (2.4s greet → 80s draft), then shipped: event-driven intake (4h→~2min via greeter kickstart), Claude clean-title synthesis, SLA-noise fix, daily logrotate (tr",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-08T12:00:07Z",
+      "event": "Living-memory approve gate de-humanized. /pulse-dependent y/n gate (never ran → 60-fact backlog) replaced by fact_gate.py nightly launchd: high-conf auto-applies, med-conf Slack-digests to #lucas-briefing. Backlog triaged 60→0 (43 applied i",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-08T12:00:05Z",
+      "event": "Zendesk AI agent rebuilt + LIVE: solved the publish blocker (hidden GraphQL error → 2 unentitled topics on the default answer), published \"VM Assistant\" on the Support brand, enabled HC widget embed, passed 4 real-KB tests with zero retired",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-08T12:00:01Z",
+      "event": "Engine build session, one night: Fable-orchestrated 4 parallel Sonnet builders + inline work shipped the ENTIRE next-engine-session stack: detector pack live (heartbeat, circuit breaker, token countdown — the Finding-1 silent-outage class i",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-07T12:00:03Z",
+      "event": "/scrub goes self-driving: first-Tuesday reminder wired (was prose-only — missed its own first firing that morning); prescrub.py headless gather turns the 90-min scrub into a verdicts-only session; external-ID sweep + staged_pushes rot + fle",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-07T12:00:03Z",
+      "event": "Chart born. Resurrected the dead-since-6/13 workflow crawler (React-input root cause), 4/4 tiers green, weekly cloud crawls on GitHub Actions, UI-change radar (caught the ePod wave on post #1), 59-workflow draft registry from a 19-agent dis",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-07T12:00:01Z",
+      "event": "Cvent synergy: from stalled to self-reporting. Un-stalled a 59-day-silent Box feed (root-caused to a free-account OAuth wall), shipped the live-count metric the CX Partnerships dashboard wanted (146 customers live, auto-refreshing restricte",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-07T12:00:00Z",
+      "event": "Cvent synergy roster shipped to partnerships dashboard. Turned the bare \"223 as of May 8\" Cvent card into a real 3-segment account roster (358 active customers / 176 prospects / 184 unverified) matched to live Salesforce status. Built a pre",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-04T12:00:08Z",
+      "event": "Pilot read-only enrichment SHIPPED + LIVE: the engine's triage sandbox now gets grounded account facts (SF status/tier, HC canon articles) fetched credential-side; the backtest's weakest verdict (#11771, invisible inactive account) re-ran g",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-04T12:00:00Z",
+      "event": "Pilot one-tap flywheel ACCEPTED + evidence engine goes fully autonomous. WS2 y/e/n driven end-to-end on live demo tickets (no customer touched); acceptance drive caught 2 silent infra bugs (gitignored WS0 state = durability was a no-op; bli",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-03T12:00:02Z",
+      "event": "/add-users skill shipped + Hyatt ASPAC provisioned. Built a reusable Coach-browser bulk user-provisioning skill (add/remove/preview/selftest/fix-roles, role-verify, config-builder, audit trail), used it to add 3 Hyatt users across all 39 Hy",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-03T12:00:01Z",
+      "event": "HC-Deflector shipped (concept→deployed in one session). Jenny (CS Dir) idea from ZD#11791. Fixed silent-inbox (universal ack trigger LIVE+verified) + built ticket→HC-article deflector (BM25+Haiku, single email, HC+community footer). Deploye",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:09Z",
+      "event": "#lucas-briefing de-noised. Rerouted 8 team-audit scripts (Hilton dist/slot/health, TourFinder audit, off-base re-verify, redirect-gap, HC voice) off #lucas-briefing to #support-notifications; nightly memory-sweep → bot-testing. Deadman watc",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:07Z",
+      "event": "Anchor meta-system overhaul (10 recs, all shipped) Self-directed hardening pass on the Support OS control layer: blocking guardrail hook (kills the 3 costliest repeat mistakes), memory autoinject 1→14 entries, nightly doctrine-drift checker",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:06Z",
+      "event": "Self-learning loops audit + relight (Support OS): 5-agent audit found every learning loop stalled/write-only (tone-audit silently starved 21d, defect-debrief ran once, TF knowledge store frozen since March, KB never consulted at draft time)",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:05Z",
+      "event": "ROADMAP.md reborn as forward view. Now/Next/Later + wake triggers; source of truth generating the CX-builders Sheet (31 initiatives) via rebuilt build_support_roadmap.py.",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:04Z",
+      "event": "Memory cohesion audit (874 files): 0 orphans. Routed 30 orphans, fixed 15 broken INDEX refs, wrote missing do-the-chasing canon, built memory_graph_audit.py into /scrub.",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:02Z",
+      "event": "Fairmont 4-property redirect audit (ZD#11796) Full redirect + embed audit across Empress, Waterfront, Pacific Rim, Vancouver Airport (Accor enterprise). 117 KV corrections shipped + live-verified across BOTH /360 and /3d-model namespaces. R",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-02T12:00:00Z",
+      "event": "Living-memory pipeline shipped end-to-end. Found + fixed 3-week silent linker crash (Fathom transcript type change), backfilled 101 meeting facts into 16 project memory files, minted Atlas project from unrouted cluster, folded frozen Kevin/",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-01T12:00:04Z",
+      "event": "Briefing noise cleanup + #support-notifications channel. Cut the flood in #lucas-briefing (fleet-health false pages, nightly ROADMAP nag, changelog→DM), gated Hannah's Hilton-health wall, and stood up a shared team automation-firehose chann",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-01T12:00:03Z",
+      "event": "exec-intake shipped. Killed the exec forward-and-escalate pattern (customer → CEO → CC leadership → support, mis-attributed). One-call webhook files a ZD ticket with requester=customer, priority high, exec CC, dry_run + dedupe. JKW's agent ",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-01T12:00:01Z",
+      "event": "Account+Brand Health shipped to prod (cx-command PR #122). Cracked the long-blocked ChurnZero connection (OData API, own creds), then on merge reconciled onto the teams own OData client to avoid shipping a duplicate. Live under Work in Prog",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-01T12:00:00Z",
+      "event": "Cvent bot overhaul + Hannah feedback watcher: shipped a customer-status gate (suppresses prospects/inactive from Cvent tasks — 45/261, killed Hannah's #1/#2 complaints), IFP-only ⛔ state, card clarity, share-link QA, Matterport SID liveness",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-06-29T12:00:00Z",
       "event": "- HC pipeline front door made atomic. create_google_doc() now writes the tracker row in the same call (register=True default) — a Help Center doc can no longer exist without a pipeline row, retiring the recurring orphan-adopt mop-up. Also h",
@@ -640,6 +889,389 @@
   ],
   "projects": [
     {
+      "id": "hc-deflector",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "HC Deflector",
+      "tagline": "The right help-center article, before an agent touches the ticket",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "estimated",
+      "unattended": true,
+      "description": "Auto-replies to inbound tickets whose answer already exists in the Help Center — posts the matching article as a public reply within minutes of ticket creation, with a 1-hour dead-man fallback so no customer ever sits in silence. Born from a CSM's idea; live cutover after a dry-run soak, and the first live ticket got exactly one correct-article reply.",
+      "impact": [
+        "Customers get the answer in minutes instead of queue time",
+        "Agents skip tickets the knowledge base already answers",
+        "Dead-man fallback guarantees no ticket goes silent",
+        "Every deflection is tagged — savings are measurable, not claimed"
+      ],
+      "timeSaved": {
+        "minutes": 5,
+        "per": "deflected ticket",
+        "frequency": "~12/week",
+        "weeklyMinutes": 60,
+        "activeFrom": "2026-07-03",
+        "calculation": "~5 min agent triage × ~12 HC-answerable tickets/wk — early soak; instrumented via deflection tags"
+      },
+      "tech": [
+        "Python",
+        "Zendesk API",
+        "Claude",
+        "launchd"
+      ],
+      "icon": "🛡️"
+    },
+    {
+      "id": "vm-assistant",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "VM Assistant (Zendesk AI Agent)",
+      "tagline": "Help Center concierge that answers before a ticket exists",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "estimated",
+      "unattended": true,
+      "description": "Rebuilt Zendesk AI agent embedded in the Help Center: branded, grounded in the live knowledge base, and passing clean on knowledge tests at launch. Deflects how-to questions pre-ticket and hands off cleanly when a human is needed. Replacing the legacy agent as link swaps soak.",
+      "impact": [
+        "How-to questions resolve without ever becoming tickets",
+        "Grounded in the same KB the pipeline keeps fresh — one source of truth",
+        "Clean human handoff when the bot is out of its depth"
+      ],
+      "timeSaved": {
+        "minutes": 10,
+        "per": "deflected contact",
+        "frequency": "early",
+        "weeklyMinutes": 30,
+        "activeFrom": "2026-07-08",
+        "calculation": "Early — cutover rolling; deflection measured in Zendesk rather than estimated here"
+      },
+      "tech": [
+        "Zendesk AI",
+        "Help Center KB"
+      ],
+      "icon": "🤖"
+    },
+    {
+      "id": "kb-pipeline",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "KB Capture → Review → Publish",
+      "tagline": "Ticket resolutions become verified knowledge at one-tap cost",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "measured",
+      "unattended": true,
+      "description": "Every resolved-ticket learning is captured as a KB draft, claims are auto-corroborated against already-published articles (~42% verify with no human), and the SME answers only the yes/no questions that genuinely need human eyes — then drafts promote to the Help Center. The funnel closed end-to-end with its first three KB→Help Center promotions the same day.",
+      "impact": [
+        "SME review cost per draft: 45 min → 2 min, measured",
+        "~42% of draft claims auto-verified against published articles",
+        "Support knowledge compounds instead of evaporating in solved tickets",
+        "Promotions-funnel metric shows exactly where drafts stall"
+      ],
+      "timeSaved": {
+        "minutes": 43,
+        "per": "draft reviewed",
+        "frequency": "~5/week",
+        "weeklyMinutes": 215,
+        "activeFrom": "2026-07-13",
+        "calculation": "Measured: SME review 45 min → 2 min per draft × ~5 drafts/wk (volume estimated)"
+      },
+      "tech": [
+        "Python",
+        "Claude",
+        "Zendesk",
+        "Confluence"
+      ],
+      "icon": "📚"
+    },
+    {
+      "id": "support-engine",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Support Engine",
+      "tagline": "Ticket triage that drafts, pages, and earns autonomy with evidence",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "usage-verified",
+      "unattended": true,
+      "description": "Always-on poller over the support queue: auto-drafts candidate replies for one-tap human review and pages the team in real time on high-priority signals. Self-monitors with heartbeats, circuit breakers, and dead-man detectors so silent outages are structurally impossible. Autonomy is gated on evidence — hands-off mode unlocks only after 20+ reviewed reps at ≥70% accept, and the gate stats are instrumented, not vibes. 400+ tests.",
+      "impact": [
+        "Candidate replies waiting before an agent opens the ticket",
+        "Real-time paging on high-priority tickets",
+        "Autonomy gate: measured accept-rate decides go-live, not optimism",
+        "Detector pack makes the silent-outage failure class structurally impossible"
+      ],
+      "timeSaved": {
+        "minutes": 10,
+        "per": "approved draft",
+        "frequency": "ramping",
+        "weeklyMinutes": 50,
+        "activeFrom": "2026-07-08",
+        "calculation": "~10 min per approved draft × ~5/wk during the gate phase — the autonomy gate itself produces the verified number"
+      },
+      "tech": [
+        "Python",
+        "Claude",
+        "Zendesk API",
+        "launchd"
+      ],
+      "icon": "⚙️"
+    },
+    {
+      "id": "task-os",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Task OS",
+      "tagline": "One command propagates a task state change everywhere",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "estimated",
+      "unattended": false,
+      "description": "Personal task operating system replacing Asana plus a graveyard of hand-synced lists: 81 items adopted on day one, and a single state change now updates the board, working memory, and session-handoff files idempotently. Zero daemons by design. Went from idea to spec to live in one day via agent build loops.",
+      "impact": [
+        "Task state lives in one place and propagates everywhere it's referenced",
+        "Replaced an Asana seat and three hand-synced lists",
+        "Idempotent sync verified on 81 real items at adoption"
+      ],
+      "timeSaved": {
+        "minutes": 1,
+        "per": "state change",
+        "frequency": "~10/day",
+        "weeklyMinutes": 60,
+        "activeFrom": "2026-07-14",
+        "calculation": "~10 status-propagation edits/day × ~1 min each, plus the tool sprawl it retired"
+      },
+      "tech": [
+        "Python",
+        "Claude Code agents"
+      ],
+      "icon": "🗂️"
+    },
+    {
+      "id": "living-memory",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Living Memory Pipeline",
+      "tagline": "Meetings become durable working context, automatically",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "estimated",
+      "unattended": true,
+      "description": "Meeting transcripts flow through an entity linker into a review queue; a nightly gate auto-applies high-confidence facts to project files and digests the rest to Slack for approval. 101 facts backfilled at launch — every 1:1 brief and project file stays current without anyone taking notes.",
+      "impact": [
+        "1:1 and project context always current, zero note-taking",
+        "High-confidence facts apply themselves; only judgment calls reach a human",
+        "101 facts backfilled at launch across people and projects"
+      ],
+      "timeSaved": {
+        "minutes": 12,
+        "per": "day",
+        "frequency": "daily",
+        "weeklyMinutes": 60,
+        "activeFrom": "2026-07-02",
+        "calculation": "~12 min/day of manual meeting-context re-entry avoided × 5 days"
+      },
+      "tech": [
+        "Python",
+        "Claude",
+        "Fathom API",
+        "launchd"
+      ],
+      "icon": "🧠"
+    },
+    {
+      "id": "exec-intake",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Exec Intake Endpoints",
+      "tagline": "Scoped, read-only answers for other teams' AI agents",
+      "status": "production",
+      "date": "2026-07",
+      "verification": "estimated",
+      "unattended": true,
+      "description": "A pattern for serving other agents without sharing credentials: scoped read-only endpoints — latest is a distribution live-check that verifies whether an account's listings are actually live — that an executive's AI agent calls directly. Ask to production adoption in 4 hours, zero credentials shared.",
+      "impact": [
+        "Other teams' agents self-serve answers that used to be manual pulls",
+        "Zero credentials shared — scoped endpoints instead of key handoffs",
+        "Adopted by the requesting agent 20 minutes after handoff"
+      ],
+      "timeSaved": {
+        "minutes": 15,
+        "per": "exec data ask",
+        "frequency": "~2/week",
+        "weeklyMinutes": 30,
+        "activeFrom": "2026-07-13",
+        "calculation": "~15 min/ask of manual cross-tool data pulling × ~2 asks/wk"
+      },
+      "tech": [
+        "Vercel",
+        "Python",
+        "Tinybird"
+      ],
+      "icon": "🔗"
+    },
+    {
+      "id": "supabase-mcp",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Supabase MCP",
+      "tagline": "Read-only Salesforce mirror — account lookups from the terminal",
+      "status": "production",
+      "date": "2026-05",
+      "description": "Four read-only tools (lookup_account, query_table, list_tables, describe_table) over the Salesforce schema mirror. Hard-rejects service-role keys at startup — publishable/anon only, read-only by contract not just RLS. Wired into /onboard-support as a real Supabase lookup surface.",
+      "impact": [
+        "Account / property lookups without leaving Claude Code",
+        "Read-only by contract — refuses service-role keys",
+        "Unblocked Christian onboarding with a concrete Supabase surface"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 60,
+        "calculation": "~5 min/lookup × ~12 lookups/week",
+        "activeFrom": "2026-05-01"
+      },
+      "tech": [
+        "Python",
+        "MCP",
+        "Supabase",
+        "Salesforce mirror"
+      ],
+      "repo": "https://github.com/LucasWillett/vm-support-skills",
+      "icon": "🗄️",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "distribution-digest-v2",
+      "publish": true,
+      "audience": "leadership",
+      "team": "support",
+      "name": "Distribution Digest v2",
+      "tagline": "Tinybird-only weekly distribution briefing — top wins + losses with CSM names",
+      "status": "production",
+      "date": "2026-05",
+      "description": "Replaced the noisy v1 that scaremongered on GA4→Tinybird artifacts. v2 is Tinybird-only (post-5/3 referrer era): top-5 wins + top-5 losses with CSM names, materiality-gated headline, WoW% suppressed until a real trailing baseline exists. Reads as a top-level briefing, not 23 bullets of noise.",
+      "impact": [
+        "Materiality gate kills 53%-on-a-1K-base false alarms",
+        "Wins + losses attributed to the owning CSM",
+        "Leadership-ready Monday distribution snapshot"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 90,
+        "calculation": "~90 min/week of manual distribution-trend compilation",
+        "activeFrom": "2026-05-01"
+      },
+      "tech": [
+        "Python",
+        "Tinybird",
+        "Slack SDK",
+        "launchd"
+      ],
+      "repo": null,
+      "icon": "📈",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
+      "id": "support-product-digest",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Support × Product Digest",
+      "tagline": "Weekly 'what's coming' heads-up mined from #product",
+      "status": "production",
+      "date": "2026-05",
+      "description": "Haiku synth of the #product channel → a Monday 9am #support-internal heads-up in Lucas's peer voice. Filters to support-relevant signal (new customer surface / backend migration risk / customer-facing dates), skips internal velocity noise. Christian gets the 3-5 bullets that matter, not the firehose.",
+      "impact": [
+        "Support sees product changes before customers do",
+        "Filtered to support-relevant — no velocity noise",
+        "First post covered Smart Tour Builder, User Admin migration, Diagrams v2"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 60,
+        "calculation": "~60 min/week of manually reading #product for support-relevant changes",
+        "activeFrom": "2026-05-01"
+      },
+      "tech": [
+        "Python",
+        "Claude Haiku",
+        "Slack SDK",
+        "launchd"
+      ],
+      "repo": null,
+      "icon": "📰",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
+      "id": "signal-layer",
+      "publish": true,
+      "audience": "lucas",
+      "team": "support",
+      "name": "Signal Layer + Session Brief",
+      "tagline": "Cached session-start brief + persona-gated signal pollers",
+      "status": "production",
+      "date": "2026-05",
+      "description": "Generic signal scaffold (relevance_gate.py Haiku persona filter + per-topic pollers + hourly launchd) plus a session-brief aggregator that collapses 5+ live MCP/file calls at session start into 2 cached JSON reads. Kevin signal v0 ships on it; future monitors plug in as ~30-LOC pollers. Part of a token overhaul that cut settings 144KB→17KB.",
+      "impact": [
+        "Session start: 5+ live calls → 2 cached reads",
+        "~127KB/turn saved from settings prune",
+        "New monitors = ~30 LOC, no pipeline changes"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 75,
+        "calculation": "~15 min/day faster session starts × 5 days",
+        "activeFrom": "2026-05-01"
+      },
+      "tech": [
+        "Python",
+        "Claude Haiku",
+        "launchd",
+        "MCP"
+      ],
+      "repo": "https://github.com/LucasWillett/support-memory",
+      "icon": "📡",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
+      "id": "datadog-monitor-coverage",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Datadog Monitor Coverage",
+      "tagline": "Self-served prod alerting for the customer-pain error classes",
+      "status": "production",
+      "date": "2026-05",
+      "description": "Closed the Datadog asks Support could enact itself after the April auth0 P2: 4 new monitors (Fatal app errors + 3 'Failed to fetch *' log monitors), 9 prod monitors re-routed to @oncall-saleshub-cx + #support-internal, and a noise cleanup that kept only outage-tier signal in #support-internal. Idempotent, re-runnable scripts — no eng dependency.",
+      "impact": [
+        "Customer-pain 'Failed to fetch' cluster now alarms in prod",
+        "Outage-tier-only routing kills alert fatigue",
+        "Self-wired DD→Slack — saved a 4K-char eng ask"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 40,
+        "calculation": "Earlier detection of prod error spikes; ~40 min/week of reactive triage avoided",
+        "activeFrom": "2026-05-01"
+      },
+      "tech": [
+        "Datadog API",
+        "Python",
+        "Slack"
+      ],
+      "repo": "https://github.com/LucasWillett/support-memory",
+      "icon": "📟",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
       "id": "three-path-onboarding",
       "publish": true,
       "audience": "team",
@@ -663,7 +1295,8 @@
         "weeklyMinutes": 100,
         "manualMinutes": 10,
         "automatedMinutes": 1,
-        "calculation": "10 min/question × 10 questions/week (Jackie+Jenny+CSMs combined)"
+        "calculation": "10 min/question × 10 questions/week (Jackie+Jenny+CSMs combined)",
+        "activeFrom": "2026-04-01"
       },
       "tech": [
         "Python",
@@ -675,7 +1308,186 @@
         "Render"
       ],
       "repo": "https://github.com/LucasWillett/three-path-onboarding-bot",
-      "icon": "🛫"
+      "icon": "🛫",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Triage Buddy",
+      "tagline": "Automated website distribution diagnostics — CSP, redirects, embed detection in 15 seconds",
+      "status": "production",
+      "date": "2026-04",
+      "description": "TourFinder Slack command (triage site: <url>) that auto-diagnoses why a VM tour isn't loading on a customer's website. Checks CSP headers, X-Frame-Options, embed detection (7 methods), legacy-domain redirect status, WP slug health, migration domain mismatch, security URL unwrapping, lazy-load warnings, mixed content, WAF, deprecated domains, and property status. Replaces manual DevTools investigation.",
+      "impact": [],
+      "timeSaved": {
+        "weeklyMinutes": 30,
+        "calculation": "~5 min per triage × ~6 embed tickets/week = 30 min/week",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "🩺",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "vm-support-skills",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "vm-support-skills",
+      "tagline": "The Support OS skill suite — /triage /respond /defect /kb /go and ~20 more",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Private GitHub repo + install.sh that distributes the whole Support OS skill kit to teammates: /triage, /respond, /defect, /kb, /kb-review, /go, /incident, /hc-polish, /tag, /pulse, /onboard-support (+advanced), /pain, /scout and more. One install command turns a fresh Claude Code into a trained support agent — paste-investigate-act loop, doctrine-threaded, canon-aware.",
+      "impact": [
+        "~25 skills shipped to Christian + Hannah from one repo",
+        "/triage <id|url> auto-fetches the full Zendesk thread — no paste",
+        "Doctrine (no false confidence / good data only / scan thread first) threaded into every skill",
+        "triage_patterns library: grep-before-classify so the team inherits every hard diagnosis"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 450,
+        "calculation": "Conservative: ~15 min/ticket faster triage + response × ~30 tickets/week across the team",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [
+        "Claude Code",
+        "Python",
+        "Bash",
+        "Zendesk MCP",
+        "Git"
+      ],
+      "repo": "https://github.com/LucasWillett/vm-support-skills",
+      "icon": "🧰",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "zendesk-mcp",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Zendesk MCP",
+      "tagline": "Full ticket thread into the reasoning loop — no copy-paste",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Read/tag MCP over Zendesk so /triage 11313 or /triage <url> pulls the description + every comment directly into the triage loop. The inbound 'Customer → Support' stream of the Support↔Product signal layer.",
+      "impact": [
+        "Zero-paste ticket investigation",
+        "add_internal_note + tag_ticket from the terminal",
+        "Feeds /triage, /respond, /go, /tag end to end"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 120,
+        "calculation": "~4 min saved fetching/pasting × ~30 tickets/week",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [
+        "Python",
+        "MCP",
+        "Zendesk API"
+      ],
+      "repo": "https://github.com/LucasWillett/vm-support-skills",
+      "icon": "🎫",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "bot-fleet-pulse",
+      "publish": true,
+      "audience": "lucas",
+      "team": "support",
+      "name": "Bot Fleet Pulse",
+      "tagline": "Health probe across the whole bot fleet — catches launchd-green-but-broken",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Support OS bot-fleet health probe (bot_pulse.py + launchd + Helm 🤖 tile) tracking 7 bots: TourFinder, HC Pipeline, Support Classifier, Data Concierge, Cvent Synergy, Reshoot Helper, Three-Path Onboarding. Log-tail probing catches the 'launchd shows green while the bot is silently broken' blind spot; PID-aware so SIGTERM'd KeepAlive daemons don't false-flag.",
+      "impact": [
+        "Catches silent polling-fallback failures launchd can't see",
+        "7 bots tracked in one Helm tile",
+        "PID-aware — no false yellows on daemon restarts"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 45,
+        "calculation": "Prevents ~1 silent-bot-outage/week that used to take ~45 min to notice + recover",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [
+        "Python",
+        "launchd",
+        "Flask"
+      ],
+      "repo": "https://github.com/LucasWillett/support-memory",
+      "icon": "🤖",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
+      "id": "doc-train",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Doc Train",
+      "tagline": "Confluence PRDs + Fathom demos → KB drafts, daily",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Fathom/PRD/demo intake → AI-drafted KB articles. v2 (July 2026) rebuilt it into a team-facing product: 2-second feature-drop briefs to the support channel, emoji commands (📝 draft-on-demand, 📌 Slack-thread→KB capture), a notes-doc ingester that captures meetings nobody recorded, and a capture watchdog — added after a top-down review caught the v1 sweep silently dead for 5 weeks. Failure-detection is now part of the product.",
+      "impact": [
+        "PRDs + sprint demos become KB drafts automatically",
+        "Canon auto-fix: audit is a safety net, not a blocker",
+        "Defect-close digest fans out to #support-internal"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 120,
+        "calculation": "~2 hrs/week of manual PRD/demo → draft conversion",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [
+        "Python",
+        "Claude Sonnet 4.6",
+        "Confluence API",
+        "Fathom",
+        "Google Drive API",
+        "launchd"
+      ],
+      "repo": null,
+      "icon": "🚂",
+      "verification": "estimated",
+      "unattended": true
+    },
+    {
+      "id": "restic-backup",
+      "publish": true,
+      "audience": "lucas",
+      "team": "support",
+      "name": "Restic → B2 Backup",
+      "tagline": "Nightly encrypted backup of the whole Support OS stack",
+      "status": "production",
+      "date": "2026-04",
+      "description": "Nightly 03:00 restic snapshot → Backblaze B2 with a weekly Sunday audit and verified recovery. The durability floor under every bot, script, and memory file in the stack — ~$4/yr. Extended July 2026: nightly sync also pushes the working-memory and foundation repos to two independent GitHub accounts.",
+      "impact": [
+        "Whole stack recoverable from offsite encrypted backup",
+        "Weekly audit + verified restore",
+        "~$4/yr"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 0,
+        "calculation": "Insurance, not time — caps catastrophic data-loss risk on the whole stack",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [
+        "restic",
+        "Backblaze B2",
+        "launchd"
+      ],
+      "repo": null,
+      "icon": "💾",
+      "verification": "measured",
+      "unattended": true
     },
     {
       "id": "tourfinder",
@@ -700,10 +1512,11 @@
         "minutes": 30,
         "per": "query",
         "frequency": "~15/week",
-        "weeklyMinutes": 450,
+        "weeklyMinutes": 225,
         "manualMinutes": 30,
         "automatedMinutes": 2,
-        "calculation": "30 min/query × 15 queries/week"
+        "calculation": "~15 lookups/wk (310 logged lifetime lookups across 37 users) × ~15 min of manual property + asset link hunting",
+        "activeFrom": "2026-02-01"
       },
       "tech": [
         "Python",
@@ -714,7 +1527,9 @@
         "launchd"
       ],
       "repo": "https://github.com/LucasWillett/tourfinder",
-      "icon": "🔍"
+      "icon": "🔍",
+      "verification": "usage-verified",
+      "unattended": true
     },
     {
       "id": "help-center-pipeline",
@@ -723,9 +1538,9 @@
       "team": "support",
       "name": "Help Center Article Pipeline",
       "tagline": "Slack to Zendesk article automation",
-      "status": "draft",
+      "status": "production",
       "date": "2026-02",
-      "description": "End-to-end article workflow. Team posts ideas to Slack → AI generates draft → uploads to Google Drive → tracks in spreadsheet → notifies SME.",
+      "description": "Ticket-to-published-article pipeline with a full lifecycle engine behind it: AI drafts from resolved tickets, SME one-tap fact-check, tone + nomenclature polish, freshness and refresh sweeps over published and draft articles, deflection-gap detection, and a greeter that routes new Help Center ideas. Runs as a fleet of nightly and daily jobs.",
       "impact": [
         "Self-service article submissions via Slack",
         "AI-generated first drafts with templates",
@@ -738,7 +1553,8 @@
         "weeklyMinutes": 150,
         "manualMinutes": 35,
         "automatedMinutes": 5,
-        "calculation": "30 min/draft × 5 articles/week"
+        "calculation": "30 min/draft × 5 articles/week",
+        "activeFrom": "2026-02-01"
       },
       "tech": [
         "Python",
@@ -748,7 +1564,9 @@
         "launchd"
       ],
       "repo": null,
-      "icon": "📝"
+      "icon": "📝",
+      "verification": "estimated",
+      "unattended": true
     },
     {
       "id": "redirect-checker",
@@ -773,7 +1591,8 @@
         "weeklyMinutes": 150,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/request × 10 requests/week"
+        "calculation": "15 min/request × 10 requests/week",
+        "activeFrom": "2026-02-01"
       },
       "tech": [
         "Python",
@@ -783,74 +1602,9 @@
         "GA4 API"
       ],
       "repo": null,
-      "icon": "🔗"
-    },
-    {
-      "id": "matterport-checker",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Matterport Health Checker",
-      "tagline": "Proactive 3D model health monitoring",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Crawls all Matterport embed URLs from TrueTour (20K+ models), checks each against the Matterport API for active/dead status. First run found 1,021 dead models.",
-      "impact": [
-        "First scan caught 1,021 dead models across 204 properties",
-        "Proactive detection before customers report",
-        "Full scan of 20K models in under 10 minutes"
-      ],
-      "timeSaved": {
-        "minutes": 120,
-        "per": "weekly scan",
-        "frequency": "1/week",
-        "weeklyMinutes": 120,
-        "manualMinutes": 480,
-        "automatedMinutes": 10,
-        "calculation": "Manual verification of 20K models impossible — 2 hrs/week reactive work eliminated"
-      },
-      "tech": [
-        "Python",
-        "Requests",
-        "Matterport API",
-        "ThreadPoolExecutor"
-      ],
-      "repo": null,
-      "icon": "🏛️"
-    },
-    {
-      "id": "helm",
-      "publish": true,
-      "audience": "lucas",
-      "team": "support",
-      "name": "Helm",
-      "tagline": "Personal ops command center",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Operational memory dashboard. Turns meetings into memory, memory into action. OKR tracking, Heads Up alerts, Calendar, Weather, Quick Capture, Meeting Prep.",
-      "impact": [
-        "Single tab replaces 4+ context switches",
-        "AI Quick Capture turns Slack DMs into Google Tasks",
-        "Kevin Might Ask — AI-generated prep for 1:1s"
-      ],
-      "timeSaved": {
-        "minutes": 20,
-        "per": "morning planning session",
-        "frequency": "5/week",
-        "weeklyMinutes": 100,
-        "manualMinutes": 25,
-        "automatedMinutes": 5,
-        "calculation": "20 min/day × 5 days"
-      },
-      "tech": [
-        "Python",
-        "Flask",
-        "Google Tasks API",
-        "Google Calendar API",
-        "Claude Haiku"
-      ],
-      "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "☸️"
+      "icon": "🔗",
+      "verification": "estimated",
+      "unattended": true
     },
     {
       "id": "cvent-synergy",
@@ -861,7 +1615,7 @@
       "tagline": "Automated Cvent Event Diagramming workflow",
       "status": "production",
       "date": "2026-02",
-      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form → validation → task package → Slack → QA.",
+      "description": "End-to-end automation for Cvent Event Diagramming requests. Google Form → validation → task package → Slack → QA. Overhauled July 2026: fixed over-flagging of inactive accounts and added proactive detection of newly recaptured 3D models, so listing breakage is caught before a customer notices.",
       "impact": [
         "URL validation catches bad links before work begins",
         "Pre-filled task packages eliminate copy-paste",
@@ -874,7 +1628,8 @@
         "weeklyMinutes": 38,
         "manualMinutes": 20,
         "automatedMinutes": 5,
-        "calculation": "15 min/request × 10/month"
+        "calculation": "15 min/request × 10/month",
+        "activeFrom": "2026-02-01"
       },
       "tech": [
         "Python",
@@ -884,42 +1639,32 @@
         "launchd"
       ],
       "repo": null,
-      "icon": "🏛️"
+      "icon": "🏛️",
+      "verification": "estimated",
+      "unattended": true
     },
     {
-      "id": "incident-commander",
+      "id": "pendo-health-score-pipeline",
       "publish": true,
       "audience": "team",
       "team": "support",
-      "name": "Incident Commander",
-      "tagline": "P1 response automation via GPT",
-      "status": "production",
-      "date": "2026-02",
-      "description": "Custom GPT for incident response. Automates declaration, macros, Help Center updates, and cross-channel comms.",
-      "impact": [
-        "Reduced P1 coordination overhead",
-        "Consistent messaging across channels",
-        "Draft-then-publish approval workflow"
-      ],
+      "name": "Pendo Health Score Pipeline",
+      "tagline": "Built a pipeline that queries Pendo's aggregation API for per-account feature us",
+      "status": "paused",
+      "date": "2026-03",
+      "description": "Built a pipeline that queries Pendo's aggregation API for per-account feature usage and usage trends, maps to Salesforce IDs, and pushes scores to ChurnZero daily. 2,262 accounts synced — no $11.6K Data Sync add-on needed. Paused July 2026 pending the churn-signal rebuild — the feed restores once the new signal set is approved.",
+      "impact": [],
       "timeSaved": {
-        "minutes": 60,
-        "per": "incident",
-        "frequency": "~2/month",
-        "weeklyMinutes": 30,
-        "manualMinutes": 90,
-        "automatedMinutes": 30,
-        "calculation": "60 min/incident × ~2/month"
+        "weeklyMinutes": 480,
+        "calculation": "~480 min/wk self-reported while live (Mar–Jun). Paused — feed offline since late June; restore scheduled as part of the churn-signal rebuild. The $11.6K/yr Data Sync add-on stays avoided either way.",
+        "activeFrom": "2026-03-01",
+        "activeUntil": "2026-06-30"
       },
-      "tech": [
-        "Python",
-        "Flask",
-        "Zendesk API",
-        "Slack SDK",
-        "GPT Actions",
-        "Render"
-      ],
-      "repo": "https://github.com/LucasWillett/incident-commander",
-      "icon": "🚨"
+      "tech": [],
+      "repo": null,
+      "icon": "✨",
+      "verification": "estimated",
+      "unattended": false
     },
     {
       "id": "cx-ai-dashboard",
@@ -928,7 +1673,7 @@
       "team": "support",
       "name": "CX AI Impact Dashboard",
       "tagline": "CX-wide AI time savings tracker for ELT",
-      "status": "production",
+      "status": "dormant",
       "date": "2026-03",
       "description": "Dashboard tracking AI savings across Kevin's full CX org. Live on Render with Slack bot intake.",
       "impact": [
@@ -943,7 +1688,9 @@
         "weeklyMinutes": 30,
         "manualMinutes": 45,
         "automatedMinutes": 15,
-        "calculation": "30 min/week compiling AI impact data"
+        "calculation": "30 min/wk while active. Dormant — data feed last refreshed mid-April; intake superseded by this board's Slack intake.",
+        "activeUntil": "2026-04-17",
+        "activeFrom": "2026-03-01"
       },
       "tech": [
         "Python",
@@ -953,7 +1700,99 @@
         "Gunicorn"
       ],
       "repo": "https://github.com/LucasWillett/cx-ai-dashboard",
-      "icon": "📊"
+      "icon": "📊",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "vmp-prod-qa",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "VMP Prod-QA Sandbox",
+      "tagline": "Guardrailed Selenium prod QA — repro without minting users on customer accounts",
+      "status": "dormant",
+      "date": "2026-04",
+      "description": "Click-driven Selenium prod-QA scaffold so Support can reproduce defects in production safely: email/property allowlists, two-flag confirm, audit log, sandbox-only cleanup tool. Reproduced SH-9444 PA-promotion failure post-fix and the cross-tenant JWT finding (Spazious editor identity = melia_hotels_international on every property tested).",
+      "impact": [
+        "Prod repro without test users on customer accounts",
+        "Surfaced a P0 cross-tenant JWT identity issue pre-GA",
+        "Reusable sandbox-asset cleanup with dry-run default"
+      ],
+      "timeSaved": {
+        "weeklyMinutes": 60,
+        "calculation": "~1 hr/wk while in active use (Apr–May, incl. two production repros); on-demand since",
+        "activeUntil": "2026-05-13",
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [
+        "Python",
+        "Selenium",
+        "VMP API"
+      ],
+      "repo": null,
+      "icon": "🧪",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "matterport-checker",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Matterport Health Checker",
+      "tagline": "Proactive 3D model health monitoring",
+      "status": "on-demand",
+      "date": "2026-02",
+      "description": "Crawls all Matterport embed URLs from TrueTour (20K+ models), checks each against the Matterport API for active/dead status. First run found 1,021 dead models.",
+      "impact": [
+        "First scan caught 1,021 dead models across 204 properties",
+        "Proactive detection before customers report",
+        "Full scan of 20K models in under 10 minutes"
+      ],
+      "timeSaved": {
+        "minutes": 120,
+        "per": "weekly scan",
+        "frequency": "1/week",
+        "weeklyMinutes": 0,
+        "manualMinutes": 480,
+        "automatedMinutes": 10,
+        "calculation": "On-demand sweep — first run surfaced 1,021 dead models across 20K+; continuous recapture detection now lives in the reshoot bot",
+        "oneTimeMinutes": 240,
+        "activeFrom": "2026-02-01"
+      },
+      "tech": [
+        "Python",
+        "Requests",
+        "Matterport API",
+        "ThreadPoolExecutor"
+      ],
+      "repo": null,
+      "icon": "🏛️",
+      "verification": "measured",
+      "unattended": false
+    },
+    {
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "VMP Collection Automation",
+      "tagline": "Bulk asset organization via reverse-engineered Next.js Server Actions — 341 assets in 52 seconds",
+      "status": "on-demand",
+      "date": "2026-04",
+      "description": "Automated VMP asset library organization using captured Next.js Server Action API. Reverse-engineered the VMP add-to-collection endpoint by intercepting browser fetch calls, then replayed via requests.post() to organize 455+ assets into 14 collections for Fairmont Waterfront. Replaced manual Scout work that would have taken 30+ Scout lives and 6+ hours.",
+      "impact": [],
+      "timeSaved": {
+        "weeklyMinutes": 0,
+        "calculation": "One-time: ~6 hrs of manual collection mapping done in <1 min; since generalized into reusable bulk-provisioning skills (/add-users, /add-matterport)",
+        "oneTimeMinutes": 360,
+        "activeFrom": "2026-04-01"
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "📦",
+      "verification": "measured",
+      "unattended": false
     },
     {
       "id": "tour-opener",
@@ -962,7 +1801,7 @@
       "team": "support",
       "name": "Tour Opener",
       "tagline": "Disabled license audit via headless browser",
-      "status": "production",
+      "status": "completed",
       "date": "2026-03",
       "description": "Three-step audit pipeline for disabled TrueTour licenses. 638 URLs checked, classified by what end users actually see.",
       "impact": [
@@ -976,7 +1815,9 @@
         "weeklyMinutes": 0,
         "manualMinutes": 480,
         "automatedMinutes": 10,
-        "calculation": "8+ hours manual → 10 min automated"
+        "calculation": "One-time audit: 8+ hours of manual checking done in ~10 minutes across 638 URLs",
+        "oneTimeMinutes": 480,
+        "activeFrom": "2026-03-01"
       },
       "tech": [
         "Python",
@@ -985,26 +1826,9 @@
         "ThreadPoolExecutor"
       ],
       "repo": "https://github.com/LucasWillett/tour-opener",
-      "icon": "🛤️"
-    },
-    {
-      "id": "pendo-health-score-pipeline",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Pendo Health Score Pipeline",
-      "tagline": "Built a pipeline that queries Pendo's aggregation API for per-account feature us",
-      "status": "production",
-      "date": "2026-03",
-      "description": "Built a pipeline that queries Pendo's aggregation API for per-account feature usage and usage trends, maps to Salesforce IDs, and pushes scores to ChurnZero daily. 2,262 accounts synced — no $11.6K Data Sync add-on needed.",
-      "impact": [],
-      "timeSaved": {
-        "weeklyMinutes": 480,
-        "calculation": "Self-reported: ~480 min/week"
-      },
-      "tech": [],
-      "repo": null,
-      "icon": "✨"
+      "icon": "🛤️",
+      "verification": "measured",
+      "unattended": false
     },
     {
       "id": "cvent-distribution-report",
@@ -1013,360 +1837,98 @@
       "team": "support",
       "name": "Cvent Distribution Report",
       "tagline": "Automated GA4 query that pulls all accounts with Cvent referral traffic in the l",
-      "status": "production",
+      "status": "completed",
       "date": "2026-03",
       "description": "Automated GA4 query that pulls all accounts with Cvent referral traffic in the last 90 days, generates a CSV with account names, property IDs, pageview counts, and top referrer URLs. 156 properties found, delivered to Laura Thornton and Hannah Holbrook.",
       "impact": [],
       "timeSaved": {
-        "weeklyMinutes": 60,
-        "calculation": "Self-reported: ~60 min/week"
-      },
-      "tech": [],
-      "repo": null,
-      "icon": "✨"
-    },
-    {
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Triage Buddy",
-      "tagline": "Automated website distribution diagnostics — CSP, redirects, embed detection in 15 seconds",
-      "status": "production",
-      "date": "2026-04",
-      "description": "TourFinder Slack command (triage site: <url>) that auto-diagnoses why a VM tour isn't loading on a customer's website. Checks CSP headers, X-Frame-Options, embed detection (7 methods), tt8 redirect status, WP slug health, migration domain mismatch, security URL unwrapping, lazy-load warnings, mixed content, WAF, deprecated domains, and property status. Replaces manual DevTools investigation.",
-      "impact": [],
-      "timeSaved": {
-        "weeklyMinutes": 30,
-        "calculation": "~5 min per triage × ~6 embed tickets/week = 30 min/week"
-      },
-      "tech": [],
-      "repo": null,
-      "icon": "🩺"
-    },
-    {
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "VMP Collection Automation",
-      "tagline": "Bulk asset organization via reverse-engineered Next.js Server Actions — 341 assets in 52 seconds",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Automated VMP asset library organization using captured Next.js Server Action API. Reverse-engineered the VMP add-to-collection endpoint by intercepting browser fetch calls, then replayed via requests.post() to organize 455+ assets into 14 collections for Fairmont Waterfront. Replaced manual Scout work that would have taken 30+ Scout lives and 6+ hours.",
-      "impact": [],
-      "timeSaved": {
-        "weeklyMinutes": 120,
-        "calculation": "One-time: ~6 hrs manual work done in <1 min. Reusable for future property migrations."
-      },
-      "tech": [],
-      "repo": null,
-      "icon": "📦"
-    },
-    {
-      "id": "vm-support-skills",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "vm-support-skills",
-      "tagline": "The Support OS skill suite — /triage /respond /defect /kb /go and ~20 more",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Private GitHub repo + install.sh that distributes the whole Support OS skill kit to teammates: /triage, /respond, /defect, /kb, /kb-review, /go, /incident, /hc-polish, /tag, /pulse, /onboard-support (+advanced), /pain, /scout and more. One install command turns a fresh Claude Code into a trained support agent — paste-investigate-act loop, doctrine-threaded, canon-aware.",
-      "impact": [
-        "~25 skills shipped to Christian + Hannah from one repo",
-        "/triage <id|url> auto-fetches the full Zendesk thread — no paste",
-        "Doctrine (no false confidence / good data only / scan thread first) threaded into every skill",
-        "triage_patterns library: grep-before-classify so the team inherits every hard diagnosis"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 600,
-        "calculation": "Conservative: ~20 min/ticket faster triage+response × ~30 tickets/week across the team"
-      },
-      "tech": [
-        "Claude Code",
-        "Python",
-        "Bash",
-        "Zendesk MCP",
-        "Git"
-      ],
-      "repo": "https://github.com/LucasWillett/vm-support-skills",
-      "icon": "🧰"
-    },
-    {
-      "id": "zendesk-mcp",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Zendesk MCP",
-      "tagline": "Full ticket thread into the reasoning loop — no copy-paste",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Read/tag MCP over Zendesk so /triage 11313 or /triage <url> pulls the description + every comment directly into the triage loop. The inbound 'Customer → Support' stream of the Support↔Product signal layer.",
-      "impact": [
-        "Zero-paste ticket investigation",
-        "add_internal_note + tag_ticket from the terminal",
-        "Feeds /triage, /respond, /go, /tag end to end"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 120,
-        "calculation": "~4 min saved fetching/pasting × ~30 tickets/week"
-      },
-      "tech": [
-        "Python",
-        "MCP",
-        "Zendesk API"
-      ],
-      "repo": "https://github.com/LucasWillett/vm-support-skills",
-      "icon": "🎫"
-    },
-    {
-      "id": "supabase-mcp",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Supabase MCP",
-      "tagline": "Read-only Salesforce mirror — account lookups from the terminal",
-      "status": "production",
-      "date": "2026-05",
-      "description": "Four read-only tools (lookup_account, query_table, list_tables, describe_table) over the Salesforce schema mirror. Hard-rejects service-role keys at startup — publishable/anon only, read-only by contract not just RLS. Wired into /onboard-support as a real Supabase lookup surface.",
-      "impact": [
-        "Account / property lookups without leaving Claude Code",
-        "Read-only by contract — refuses service-role keys",
-        "Unblocked Christian onboarding with a concrete Supabase surface"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 60,
-        "calculation": "~5 min/lookup × ~12 lookups/week"
-      },
-      "tech": [
-        "Python",
-        "MCP",
-        "Supabase",
-        "Salesforce mirror"
-      ],
-      "repo": "https://github.com/LucasWillett/vm-support-skills",
-      "icon": "🗄️"
-    },
-    {
-      "id": "distribution-digest-v2",
-      "publish": true,
-      "audience": "leadership",
-      "team": "support",
-      "name": "Distribution Digest v2",
-      "tagline": "Tinybird-only weekly distribution briefing — top wins + losses with CSM names",
-      "status": "production",
-      "date": "2026-05",
-      "description": "Replaced the noisy v1 that scaremongered on GA4→Tinybird artifacts. v2 is Tinybird-only (post-5/3 referrer era): top-5 wins + top-5 losses with CSM names, materiality-gated headline, WoW% suppressed until a real trailing baseline exists. Reads as a top-level briefing, not 23 bullets of noise.",
-      "impact": [
-        "Materiality gate kills 53%-on-a-1K-base false alarms",
-        "Wins + losses attributed to the owning CSM",
-        "Leadership-ready Monday distribution snapshot"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 90,
-        "calculation": "~90 min/week of manual distribution-trend compilation"
-      },
-      "tech": [
-        "Python",
-        "Tinybird",
-        "Slack SDK",
-        "launchd"
-      ],
-      "repo": null,
-      "icon": "📈"
-    },
-    {
-      "id": "support-product-digest",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Support × Product Digest",
-      "tagline": "Weekly 'what's coming' heads-up mined from #product",
-      "status": "production",
-      "date": "2026-05",
-      "description": "Haiku synth of the #product channel → a Monday 9am #support-internal heads-up in Lucas's peer voice. Filters to support-relevant signal (new customer surface / backend migration risk / customer-facing dates), skips internal velocity noise. Christian gets the 3-5 bullets that matter, not the firehose.",
-      "impact": [
-        "Support sees product changes before customers do",
-        "Filtered to support-relevant — no velocity noise",
-        "First post covered Smart Tour Builder, User Admin migration, Diagrams v2"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 60,
-        "calculation": "~60 min/week of manually reading #product for support-relevant changes"
-      },
-      "tech": [
-        "Python",
-        "Claude Haiku",
-        "Slack SDK",
-        "launchd"
-      ],
-      "repo": null,
-      "icon": "📰"
-    },
-    {
-      "id": "signal-layer",
-      "publish": true,
-      "audience": "lucas",
-      "team": "support",
-      "name": "Signal Layer + Session Brief",
-      "tagline": "Cached session-start brief + persona-gated signal pollers",
-      "status": "production",
-      "date": "2026-05",
-      "description": "Generic signal scaffold (relevance_gate.py Haiku persona filter + per-topic pollers + hourly launchd) plus a session-brief aggregator that collapses 5+ live MCP/file calls at session start into 2 cached JSON reads. Kevin signal v0 ships on it; future monitors plug in as ~30-LOC pollers. Part of a token overhaul that cut settings 144KB→17KB.",
-      "impact": [
-        "Session start: 5+ live calls → 2 cached reads",
-        "~127KB/turn saved from settings prune",
-        "New monitors = ~30 LOC, no pipeline changes"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 75,
-        "calculation": "~15 min/day faster session starts × 5 days"
-      },
-      "tech": [
-        "Python",
-        "Claude Haiku",
-        "launchd",
-        "MCP"
-      ],
-      "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "📡"
-    },
-    {
-      "id": "bot-fleet-pulse",
-      "publish": true,
-      "audience": "lucas",
-      "team": "support",
-      "name": "Bot Fleet Pulse",
-      "tagline": "Health probe across the whole bot fleet — catches launchd-green-but-broken",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Support OS bot-fleet health probe (bot_pulse.py + launchd + Helm 🤖 tile) tracking 7 bots: TourFinder, HC Pipeline, Support Classifier, Data Concierge, Cvent Synergy, Reshoot Helper, Three-Path Onboarding. Log-tail probing catches the 'launchd shows green while the bot is silently broken' blind spot; PID-aware so SIGTERM'd KeepAlive daemons don't false-flag.",
-      "impact": [
-        "Catches silent polling-fallback failures launchd can't see",
-        "7 bots tracked in one Helm tile",
-        "PID-aware — no false yellows on daemon restarts"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 45,
-        "calculation": "Prevents ~1 silent-bot-outage/week that used to take ~45 min to notice + recover"
-      },
-      "tech": [
-        "Python",
-        "launchd",
-        "Flask"
-      ],
-      "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "🤖"
-    },
-    {
-      "id": "doc-train",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Doc Train",
-      "tagline": "Confluence PRDs + Fathom demos → KB drafts, daily",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Daily sweep ingests Confluence PRDs + Fathom sprint demos → Google Doc drafts in Hannah's Drive, Support Lobby pages, a #help-center-ideas digest, and a KB reindex. Canon-aware extractor (Sonnet 4.6, prompt-cached on the canon page) with a sanitize-before-audit pass so forbidden terms get auto-rewritten instead of blocking the ship.",
-      "impact": [
-        "PRDs + sprint demos become KB drafts automatically",
-        "Canon auto-fix: audit is a safety net, not a blocker",
-        "Defect-close digest fans out to #support-internal"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 120,
-        "calculation": "~2 hrs/week of manual PRD/demo → draft conversion"
-      },
-      "tech": [
-        "Python",
-        "Claude Sonnet 4.6",
-        "Confluence API",
-        "Fathom",
-        "Google Drive API",
-        "launchd"
-      ],
-      "repo": null,
-      "icon": "🚂"
-    },
-    {
-      "id": "datadog-monitor-coverage",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "Datadog Monitor Coverage",
-      "tagline": "Self-served prod alerting for the customer-pain error classes",
-      "status": "production",
-      "date": "2026-05",
-      "description": "Closed the Datadog asks Support could enact itself after the April auth0 P2: 4 new monitors (Fatal app errors + 3 'Failed to fetch *' log monitors), 9 prod monitors re-routed to @oncall-saleshub-cx + #support-internal, and a noise cleanup that kept only outage-tier signal in #support-internal. Idempotent, re-runnable scripts — no eng dependency.",
-      "impact": [
-        "Customer-pain 'Failed to fetch' cluster now alarms in prod",
-        "Outage-tier-only routing kills alert fatigue",
-        "Self-wired DD→Slack — saved a 4K-char eng ask"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 40,
-        "calculation": "Earlier detection of prod error spikes; ~40 min/week of reactive triage avoided"
-      },
-      "tech": [
-        "Datadog API",
-        "Python",
-        "Slack"
-      ],
-      "repo": "https://github.com/LucasWillett/support-memory",
-      "icon": "📟"
-    },
-    {
-      "id": "vmp-prod-qa",
-      "publish": true,
-      "audience": "team",
-      "team": "support",
-      "name": "VMP Prod-QA Sandbox",
-      "tagline": "Guardrailed Selenium prod QA — repro without minting users on customer accounts",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Click-driven Selenium prod-QA scaffold so Support can reproduce defects in production safely: email/property allowlists, two-flag confirm, audit log, sandbox-only cleanup tool. Reproduced SH-9444 PA-promotion failure post-fix and the cross-tenant JWT finding (Spazious editor identity = melia_hotels_international on every property tested).",
-      "impact": [
-        "Prod repro without test users on customer accounts",
-        "Surfaced a P0 cross-tenant JWT identity issue pre-GA",
-        "Reusable sandbox-asset cleanup with dry-run default"
-      ],
-      "timeSaved": {
-        "weeklyMinutes": 60,
-        "calculation": "~1 hr/week of safe-repro setup that used to be manual + risky"
-      },
-      "tech": [
-        "Python",
-        "Selenium",
-        "VMP API"
-      ],
-      "repo": null,
-      "icon": "🧪"
-    },
-    {
-      "id": "restic-backup",
-      "publish": true,
-      "audience": "lucas",
-      "team": "support",
-      "name": "Restic → B2 Backup",
-      "tagline": "Nightly encrypted backup of the whole Support OS stack",
-      "status": "production",
-      "date": "2026-04",
-      "description": "Nightly 03:00 restic snapshot → Backblaze B2 with a weekly Sunday audit and verified recovery. The durability floor under every bot, script, and memory file in the stack — ~$4/yr.",
-      "impact": [
-        "Whole stack recoverable from offsite encrypted backup",
-        "Weekly audit + verified restore",
-        "~$4/yr"
-      ],
-      "timeSaved": {
         "weeklyMinutes": 0,
-        "calculation": "Insurance, not time — caps catastrophic data-loss risk on the whole stack"
+        "calculation": "One-time deliverable (156 properties, delivered to the distribution team); recurring Cvent monitoring superseded by the Cvent Synergy bot",
+        "oneTimeMinutes": 120,
+        "activeFrom": "2026-03-01"
+      },
+      "tech": [],
+      "repo": null,
+      "icon": "✨",
+      "verification": "measured",
+      "unattended": false
+    },
+    {
+      "id": "helm",
+      "publish": true,
+      "audience": "lucas",
+      "team": "support",
+      "name": "Helm",
+      "tagline": "Personal ops command center",
+      "status": "retired",
+      "date": "2026-02",
+      "description": "Operational memory dashboard. Turns meetings into memory, memory into action. OKR tracking, Heads Up alerts, Calendar, Weather, Quick Capture, Meeting Prep. Retired July 2026: Task OS replaced the daemon — one command now propagates task state everywhere Helm used to be hand-synced.",
+      "impact": [
+        "Single tab replaces 4+ context switches",
+        "AI Quick Capture turns Slack DMs into Google Tasks",
+        "Kevin Might Ask — AI-generated prep for 1:1s"
+      ],
+      "timeSaved": {
+        "minutes": 20,
+        "per": "morning planning session",
+        "frequency": "5/week",
+        "weeklyMinutes": 100,
+        "manualMinutes": 25,
+        "automatedMinutes": 5,
+        "calculation": "20 min/day × 5 days while active. Retired 2026-07-14 — superseded by Task OS.",
+        "activeUntil": "2026-07-14",
+        "activeFrom": "2026-02-01"
       },
       "tech": [
-        "restic",
-        "Backblaze B2",
-        "launchd"
+        "Python",
+        "Flask",
+        "Google Tasks API",
+        "Google Calendar API",
+        "Claude Haiku"
       ],
-      "repo": null,
-      "icon": "💾"
+      "repo": "https://github.com/LucasWillett/support-memory",
+      "icon": "☸️",
+      "verification": "estimated",
+      "unattended": false
+    },
+    {
+      "id": "incident-commander",
+      "publish": true,
+      "audience": "team",
+      "team": "support",
+      "name": "Incident Commander",
+      "tagline": "P1 response automation via GPT",
+      "status": "retired",
+      "date": "2026-02",
+      "description": "Custom GPT for incident response. Automates declaration, macros, Help Center updates, and cross-channel comms.",
+      "impact": [
+        "Reduced P1 coordination overhead",
+        "Consistent messaging across channels",
+        "Draft-then-publish approval workflow"
+      ],
+      "timeSaved": {
+        "minutes": 60,
+        "per": "incident",
+        "frequency": "~2/month",
+        "weeklyMinutes": 30,
+        "manualMinutes": 90,
+        "automatedMinutes": 30,
+        "calculation": "60 min/incident × ~2/month while active. Retired — Custom-GPT era; superseded by the /incident skill in VM Support Skills.",
+        "activeUntil": "2026-04-30",
+        "activeFrom": "2026-02-01"
+      },
+      "tech": [
+        "Python",
+        "Flask",
+        "Zendesk API",
+        "Slack SDK",
+        "GPT Actions",
+        "Render"
+      ],
+      "repo": "https://github.com/LucasWillett/incident-commander",
+      "icon": "🚨",
+      "verification": "estimated",
+      "unattended": false
     }
   ]
 }

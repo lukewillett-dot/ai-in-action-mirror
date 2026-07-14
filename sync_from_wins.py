@@ -21,7 +21,33 @@ STATE = os.path.join(HERE, ".wins_synced.json")
 WINS = os.path.expanduser("~/projects/support-memory/h1_2026_wins.md")
 MAX_PER_RUN = 12  # safety cap; log if we hit it
 
-DATE_RES = [re.compile(r"\((\d{4}-\d{2}-\d{2})"), re.compile(r"(\d{4}-\d{2}-\d{2}):")]
+# Only import wins dated after this floor. The board was manually backfilled
+# through June 2026; the looser date formats below would otherwise re-import
+# that whole history on top of the backfill.
+IMPORT_FLOOR = "2026-06-30"
+
+DATE_RES = [
+    re.compile(r"\((\d{4}-\d{2}-\d{2})"),                 # "(2026-07-08)"
+    re.compile(r"(\d{4}-\d{2}-\d{2}):"),                  # "2026-07-08:"
+    re.compile(r"\*\*(\d{4}-\d{2}-\d{2})\s*[—–-]"),       # "**2026-07-14 — Title**"
+    re.compile(r"^\s*[-*#]+\s+(\d{4}-\d{2}-\d{2})\s*[—–-]"),  # "## 2026-07-13 — Title"
+]
+# Short "**7/8 — ...**" style; month/day assumed to be WINS_YEAR.
+SHORT_DATE_RE = re.compile(r"\*\*(\d{1,2})/(\d{1,2})(?:\s*\([^)]*\))?\s*[—–-]")
+WINS_YEAR = 2026
+
+# PUBLISHABILITY GATE — this board is served publicly (GitHub Pages). The wins
+# log carries personnel, strategy, security, and incident content that must
+# never auto-publish. Anything matching is skipped AND logged (never silently
+# dropped) to the private skip log for manual review / hand-curated rewording.
+SKIP_RES = re.compile(
+    r"role.evolution|people.growth|1:1|one.on.one|lattice|mid.year|perf.review"
+    r"|comms pack|one.pager|verbatim|opsec|salary"
+    r"|churn|nrr|restructur"
+    r"|secret|hardcoded|api.key|de.secreted|security|injection|credential"
+    r"|outage|incident|sensitive",
+    re.IGNORECASE)
+SKIP_LOG = os.path.expanduser("~/projects/support-memory/state/ai_in_action_skipped_wins.jsonl")
 DEPLOY_HINTS = ("shipped", "built", "launched", "deployed", "live", "stood up", "wired")
 
 
@@ -42,13 +68,22 @@ def bullet_date(text):
                 return m.group(1)
             except ValueError:
                 pass
+    m = SHORT_DATE_RE.search(text)
+    if m:
+        try:
+            return datetime(WINS_YEAR, int(m.group(1)), int(m.group(2))).strftime("%Y-%m-%d")
+        except ValueError:
+            pass
     return None
 
 
 def headline(text):
     # Prefer the bold lead "**Title (date)** — rest"; else text up to an em/en dash.
     t = clean(text)
+    t = re.sub(r"^[-*#\s]+", "", t)               # bullet/header markers
     t = re.sub(r"^\d{4}-\d{2}-\d{2}:\s*", "", t)  # leading "YYYY-MM-DD:"
+    t = re.sub(r"^\d{4}-\d{2}-\d{2}\s*[—–-]+\s*", "", t)   # leading "YYYY-MM-DD — "
+    t = re.sub(r"^\d{1,2}/\d{1,2}(?:\s*\([^)]*\))?\s*[—–-]+\s*", "", t)  # leading "7/8 — "
     for dash in (" — ", " – ", " -- "):
         if dash in t:
             head, rest = t.split(dash, 1)
@@ -64,10 +99,13 @@ def bhash(text):
     return hashlib.sha1(clean(text)[:120].lower().encode()).hexdigest()[:16]
 
 
+DATED_HEADER_RE = re.compile(r"^#{2,}\s+(\d{4}-\d{2}-\d{2}|\d{1,2}/\d{1,2})\s*[—–-]")
+
+
 def parse_bullets(md):
     bullets, cur = [], None
     for line in md.splitlines():
-        if re.match(r"^\s*[-*]\s+", line):
+        if re.match(r"^\s*[-*]\s+", line) or DATED_HEADER_RE.match(line):
             if cur:
                 bullets.append(cur)
             cur = line
@@ -102,7 +140,27 @@ def main():
         print(f"sync_from_wins: BASELINED {len(dated)} existing bullets, imported 0 (first run)")
         return 0
 
-    new = [(d, b, h) for (d, b, h) in dated if h not in seen]
+    candidates = [(d, b, h) for (d, b, h) in dated if h not in seen and d > IMPORT_FLOOR]
+    new, blocked = [], []
+    for item in candidates:
+        (blocked if SKIP_RES.search(item[1]) else new).append(item)
+    if blocked:
+        # Mark blocked bullets as seen so they don't re-surface nightly, and log
+        # them privately for manual curation.
+        try:
+            with open(SKIP_LOG, "a") as f:
+                for d_, b_, h_ in blocked:
+                    f.write(json.dumps({
+                        "skipped_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+                        "reason": "publishability gate (pattern match)",
+                        "date": d_, "event": headline(b_)}) + "\n")
+        except OSError:
+            pass  # log unavailable is not a reason to publish
+        seen.update(h_ for _, _, h_ in blocked)
+        with open(STATE, "w") as f:
+            json.dump({"hashes": sorted(seen),
+                       "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")}, f, indent=2)
+        print(f"sync_from_wins: BLOCKED {len(blocked)} bullet(s) at the publishability gate (logged privately)")
     if not new:
         print("sync_from_wins: no new wins to import")
         return 0
