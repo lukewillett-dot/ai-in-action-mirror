@@ -8,7 +8,7 @@
     "costPerHour": 39
   },
   "stats": {
-    "projectsLive": 21,
+    "projectsLive": 20,
     "automationsRunning": 17,
     "apiCallsToday": "~270"
   },
@@ -1319,14 +1319,15 @@
       "team": "support",
       "name": "Triage Buddy",
       "tagline": "Automated website distribution diagnostics — CSP, redirects, embed detection in 15 seconds",
-      "status": "production",
+      "status": "retired",
       "date": "2026-04",
-      "description": "TourFinder Slack command (triage site: <url>) that auto-diagnoses why a VM tour isn't loading on a customer's website. Checks CSP headers, X-Frame-Options, embed detection (7 methods), legacy-domain redirect status, WP slug health, migration domain mismatch, security URL unwrapping, lazy-load warnings, mixed content, WAF, deprecated domains, and property status. Replaces manual DevTools investigation.",
+      "description": "TourFinder Slack command (triage site: <url>) that auto-diagnoses why a VM tour isn't loading on a customer's website. Checks CSP headers, X-Frame-Options, embed detection (7 methods), legacy-domain redirect status, WP slug health, migration domain mismatch, security URL unwrapping, lazy-load warnings, mixed content, WAF, deprecated domains, and property status. Replaces manual DevTools investigation. Folded into the /defect skill flow July 2026 — no longer a standalone command.",
       "impact": [],
       "timeSaved": {
         "weeklyMinutes": 30,
-        "calculation": "~5 min per triage × ~6 embed tickets/week = 30 min/week",
-        "activeFrom": "2026-04-01"
+        "calculation": "~5 min × ~6 embed tickets/wk while standalone. Folded into the /defect flow — the capability lives on inside VM Support Skills (counted there, not here).",
+        "activeFrom": "2026-04-01",
+        "activeUntil": "2026-07-14"
       },
       "tech": [],
       "repo": null,
