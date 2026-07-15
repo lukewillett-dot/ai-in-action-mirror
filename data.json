@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-14T23:11:19Z",
+    "lastUpdated": "2026-07-15T06:30:40Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~270"
+    "apiCallsToday": "~300"
   },
   "competition": {
     "startDate": null,
@@ -416,8 +416,24 @@
     },
     {
       "timestamp": "2026-07-14T12:00:02Z",
+      "event": "AI-in-Action Board Starter Kit shipped (Opus-built, same evening as the board overhaul). Lucas's board generalized into a public template repo (github.com/LucasWillett/ai-in-action-starter, template flag + live Pages demo) so Hannah + Chris",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-14T12:00:02Z",
       "event": "Doc Train made absence-proof + Support Builders scaled out. Root-caused why the GTM Weekly call fell through Doc Train silently (title-locked Fathom intake + no miss-detection); shipped a notes-doc ingester (reads the meeting's Google Doc —",
       "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-14T12:00:00Z",
+      "event": "AI-in-Action board gold-star overhaul (Lucas ask, same evening). Truth pass on all 25 project claims (8 retired/paused/one-time entries were still claiming weekly savings — headline corrected ~52→~38 hrs/wk, every claim now badged measured ",
+      "type": "update",
       "contributor": "Lucas Willett",
       "team": "support",
       "projectId": "support-os"
