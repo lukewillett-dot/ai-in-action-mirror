@@ -21,7 +21,7 @@ from slack_sdk.errors import SlackApiError
 
 import anthropic
 import sys as _sys; _sys.path.insert(0, os.path.expanduser("~/projects/support-memory/lib"))
-from anthropic_client import get_client, model_for  # shared: single-source key, retry, usage logging
+from anthropic_client import get_client, model_for, text_of  # shared: single-source key, retry, usage logging
 
 
 def _extract_title(raw_text):
@@ -37,7 +37,7 @@ def _extract_title(raw_text):
                 f"'Churn Score Rebuild', 'Weekly Report Automation'.\n\n{raw_text}"
             )}],
         )
-        title = resp.content[0].text.strip().strip('"\'')
+        title = text_of(resp).strip().strip('"\'')
         return title if title else raw_text[:50]
     except Exception as e:
         print(f"  Haiku title extraction failed: {e}")
