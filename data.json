@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-15T06:30:40Z",
+    "lastUpdated": "2026-07-16T06:30:35Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~300"
+    "apiCallsToday": "~185"
   },
   "competition": {
     "startDate": null,
@@ -398,6 +398,54 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-15T12:00:06Z",
+      "event": "Learning Loops engine (self-learning x7) Generalized the defect-debrief pattern into one engine, six sources (reopen debrief, VM Assistant failure mining, triage calibration, one-tap edit mining, KB correction roll-up, falsifier ledger) + l",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-15T12:00:05Z",
+      "event": "Anchor Datadog auto-triage bot shipped. Live in #support-notifications (com.lucas.dd-triage): reads Datadog declare/snooze/noise cards, reproduces the log analysis, replies in-thread as Anchor with a plain-English advisory rec + property-st",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-15T12:00:04Z",
+      "event": "HC repolish batch rescued + filing-rule bug fixed. Both orphaned repolish docs (Invitation-Link, Hilton) moved off My-Drive-root into the HC pipeline shared drive; root-caused the orphaning (agent create_file w/o parentId) and committed a f",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-15T12:00:03Z",
+      "event": "TourFinder T1+T2 shipped in one day (LLM extraction 96.8% eval, live embed-domain signal from Tinybird referrers, MIN_PAGEVIEWS un-gate, weekly scoreboard digest LIVE, Cvent regression list → Hannah w/ CSMs attached); found+fixed 3 latent p",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-15T12:00:02Z",
+      "event": "TourFinder wears two hats: per-channel Slack identity shipped — bot posts as Anchor in #lego-builders (Support Builders lab) and Tourfinder in #channel-distribution via a single IdentityWebClient choke point. chat:write.customize scoped + l",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-15T12:00:00Z",
+      "event": "Hilton API: research-to-production in one day H1 investigator (7 hypotheses validated) → H3 ops reconcile (books clean, all 9 blind pids resolved, 98/98 health coverage) → build pass same evening: broken-slot→owner ZD tickets (build A, dry ",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-07-14T12:00:05Z",
       "event": "Task OS v1 shipped + live (Asana replacement). Idea→spec→built→live in one day: /loop-shaper (9 iter, Helm autopsy) → Lucas-approved spec → /loop-builder (4 slices, every gate first-attempt). One command now propagates a task state change t",
