@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-16T06:30:35Z",
+    "lastUpdated": "2026-07-17T06:30:39Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~185"
+    "apiCallsToday": "~405"
   },
   "competition": {
     "startDate": null,
@@ -398,6 +398,70 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-16T12:00:08Z",
+      "event": "VM Assistant flex shipped same-day: exec-eyes greeting fix → live-chat 🚨 alarm (poller; proved ZD triggers never fire on bot messaging) → 1,608-ticket driver discovery → 4 data-ranked answer flows + 5-chip greeting + 2 instructions PUBLISHE",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:07Z",
+      "event": "Task OS settle-in (board 70→49): full walk of the migrated board — 2 zombie items caught by verification (Nova endpoint had shipped 7/13, fleet audit already run), 13 items merged to 6, 5 converted to ready-made /pto sessions (9-session que",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:06Z",
+      "event": "Demo-activation KB wake shipped: Doc Train now auto-registers upcoming features from PRDs/sprint demos (haiku dedup, 13 registered day one) and on demo landing fires all three legs — lead kickoff, HC draft to Hannah's pipeline, KB update fo",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:05Z",
+      "event": "Reliability day: Two Fable systems audits (Doc Train 3-leg + full 139-job fleet) with same-day fix ledgers; 9 zombie jobs retired (~2k pointless runs/wk); Zendesk auth healed after 12 silently-red days; every dead Slack delivery path rerout",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:04Z",
+      "event": "VMP Success Center: concept→shipped in one day. In-app customer hub (25 prototype iterations), native VMP skin, wired to 2 real accounts (Fairmont/AC Palo Alto), council-hardened PRD v0.3 w/ MVP-4 cut line + data contract, live on Vercel, p",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:03Z",
+      "event": "TourFinder platform-coverage index (C1): built the per-(property, platform) coverage lookup — Eventective directory probe verified 44 live TrueTour embeds (we knew of 2) + a 1,494-property listed-without-tour upgrade list for CS; honest did",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:02Z",
+      "event": "HC Insights digest: once-is-enough + \"Not Pursued\" record. Repeated-idea digest lines now fire once per topic (re-fire only on new submissions) instead of daily-forever; new auto-rebuilt \"Not Pursued\" tab on the HC Pipeline Sheet = permanen",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:00Z",
+      "event": "Diego orphaned-coach diagnosis (SH-10216): 2-week rename mystery (403s, extension red herrings) closed in one session from UI evidence alone — coach-invite membership fanout broken in prod, live-reproduced with +coach alias invite, filed Hi",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-07-15T12:00:06Z",
       "event": "Learning Loops engine (self-learning x7) Generalized the defect-debrief pattern into one engine, six sources (reopen debrief, VM Assistant failure mining, triage calibration, one-tap edit mining, KB correction roll-up, falsifier ledger) + l",
