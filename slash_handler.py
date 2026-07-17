@@ -228,7 +228,10 @@ def handle_slash_command():
         get_client().views_open(trigger_id=trigger_id, view=modal)
     except SlackApiError as e:
         print(f"Modal open failed: {e}")
-        return jsonify({"response_type": "ephemeral", "text": f"Failed to open form: {e}"}), 200
+        return jsonify({"response_type": "ephemeral", "text": (
+            "Couldn't open the AI Win form just now — give it another try in a moment. "
+            "If it keeps failing, ping Lucas."
+        )}), 200
 
     # Acknowledge the slash command (empty = no visible response)
     return "", 200
@@ -347,9 +350,13 @@ def _post_celebration(channel_id, name, description, weekly_minutes, raw_minutes
         ":chart_with_upwards_trend:", ":sparkles:", ":raised_hands:",
     ])
 
+    desc_short = description
+    if len(desc_short) > 150:
+        desc_short = desc_short[:150].rsplit(" ", 1)[0] + "…"
+
     public_text = (
         f"{celebrate_emoji} *New AI Win: {name}*\n\n"
-        f"_{description[:150]}_\n\n"
+        f"_{desc_short}_\n\n"
         f"*{time_label}* for Team {team.upper()} — hat tip to <@{user_id}>\n"
         f"<https://lucaswillett.github.io/ai-in-action|See all wins on the dashboard>"
     )

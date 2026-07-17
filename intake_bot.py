@@ -452,6 +452,9 @@ def save_project(channel, thread_ts, intake):
     # Public celebration — new top-level post in the channel
     try:
         user_display = f"<@{intake['user']}>"
+        desc_short = intake['description']
+        if len(desc_short) > 150:
+            desc_short = desc_short[:150].rsplit(" ", 1)[0] + "…"
         celebrate_emoji = random.choice([
             ":trophy:", ":first_place_medal:", ":Fact_check:", ":rocket:",
             ":star2:", ":dart:", ":muscle:", ":fire:", ":medal:",
@@ -459,7 +462,7 @@ def save_project(channel, thread_ts, intake):
         ])
         public_text = (
             f"{celebrate_emoji} *New AI Win: {intake['name']}*\n\n"
-            f"_{intake['description'][:150]}_\n\n"
+            f"_{desc_short}_\n\n"
             f"*{time_label}* for Team {intake['team'].upper()} — hat tip to {user_display}\n"
             f"<https://lucaswillett.github.io/ai-in-action|See all wins on the dashboard>"
         )
