@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-17T06:30:39Z",
+    "lastUpdated": "2026-07-18T06:30:34Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~405"
+    "apiCallsToday": "~410"
   },
   "competition": {
     "startDate": null,
@@ -398,6 +398,78 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-17T12:00:08Z",
+      "event": "/opus burn (one session, 5 items): (1) SF-matcher upgraded to 100% resolve via the License__c property_id rail (from 84% slug); (2) messaging requester-fix built+gated so VM Assistant chat tickets affiliate to the real account (repoint/prom",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:07Z",
+      "event": "Subtraction audit (150 launchd jobs): 143/150 healthy; zombie-eight/kb-answer-bar/helm/anchor-board retirements all VERIFIED landed (38 plists properly parked, 0 dupes); residue = 7 items, 5 routed to /opus O1. Prior subtraction discipline ",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:06Z",
+      "event": "F6 output-QA rail + fleet meta-design: grader rubrics staged for the two riskiest ungraded AI surfaces (HC-Deflector customer acks — incl. the invisible missed-deflection class; TourFinder answers — two-stage w/ deterministic entity/URL ver",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:05Z",
+      "event": "VMP Feature Map shipped: canonical feature↔tier↔crawl↔HC join (support-memory/vmp_map/, 24 features, observed tier matrix from 4-persona demo crawl); auto-rebuilds after Sunday crawl; HC inventory refreshed 95→120 via public API (no auth); ",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:04Z",
+      "event": "Taskos rot-guard v1+v2 (same-day design→ship): bottom-of-board rot now prevented (add-time dupe gate), detected daily on-change (brief line), counted in /pulse, verdicted monthly (/scrub WALK floor via prescrub collector), reset deliberatel",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:03Z",
+      "event": "VM Assistant ops buildout (shipped live): 2 new/updated bot answers (Replace-asset w/ real Transfer-to-agent escalation, Image-Quality article), handoff routing → CX Success + auto-close(24h) + chat-subject-rename all live, view reorder, tr",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:02Z",
+      "event": "HC pipeline made public-launch-ready in one session (Fable): wired ingestion gate 3 (ticket-resolution bridge, 4 drafts filed day one) + VM Assistant miss-miner (bot transcript mining, 4 more candidates) + kb-review handoff consumer + 20-jo",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-17T12:00:00Z",
+      "event": "TourFinder fully off the laptop (R1.5) + learn-loop split-brain closed (/state/export pull-back, 7 Render-only files recovered); health watchdog repointed; Sunday coverage sweep installed; deflector verified healthy post-401-fix.",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-16T12:00:09Z",
+      "event": "17 (night): VM Assistant Phase 5 — published, evaluated, fixed, re-published in one sitting. Batch-2 publish → 52-question eval battery run against Test preview (78.8% right-article baseline) → root-caused the miss cluster to ONE wizard top",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-07-16T12:00:08Z",
       "event": "VM Assistant flex shipped same-day: exec-eyes greeting fix → live-chat 🚨 alarm (poller; proved ZD triggers never fire on bot messaging) → 1,608-ticket driver discovery → 4 data-ranked answer flows + 5-chip greeting + 2 instructions PUBLISHE",
