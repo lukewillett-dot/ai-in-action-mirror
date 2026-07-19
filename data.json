@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-18T06:30:34Z",
+    "lastUpdated": "2026-07-19T06:30:35Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -398,6 +398,22 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-18T12:00:02Z",
+      "event": "T1 retention probe (probe + re-probe, 20 accounts): killed the full-retro assumption BEFORE it burned the 8/7 session — found the viewer_events 2025-01-06 table floor + legacy-platform blind spot, T1 pivot invoked with evidence, adjudicatio",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-18T12:00:00Z",
+      "event": "Success Center convergence + Present Mode gate. Ran the AI council on our in-app Success Center vs Ryan's CX Command Success Hub (verdict: one system, two renderers); built a CX Builders screenshare deck; stood up the success-center project",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-07-17T12:00:08Z",
       "event": "/opus burn (one session, 5 items): (1) SF-matcher upgraded to 100% resolve via the License__c property_id rail (from 84% slug); (2) messaging requester-fix built+gated so VM Assistant chat tickets affiliate to the real account (repoint/prom",
