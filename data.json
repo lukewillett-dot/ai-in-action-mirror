@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-19T06:30:35Z",
+    "lastUpdated": "2026-07-21T06:31:16Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~410"
+    "apiCallsToday": "~420"
   },
   "competition": {
     "startDate": null,
@@ -398,6 +398,30 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-20T12:00:02Z",
+      "event": "Consolidated the frozen partnerships briefing to ONE pulse, Tuesdays, in Hannah's channel (Lucas decision closing the posting-review freeze). Collapsed the three-surface design to a single weekly post with Hannah as the ✅ confirmer; preview",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-20T12:00:00Z",
+      "event": "Caught a false \"Cvent feed down\" line before the partnerships briefing's first live post to Gino's channel (7/27). Kevin-lens dashboard audit proved the Box feed was healthy since 7/16 while dashboard + briefing both still said \"broken sinc",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-18T12:00:03Z",
+      "event": "/opus burn ×3 (token aftermath · restore drill · spine HOP0): ZD token rotation verified end-to-end (helm red-12d → green, insights coverage repopulated, 9 consumers checked); restic restore PROVEN for the first time (PASS 3/3 + launchd fir",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-07-18T12:00:02Z",
       "event": "T1 retention probe (probe + re-probe, 20 accounts): killed the full-retro assumption BEFORE it burned the 8/7 session — found the viewer_events 2025-01-06 table floor + legacy-platform blind spot, T1 pivot invoked with evidence, adjudicatio",
