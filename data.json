@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-21T06:31:16Z",
+    "lastUpdated": "2026-07-22T06:31:13Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~420"
+    "apiCallsToday": "~620"
   },
   "competition": {
     "startDate": null,
@@ -395,12 +395,97 @@
       "week": "2026-07-14",
       "cumulativeMinutes": 43287,
       "projects": 31
+    },
+    {
+      "week": "2026-07-21",
+      "cumulativeMinutes": 45365,
+      "projects": 31
     }
   ],
   "activity": [
     {
+      "timestamp": "2026-07-21T12:00:09Z",
+      "event": "Notification triage + /notifications skill. Burned down the saved-notification backlog: fixed 6 live notifications at the source (HC-pipeline wording, partnerships confirm-loop swallowed-✅ bug, budget-alarm rec-line, vma_grader per-run→roll",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:08Z",
+      "event": "Shadow evaluation reframe (Support OS): stopped needing team /go adoption to measure the pipeline — built semantic_judge.py over the engine's nightly shadow rows. First pass: 17/18 drafts independently shippable (text-distance had said 0); ",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:07Z",
+      "event": "Knowledge Spine cutover HOP1+HOP2 + legacy HC retirement kicked off",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:06Z",
+      "event": "HC read tools in shared Zendesk MCP: get_hc_article + search_hc_articles shipped to vm-support-skills (anonymous customer's-eye HC reads). Born from Christian's KB-scan triage; closes the 'can't verify article titles' gap for the whole team",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:05Z",
+      "event": "Gate-burn Monday sitting v1: 33 gates walked, 19 cleared/executed in one sitting (Hilton tickets live, TourFinder coverage index portfolio-wide, notification Wave 1 = interrupt surface 40→~9, account-resolver adopted with CSM-unknown 9→0, V",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:04Z",
+      "event": "Jenny TTV Window-2 unblock (off Anchor SF-mirror access). Jenny blocked ~1wk on Andrew for SF-mirror access to pull her 39 Window-2 accounts; Anchor ran it directly (stable mcp__supabase read), delivered a shareable Sheet same-day — 6 booke",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:03Z",
+      "event": "Unified the bot fleet onto one registry (kills the six-parallel-inventories drift). Every health monitor used to trust its own private list of \"who's running what,\" so the fleet quietly drifted — a monitor could go prefix-blind or watch a g",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:02Z",
+      "event": "Crawl-walk sensor extension (Global Search + Activity Log). Taught the demo crawler two surfaces it never reached: the Global Search Cmd+K modal (launches 7/24 — radar now catches its arrival) and entity-detail tab strips. First run surface",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-21T12:00:00Z",
+      "event": "Moved partner 30/60/90 success metrics onto the partnerships dashboard, produced from our own data. An adoption-ramp strip per live card (UpMail 4→9→11 properties across day 30/60/90; Tongo an honest 0), refreshed weekly. Closed a stale \"wa",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
       "timestamp": "2026-07-20T12:00:02Z",
       "event": "Consolidated the frozen partnerships briefing to ONE pulse, Tuesdays, in Hannah's channel (Lucas decision closing the posting-review freeze). Collapsed the three-surface design to a single weekly post with Hannah as the ✅ confirmer; preview",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-20T12:00:01Z",
+      "event": "HC-deflector answer grader shipped + live. Nightly job grades every auto-ack the HC deflector sends (reading them back out of Zendesk) for wrong-article and silent-miss failures against the published HC corpus — the first correctness QA on ",
       "type": "deploy",
       "contributor": "Lucas Willett",
       "team": "support",
