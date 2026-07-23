@@ -2,7 +2,7 @@
   "meta": {
     "title": "AI in Action",
     "subtitle": "CX Organization AI & Automation Impact",
-    "lastUpdated": "2026-07-22T06:31:13Z",
+    "lastUpdated": "2026-07-23T06:32:59Z",
     "status": "online",
     "orgSize": 30,
     "costPerHour": 39
@@ -10,7 +10,7 @@
   "stats": {
     "projectsLive": 20,
     "automationsRunning": 17,
-    "apiCallsToday": "~620"
+    "apiCallsToday": "~610"
   },
   "competition": {
     "startDate": null,
@@ -403,6 +403,62 @@
     }
   ],
   "activity": [
+    {
+      "timestamp": "2026-07-22T12:00:07Z",
+      "event": "CX Signals embed-check v2 shipped (+ self-corrected via Fable review). The nightly tour-embed crawler now also checks each at-risk property's brand/OTA/listing pages (tourfinder C1 coverage index, 1,602 props) with a browser-grade fetch tha",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-22T12:00:06Z",
+      "event": "KB-corpus grader now trustworthy: corpus wrong-rate 42%→2.6% (Fable F12). Adjudicated all 31 fact-drift + 35 dedup flags by hand (labeled ground truth), built stage-2b adversarial skeptic (29/29 FPs killed, 2/2 real errors kept, live full p",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-22T12:00:05Z",
+      "event": "Partnerships page promoted out of WIP + CSM suggestion loop live end-to-end. Blind 4-lens review panel → fix pass (verdict banner, data-as-of freshness, honest zero-states, CSM-clean copy) → smoke test caught a real prod bug (private-channe",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-22T12:00:04Z",
+      "event": "Defect pod-routing shipped: Eric confirmed pods own defect staffing; /defect now auto-sets Pod + pings the pod lead on every filing; all 9 on-hold ZD tickets defect-linked; 3 unrouted Enterprise defects routed to Laura Thornton; nightly wat",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-22T12:00:03Z",
+      "event": "Drive IA shipped (PACKET_DRIVE_IA). Built the Support OS Drive taxonomy + file-at-birth helper (lib/drive_file.py); root loose files 131→13, deliverables now born-filed into class/workstream folders instead of piling in My Drive root. Deter",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-22T12:00:02Z",
+      "event": "SH-8932 closed + AEG cleared. Ran a stale HIGH \"$220K blocker\" defect to ground: reproduced live (Shrine loads fast), verified with Datadog RUM + Tinybird, closed Cannot-Reproduce. Killed a false \"4-view dead account\" alarm (real: 2,218 vie",
+      "type": "deploy",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
+    {
+      "timestamp": "2026-07-22T12:00:00Z",
+      "event": "Partnerships dashboard: faster, truthful, self-maintaining",
+      "type": "update",
+      "contributor": "Lucas Willett",
+      "team": "support",
+      "projectId": "support-os"
+    },
     {
       "timestamp": "2026-07-21T12:00:09Z",
       "event": "Notification triage + /notifications skill. Burned down the saved-notification backlog: fixed 6 live notifications at the source (HC-pipeline wording, partnerships confirm-loop swallowed-✅ bug, budget-alarm rec-line, vma_grader per-run→roll",
